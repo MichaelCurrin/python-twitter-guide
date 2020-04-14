@@ -1,3 +1,4 @@
+- [Home](/)
 - [Code snippets](code_snippets.md)
 - [Models](models.md)
 - [Twitter Policies](policies.md)
