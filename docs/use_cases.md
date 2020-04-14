@@ -1,4 +1,4 @@
-# Tweepy usecases
+# Tweepy use-cases
 
 - See [docs.tweepy.org/](http://docs.tweepy.org/)
 
