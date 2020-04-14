@@ -24,22 +24,37 @@ Also, the Tweepy library aims to be a _thin layer_ between your code and the Twi
 
 So this website aims at making Tweepy and Twitter API easier to use. With additional support by linking to docs and Twitter policies.
 
+Note that is guide was written main for Linux and macOS systems, to some commands will not work on Windows (in particular any shell commands).
+
 
 ## Install Tweepy
 
+If you are new to Python or virtual environments, read through this guide for more background on the instructions below - [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
+
+
+### System dependencies
+
 Install [Python 3](python.org/)
 
-Create a virtual environment, as it is recommended to install Python packages inside a virtual
-environment. Use the `venv` tool which built-in for Python 3.
+### Install project dependencies
 
-```sh
+```bash
 cd my-project
+```
+
+Create a virtual environment. Here we use the `venv` tool which built-in for Python 3, but you can use something else.
+
+```bash
 python3 -m venv venv
-# Linux and macOS
+```
+
+Activate the virtual environment.
+
+```bash
 source venv/bin/activate
 ```
 
-Install Tweepy in the virtual environment.
+Install Tweepy into the virtual environment.
 
 ```sh
 pip install tweepy
