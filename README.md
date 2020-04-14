@@ -41,9 +41,20 @@ Clone the repo.
 $ docsify serve docs
 ```
 
+Open in the browser:
+
+- http://localhost:3000
+
+
 ## Contributing
 
 Please see [Contributing](CONTRIBUTING.md) guide.
+
+
+## Development
+
+Use `bash` for codeblocks - the syntax highlighting plugin does not recognized `sh` properly.
+
 
 ## License
 
