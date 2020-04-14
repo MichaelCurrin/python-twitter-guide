@@ -25,6 +25,27 @@ Also, the Tweepy library aims to be a _thin layer_ between your code and the Twi
 So this website aims at making Tweepy and Twitter API easier to use. With additional support by linking to docs and Twitter policies.
 
 
+## Install Tweepy
+
+Install [Python 3](python.org/)
+
+Create a virtual environment, as it is recommended to install Python packages inside a virtual
+environment. Use the `venv` tool which built-in for Python 3.
+
+```sh
+cd my-project
+python3 -m venv venv
+# Linux and macOS
+source venv/bin/activate
+```
+
+Install Tweepy in the virtual environment.
+
+```sh
+pip install tweepy
+```
+
+
 ## Terms of use
 
 Note that Tweepy and Twitter API are subject to change so this guide may not always be up to date.
