@@ -29,7 +29,9 @@ Note that is guide was written main for Linux and macOS systems, to some command
 
 ## Install Tweepy
 
-If you are new to Python or virtual environments, read through this guide for more background on the instructions below - [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
+If you are new to Python or virtual environments, read through this guide for more background on the instructions below
+
+- [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
 
 
 ### System dependencies
