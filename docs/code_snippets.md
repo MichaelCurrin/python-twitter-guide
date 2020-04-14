@@ -1,6 +1,7 @@
-# Tweepy use-cases
+# Code snippets
+> Common use-cases for Tweepy
 
-- See [docs.tweepy.org/](http://docs.tweepy.org/)
+Based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 ## About this guide
 

@@ -1,2 +1,2 @@
-- [Tweepy Use-cases](use_cases.md)
+- [Code snippets](code_snippets.md)
 - [Twitter Policies](policies.md)
