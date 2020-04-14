@@ -1,4 +1,2 @@
-- [About](about.md)
 - [Tweepy Use-cases](use_cases.md)
 - [Twitter Policies](policies.md)
-- [Terms of Use](terms_of_use.md)
