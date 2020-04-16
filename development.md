@@ -5,11 +5,10 @@
 ## Remote setup
 > How to run the docs site on GitHub pages
 
-Click Fork button to create your own Github project.
-
-To go Settings and make sure Github Pages is enabled.
-
-Check the _environment_ tab to check on the deploy.
+1. Add a fork this repo to your Github repos.
+2. Go to Settings.
+3. Enable Github Pages.
+4. Check the _environment_ tab to check on the deploy.
 
 
 ## Run locally
@@ -18,26 +17,24 @@ Check the _environment_ tab to check on the deploy.
 
 ### Installation
 
-Install NPM.
-
-Install DocsifyJS globally:
-
-```sh
-$ npm i -g docsify
-```
-
-Clone the repo.
+1. Install NPM.
+2. Install DocsifyJS globally:
+  ```sh
+  $ npm i -g docsify
+  ```
+3. Clone the repo (see the _Clone or download_ button on the repo's main page).
 
 
 ### Usage
 
-```sh
-$ docsify serve docs
-```
+1. Serve the docs site from the project root.
+    ```sh
+    $ docsify serve docs
+    ```
+2. Open in the browser:
+    - http://localhost:3000
 
-Open in the browser:
-
-- http://localhost:3000
+The site will autoreload when you save changes.
 
 
 ## Notes
