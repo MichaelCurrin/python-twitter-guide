@@ -11,49 +11,9 @@
 [![Github Pages site](https://img.shields.io/badge/site-Github_Pages-blue?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
 
 
-## Remote setup
-
-Fork as your own Github project.
-
-To go settings and make sure Github Pages is enabled.
-
-Check the _environment_ tab to check on the deploy.
-
-
-## Run locally
-
-### Installation
-
-Install NPM.
-
-Install DocsifyJS globally.
-
-```sh
-$ npm i -g docsify
-```
-
-Clone the repo.
-
-
-### Usage
-
-```sh
-$ docsify serve docs
-```
-
-Open in the browser:
-
-- http://localhost:3000
-
-
 ## Contributing
 
 Please see [Contributing](CONTRIBUTING.md) guide.
-
-
-## Development
-
-Use `bash` for codeblocks - the syntax highlighting plugin does not recognized `sh` properly.
 
 
 ## License
