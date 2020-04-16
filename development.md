@@ -7,7 +7,7 @@
 
 1. Add a fork this repo to your Github repos.
 2. Go to Settings.
-3. Enable Github Pages.
+3. Enable Github Pages for the **/docs** directory.
 4. Check the _environment_ tab to check on the deploy.
 
 
@@ -17,8 +17,8 @@
 
 ### Installation
 
-1. Install NPM.
-2. Install DocsifyJS globally:
+1. Install [NPM](https://npmjs.com/).
+2. Install [DocsifyJS](https://docsify.js.org/) globally:
   ```sh
   $ npm i -g docsify
   ```
@@ -27,7 +27,7 @@
 
 ### Usage
 
-1. Serve the docs site from the project root.
+1. Run this command in the project root to serve the [docs](/docs) directory.
     ```sh
     $ docsify serve docs
     ```
