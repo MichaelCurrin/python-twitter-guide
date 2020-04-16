@@ -38,3 +38,8 @@ $ docsify serve docs
 Open in the browser:
 
 - http://localhost:3000
+
+
+## Notes
+
+- Use `bash` for codeblocks - the syntax highlighting plugin does not recognize `sh` properly.
