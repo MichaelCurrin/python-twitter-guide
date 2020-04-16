@@ -1,7 +1,7 @@
 # Contributing
 > How to improve this project
 
-Either raise things you think need improving or make change and submit .
+Either raise things you think need improving or make change and submit it.
 
 
 ## Issues
@@ -12,10 +12,14 @@ Or find an existing issue on the list which you'd like to work on.
 
 
 ## Submit changes
+> How to submit a Pull Request
+
+Note: If you are unsure if a change is needed or how to do it, create an issue first and we can discuss it there.
+
 
 1. Create a fork in your own Github account.
     - [![Repo forks](https://img.shields.io/github/forks/MichaelCurrin/python-twitter-guide?style=social)](https://github.com/MichaelCurrin/python-twitter-guide)
 2. Set the project up locally or on Github Pages as per the [Development](/development.md) doc.
 3. Switch to a feature branch on your fork.
 4. Test your changes.
-5. Create a Pull Request on your repo which points to the original repo's `master` branch`.
+5. Create a Pull Request on your repo which points to the original repo's `master` branch.
