@@ -5,7 +5,7 @@ Objects in Tweepy and their attributes.
 
 Links:
 
-- [models.py][models.py] in the Tweepy source code.
+- See [models.py] in the Tweepy source code.
 
 ## Status
 
