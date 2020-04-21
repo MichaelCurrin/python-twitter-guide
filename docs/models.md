@@ -7,9 +7,10 @@ Links:
 
 - See [models.py] in the Tweepy source code.
 
+
 ## Status
 
-The [tweepy.Status][status] class, which represents a tweet.
+The [tweepy.Status] class, which represents a tweet.
 
 <!-- Separate: -->
 <!-- Attributes you can read -->
@@ -72,11 +73,11 @@ Attributes and methods:
 
 ## User
 
-The [tweepy.User][user] class, which represents a Twitter profile.
+The [tweepy.User] class, which represents a Twitter profile.
 
 
 
 
-[models.py]: [https://github.com/tweepy/tweepy/blob/master/tweepy/models.py]
-[status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
-[user]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
+[models.py]: [https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
+[tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
+[tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
