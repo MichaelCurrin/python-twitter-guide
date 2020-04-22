@@ -41,7 +41,7 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 - [tweepy.org homepage](https://www.tweepy.org/)
 - [Tweepy docs](http://tweepy.readthedocs.org/)
 - [Tweepy Discord](https://discord.gg/bJvqnhg)
-- Twitter develper docs
+- Twitter developer docs
     - [Developer docs](https://developer.twitter.com/en/docs) home
     - [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
     - [Twitter apps](https://developer.twitter.com/en/apps) (manage your dev account apps)
