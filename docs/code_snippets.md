@@ -13,7 +13,8 @@ You may copy and paste the code here into your own project and modify it as you 
 Pasting into a script is easy, but note that if you paste into the interactive Python terminal you may get a syntax error because of the empty lines in functions.
 
 
-## Authorize
+## Authorization
+> Authenticating with Twitter API using dev account credentials
 
 ### Setup credentials
 
@@ -26,10 +27,14 @@ ACCESS_KEY = ''
 ACCESS_SECRET = ''
 ```
 
-Make sure to **never** includes these in version control (commits). They can be stored in an unversioned config file or environment variables.
+Make sure to **never** includes these in version control (repo commits). They can be stored in an unversioned config file (ignored by `.gitignore`) or using environment variables.
 
+A typical config setup would be one of these:
 
-### Basic usage
+- `.env` - Shell script of properties. Readable from the shell or a Python package (e.g. `dotenv`).
+- `config_local.yaml` - A YAML config file. Readable using PyYAML.
+
+### Simple usage
 
 ```python
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
@@ -39,7 +44,9 @@ api = tweepy.API(auth)
 api.verify_credentials()
 ```
 
-### Advanced usage
+### Use a function
+
+Put the logic above in a function. This makes keeps the values out of the global scope and it means it is easy to import and use the function in multiple scripts.
 
 ```python
 def get_api_connection(consumer_key, consumer_secret, access_key=None,
@@ -57,6 +64,7 @@ def get_api_connection(consumer_key, consumer_secret, access_key=None,
     return api
 
 
+# Example use:
 api = get_api_connection(
     CONSUMER_KEY,
     CONSUMER_SECRET,
@@ -65,29 +73,29 @@ api = get_api_connection(
 )
 ```
 
-Notes:
+?> If Access credentials are provided, create an App Access Token. Otherwise, create an Application-only Access Token, which has limited context (it can't access a current user), it but different API rate limit restrictions which can be more favorable for certain requests.
 
-- If Access credentials are provided, create an App Access Token. Otherwise, create an Application-only Access Token, which has limited context (it can't access a current user), it but different API rate limit restrictions which can be more favorable for certain requests.
-- Then set up an API instance which will automatically wait and print a notification if a rate
+?> Then set up an API instance which will automatically wait and print a notification if a rate
 limit is reached, to avoid getting blocked by the API.
-- See [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
+
+?> See [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
 
 
 ## Users
 
-### Get profile for authenticated user
+### Fetch the profile for the authenticated user
 
 ```python
 api.me()
 ```
 
-### Get author of tweet
+### Get author of a tweet
 
 ```python
 tweet.author
 ```
 
-### Get profile for a username
+### Fetch profile for a given username
 
 ```python
 user = api.get_user(username)
@@ -144,10 +152,9 @@ def parse_datetime(value):
     return datetime.datetime.strptime(clean_value, TIME_FORMAT_IN)
 ```
 
-Notes:
+?> When splitting, we don't need seconds and any decimals (which have changed style before between API versions). So ignore after the 2nd colon.
 
-- When splitting, we don't need seconds and any decimals (which have changed style before between API versions). So ignore after the 2nd colon.
-- The value from Twitter will be in GMT zone, regardless of your location or profile settings.
+?> The value from Twitter will be in GMT zone, regardless of your location or profile settings.
 
 Example usage:
 
@@ -158,16 +165,111 @@ Example usage:
 ```
 
 
-## Search
+## Search API
+
+The Twitter Search API lets you get tweets made in the past 7 to 10 days.
+
+### Query syntax
+
+You can test a search query out in the Twitter search bar before trying it in the API.
+
+Here we choose a high volume term for testing but you can choose anything.
+
+e.g.
 
 ```python
-def search_api_for_tweets(query, result_type="popular"):
-    # Result type: 'recent' 'popular' 'mixed'
-    api = twitter.get_api_connection(**CONF["twitter_credentials"])
+query = "python"
+```
 
-    tweets = api.search(
-        query, count=100, tweet_mode="extended", result_type=result_type
-    )
+### Tweepy search method
 
-    return tweets
+#### Basic
+
+Return tweets for a search query. Only gives 20 tweets.
+
+```python
+tweets = api.search(query)
+```
+
+```python
+def process_tweet(tweet):
+    print(tweet.id)
+    print(tweet.text)
+    print(tweet.author)
+    print()
+
+
+for tweet in tweets:
+    process_tweet(tweet)
+```
+
+#### Get more tweets
+
+With search API, you can specify a max of up to `100` items (tweets) per page. The other endpoints like user timelines seem to mostly allow up to `200` items on a page.
+
+```python
+tweets = api.search(
+    query,
+    count=100
+)
+```
+
+If you want to get the _next_ 100 tweets after that, you could get the ID of the last tweet and use that to start the search at the next page, modified with `since_id=last_tweet_id-1`. You'd also have to check when there are no Tweets left and then stop searching.
+
+However, it is much more practical to use Tweepy's **cursor** approach to do paging.
+
+```python
+cursor = tweepy.Cursor(api.search, count=100)
+```
+
+In both examples below, we process 500 tweets (assuming there are actually 500 tweets out there matching the search).
+
+```python
+for tweet in cursor.items(500):
+    process_status(tweet)
+```
+
+```python
+for page in cursor.pages(5):
+    for tweet in page:
+        process_status(tweet)
+```
+
+Both approaches will get 5 pages from the API and so take the same number of API requests and will give the same tweet results. The difference is that the `.items` approach will add a logic layer so that you only care about tweets and not pages.
+
+?> See [Cursor tutorial](http://docs.tweepy.org/en/latest/cursor_tutorial.html) on Tweepy docs.
+
+
+#### Extended message
+
+Set `tweet_mode` to `extended`.
+
+- This will give messages that are not truncated (with an ellipsis at the end).
+- Note that retweets messages might still be truncated even with this option.
+- When using this option, make sure to use the `tweet.full_text` attribute and not `tweet.text`, to avoid an error.
+
+```python
+tweets = api.search(
+    query,
+    tweet_mode="extended"
+)
+```
+
+#### Result type
+
+Set `result_type` to one of the following, according to Twitter API:
+
+- `recent` - The tweets that are most recent.
+- `popular`- The tweets with the highest engagements. Note that this list might be very short - just a few tweets - compared with running the `recent` query query.
+- `mixed` - A balance of the other two. Default option.
+
+
+```python
+result_type = "popular"
+
+tweets = api.search(
+    query,
+    count=100,
+    result_type=result_type
+)
 ```
