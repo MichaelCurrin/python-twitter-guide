@@ -8,13 +8,21 @@
 
 ## Features
 
-- Unofficial guide
-- Aimed at Python developers learning to use _tweepy_
-- Code snippets are provided for some common use-cases
-- Links to tweepy docs and Twitter API docs are provided
-- Links to Twitter policies are provided to encourage fair API usage
+- Unofficial guide to Tweepy.
+- Aimed at Python developers using _Tweepy_
+    - Tweepy basics (installation and auth)
+    - Discover features
+    - Learn best practices
 
-?> This site is expanding and work in progress. I'll be chipping away at adding new sections like streaming, replies, trends, API policies. And available attributes on tweets and users. If you want to see something added, message me directly on Tweepy discord or add a Github issue (or comment on an existing issue). I'll aim to do the simple additions within a day.
+Site overview:
+
+Section | Description
+---     | ---
+[Code snippets](code_snippets.md) | Python code snippets are provided for some common use-cases, to avoid having to look at Tweepy docs or Twitter API docs directly. Links to the original docs are provided in some cases.
+[Models](models.md) | Some Tweepy models are covered, to explain the attributes and actions available for objects like tweets and users.
+[Twitter Policies](policies.md) | Recommendations and links are provided in this section to help you ensure you use the Twitter API fairly. Especially if you plan to make a bot or want to perform bulk actions but don't your account to be blocked or your dev application to be rejected.
+
+?> **Note:** 🚧 This site is an expanding work in progress. I'll be chipping away at adding content around topics like streaming, replies, trends, API policies and available attributes on tweets and users. If you want to see something added, message me directly on Tweepy discord or create / comment on a Github issue [here](https://github.com/MichaelCurrin/python-twitter-guide/issues). I'll aim to do the simple additions within a day.
 
 ## About
 > How to use this guide and why it exists
