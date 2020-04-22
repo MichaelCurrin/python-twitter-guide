@@ -14,7 +14,7 @@
 - Links to tweepy docs and Twitter API docs are provided
 - Links to Twitter policies are provided to encourage fair API usage
 
-?> This site is expanding and work in progress. I'll be chipping away at adding new sections like streaming, replies, trends, API policies. And available attributes on tweets and users. If you want to see something added, message me directly on Tweepy discord or add a Github issue (or comment on an existing issue). I'll aim to do it in a day.
+?> This site is expanding and work in progress. I'll be chipping away at adding new sections like streaming, replies, trends, API policies. And available attributes on tweets and users. If you want to see something added, message me directly on Tweepy discord or add a Github issue (or comment on an existing issue). I'll aim to do the simple additions within a day.
 
 ## About
 > How to use this guide and why it exists
