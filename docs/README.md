@@ -33,24 +33,41 @@ Also, the Tweepy library aims to be a _thin layer_ between your code and the Twi
 
 So this website aims at making Tweepy and Twitter API easier to use. With additional support by linking to docs and Twitter policies.
 
-Note that is guide was written main for Linux and macOS systems, to some commands will not work on Windows (in particular any shell commands).
+?> **Note** This was guide was written main for _Linux_ and _macOS_ systems, so some commands will need to be adjusted to use on Window. In particular any shell commands - Python commands are mostly standard.
 
 
-## Install Tweepy for your own projects
+## Resources
+
+- [tweepy.org homepage](https://www.tweepy.org/)
+- [Tweepy docs](http://tweepy.readthedocs.org/)
+- [Tweepy Discord](https://discord.gg/bJvqnhg)
+- Twitter develper docs
+    - [Developer docs](https://developer.twitter.com/en/docs) home
+    - [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
+    - [Twitter apps](https://developer.twitter.com/en/apps) (manage your dev account apps)
+- Twitter docs
+    - [Terms of service](https://twitter.com/en/tos)
+    - [Rules and policies](https://help.twitter.com/en/rules-and-policies)
+    - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy (this will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.)
+
+
+## Installation
+
+### Install Tweepy for your own projects
 
 If you are new to Python or virtual environments, read through this guide for more background on the instructions below.
 
 - [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
 
 
-### Install system dependencies
+#### Install system dependencies
 
 <!-- TODO: Link to Learn to Code project when links are updated -->
 
 Install [Python 3](python.org/).
 
 
-### Install Python packages
+#### Install Python packages
 
 ```bash
 cd my-project
