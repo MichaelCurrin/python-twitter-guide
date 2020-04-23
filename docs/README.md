@@ -51,50 +51,6 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
     - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy (this will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.)
 
 
-## Installation
-
-### Install Tweepy for your own projects
-
-If you are new to Python or virtual environments, read through this guide for more background on the instructions below.
-
-- [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
-
-
-#### Install system dependencies
-
-<!-- TODO: Link to Learn to Code project when links are updated -->
-
-Install [Python 3](python.org/).
-
-
-#### Install Python packages
-
-```bash
-cd my-project
-```
-
-Create a virtual environment. Here we use the `venv` tool which built-in for Python 3, but you can use something else.
-
-```bash
-python3 -m venv venv
-```
-
-Activate the virtual environment.
-
-```bash
-# Linux and macOS
-source venv/bin/activate
-# Windows
-source venv\Scripts\activate
-```
-
-Install Tweepy into the virtual environment.
-
-```bash
-pip install tweepy
-```
-
-
 ## Terms of use
 
 Note that Tweepy and Twitter API are subject to change so this guide may not always be up to date.

@@ -6,11 +6,51 @@ This section aims at making at easier by doing that work for you and suggesting 
 
 This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
-## Snippet use
+?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
 
-You may copy and paste the code here into your own project and modify it as you need.
 
-Pasting into a script is easy, but note that if you paste into the interactive Python terminal you may get a syntax error because of the empty lines in functions.
+## Installation
+
+### Install Tweepy for your own projects
+
+If you are new to Python or virtual environments, read through this guide for more background on the instructions below.
+
+- [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
+
+
+#### Install system dependencies
+
+<!-- TODO: Link to Learn to Code project when links are updated -->
+
+Install [Python 3](python.org/).
+
+
+#### Install Python packages
+
+```bash
+cd my-project
+```
+
+Create a virtual environment. Here we use the `venv` tool which built-in for Python 3, but you can use something else.
+
+```bash
+python3 -m venv venv
+```
+
+Activate the virtual environment.
+
+```bash
+# Linux and macOS
+source venv/bin/activate
+# Windows
+source venv\Scripts\activate
+```
+
+Install Tweepy into the virtual environment.
+
+```bash
+pip install tweepy
+```
 
 
 ## Authorization
