@@ -34,25 +34,26 @@ If your changes are simple enough you can even make them all on Github without s
 ### Installation
 
 1. Install [NPM](https://npmjs.com/).
-2. Install [DocsifyJS](https://docsify.js.org/) globally:
+2. Clone the repo (see the _Clone or download_ button on the repo's main page) and navigate to the project root.
+3. Install node dependencies (just Docsify CLI).
   ```sh
-  $ npm i -g docsify
+  $ npm install
   ```
-3. Clone the repo (see the _Clone or download_ button on the repo's main page).
 
 
 ### Usage
 
 1. Run this command in the project root to serve the [docs](/docs) directory.
     ```sh
-    $ docsify serve docs
+    $ npm start
     ```
 2. Open in the browser:
     - http://localhost:3000
 
-The site will autoreload when you save changes.
+The browser will autoreload when you save changes.
 
 
 ## Notes
 
-- Use `bash` for codeblocks - the syntax highlighting plugin does not recognize `sh` properly.
+- The `python` and `bash` highlighting extensions have been added to `index.html`.
+- Use `bash` for shell codeblock language - the syntax highlighting plugin does not recognize `sh` properly.
