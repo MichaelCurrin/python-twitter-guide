@@ -1,6 +1,5 @@
 # Models
-
-Objects in Tweepy and their attributes.
+> The attributes and actions you can perform on Tweepy objects
 
 
 Links:
@@ -12,37 +11,38 @@ Links:
 
 The [tweepy.Status] class, which represents a tweet.
 
-<!-- Separate: -->
-<!-- Attributes you can read -->
-<!-- Methods for performing actions on a tweet -->
+### Attributes
+> Read-only values on a tweet
 
-Attributes and methods:
+| Name                | Type                 | Description                                                                                                                                                               |
+| ------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `author`            | [tweepy.User](#user) | The Twitter profile that made the tweet.                                                                                                                                  |
+| `contributors`      |                      |                                                                                                                                                                           |
+| `coordinates`       |                      |                                                                                                                                                                           |
+| `created_at`        | `str`                | Tweet posted datetime e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value.                                              |
+| `entities`          |                      | See [entities-object] in Twitter dev docs.                                                                                                                                |
+| `extended_entities` |                      |                                                                                                                                                                           |
+| `favorite_count`    | `int`                | Count of stars/favorites.                                                                                                                                                 |
+| `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet.                                                                                                                |
+| `full_text`         | `str`                | The tweet message, expanded. Only available is using *extended mode*.                                                                                                     |
+| `text`              | `str`                | The tweet message which may be truncated. The default. Not available if is using *extended mode*.                                                                         |
+| `id`                | `int`                | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                             |
+| `id_str`            | `str`                | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language. |
 
-- `author`
-    - type: `tweepy.User`
-- `contributors`
-- `coordinates`
-- `created_at`
-    - type: `str`
-- `destroy`
+[entities-object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/entities-object
+
+### Methods
+> Actions you can perform on a tweet
+
+| Name       | Description                            |
+| ---------- | -------------------------------------- |
+| `destroy`  | Delete this tweet (by your own user).  |
+| `favorite` | Star/favorite this tweet as your user. |
+
+### Unsorted
+
 - `display_text_range`
-- `entities`
-    - See [entities-object](https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/entities-object) in Twitter dev docs.
-- `extended_entities`
-- `favorite`
-    - Action to star or favorite the tweet.
-- `favorite_count`
-    - type: `int`
-- `favorited`
-    - type: `bool`
-    - Whether the authenticated user has favorited this tweet.
-- `full_text`
 - `geo`
-- `id`
-    - type `int`
-- `id_str`
-    - type `str`
-    - Not really needed for Python. But necessary for JavaScript where the int value will unreliable.
 - `in_reply_to_screen_name`
 - `in_reply_to_status_id`
 - `in_reply_to_status_id_str`
@@ -67,8 +67,11 @@ Attributes and methods:
 - `source`
 - `source_url`
 - `truncated`
+
+### Deprecated
+> Do not use these on the tweet object - they are marked as deprecated.
+
 - `user`
-    - Do not use. Marked as deprecated.
 
 
 ## User
