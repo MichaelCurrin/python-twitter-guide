@@ -41,6 +41,9 @@ The [tweepy.Status] class, which represents a tweet.
 
 ### Unsorted
 
+- `_json`
+    - `dict`
+    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the tweet object. However, this is JSON attribute is useful if you want to convert to tweet to a string then write it out to a text file such as CSV or JSON. 
 - `display_text_range`
 - `geo`
 - `in_reply_to_screen_name`
