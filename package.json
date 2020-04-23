@@ -1,0 +1,24 @@
+{
+  "name": "python-twitter-guide",
+  "description": "Code snippets and links to docs around using Twitter API and Tweepy",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelCurrin/python-twitter-guide.git"
+  },
+  "author": "MichaelCurrin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichaelCurrin/python-twitter-guide/issues"
+  },
+  "homepage": "https://github.com/MichaelCurrin/python-twitter-guide#readme",
+  "dependencies": {
+    "docsify-cli": "^4.4.0"
+  },
+  "scripts": {
+    "start": "docsify serve docs"
+  }
+
+}
