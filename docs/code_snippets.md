@@ -119,11 +119,13 @@ api = get_api_connection(
 
 ?> If Access credentials are provided, create an App Access Token. Otherwise, create an Application-only Access Token, which has limited context (it can't access a current user), it but different API rate limit restrictions which can be more favorable for certain requests.
 
-?> Then set up an API instance which will automatically wait and print a notification if a rate
-limit is reached, to avoid getting blocked by the API.
+?> Then set up an API instance which will automatically wait and print a notification if a rate limit is reached, to avoid getting blocked by the API.
 
-?> See [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
+If you are doing automation for a task like search, which doesn't need a concept of "me" as a Twitter account, you can use the "application-only" flow above which does **not** use access details, only consumer details. The drawback is that some methods around `.me` or `.home_timeline` will no longer work, but the advantage is that certain endpoints like `.search` have a higher threshold for rate limiting.
 
+You can start using the application-only approach without hassle, but if you are interested to learn you can read the  [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
+
+> As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information. 
 
 ## Users
 
