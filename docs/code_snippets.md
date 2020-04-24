@@ -164,13 +164,18 @@ user = api.get_user(user_id)
 
 Then you can inspect the user object or do actions on it. See the [User](models.md#user) section of the models page.
 
+Example:
+
 ```python
 user.screen_name
 # => "foo"
+
+user.id
+# => 1234567
+
 user.followers_count
 # => 99
 ```
-
 
 
 ## Post tweet
