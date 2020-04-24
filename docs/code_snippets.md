@@ -6,7 +6,7 @@ This section aims at making at easier by doing that work for you and suggesting 
 
 This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
-?> **Snippet use:**<br><br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
+?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
 
 
 ## Installation
