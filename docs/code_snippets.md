@@ -146,13 +146,16 @@ api.me()
 tweet.author
 ```
 
-### Fetch profile for a given username
+### Fetch profile
 
 ```python
+username = "foo"
 user = api.get_user(username)
 
 user.screen_name
+# => "foo"
 user.followers_count
+# => 99
 ```
 
 
