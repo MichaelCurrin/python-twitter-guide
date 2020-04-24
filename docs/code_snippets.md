@@ -6,7 +6,7 @@ This section aims at making at easier by doing that work for you and suggesting 
 
 This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
-?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
+?> **Snippet use:**<br><br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
 
 
 ## Installation
@@ -52,9 +52,13 @@ Install Tweepy into the virtual environment.
 pip install tweepy
 ```
 
-Now you can import tweepy within the context of your project's virtual environment.
+Now you can import Tweepy within the context of your project's virtual environment. A one-liner to test `tweepy`:
 
-Use `deactivate` command to revert to the global environment.
+```sh
+python -c 'import tweepy; print("It works!")
+```
+
+?> Use `deactivate` command to revert to the global environment. Make sure you use the activate command above whenever you need to use `tweepy` in your project.
 
 
 ## Authorization
