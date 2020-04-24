@@ -52,6 +52,10 @@ Install Tweepy into the virtual environment.
 pip install tweepy
 ```
 
+Now you can import tweepy within the context of your project's virtual environment.
+
+Use `deactivate` command to revert to the global environment.
+
 
 ## Authorization
 > Authenticating with Twitter API using dev account credentials
