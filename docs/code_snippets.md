@@ -148,15 +148,29 @@ tweet.author
 
 ### Fetch profile
 
+Lookup by Twitter username (screen name).
+
 ```python
 username = "foo"
 user = api.get_user(username)
+```
 
+Or lookup by ID. Note we didn't change how we call the method, just a different value was passed in and Tweepy figured out what to do. See [api.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user) API reference doc for more info on this.
+
+```python
+user_id = "1234567"
+user = api.get_user(user_id)
+```
+
+Then you can inspect the user object or do actions on it. See the [User](models.md#user) section of the models page.
+
+```python
 user.screen_name
 # => "foo"
 user.followers_count
 # => 99
 ```
+
 
 
 ## Post tweet
