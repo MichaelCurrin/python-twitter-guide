@@ -163,7 +163,7 @@ for target in targets:
         tweet_dump_format='csv'
     )
     
-    tweet_count, tweet_id, tweet_time, dump_path = tweets.get_thread_tweets(True)
+    tweet_count, tweet_id, tweet_time, dump_path = tweets.get_thread_tweets(save_output=True)
     print(tweet_count)
 ```
 
