@@ -223,22 +223,18 @@ for target in targets:
 
 !> Please read this section to ensure you understand conditions for use of this guide and what policies to follow.
 
-### Accuracy 
+
+### Policies 
+
+See [Twitter Policies](policies.md) page.
+
+
+### Legal
 
 Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions. If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a Pull Request.
 
 While a best effort is made to keep this guide accurate and reflect the APIs and policies at the
 current time, this guide only provides recommendations and some useful info. 
-
-### App restrictions 
-
-Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Therefore familiarize yourself with the [Policies](policies) page. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using a bot, then you need to be careful that you follow the automation rules.
-
-It is recommended to create a new Twitter account when registering a dev, to avoid your account getting blocked.
-
-Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
-
-### Legal
 
 This guide comes with **no warranty or guarantee**. 
 
