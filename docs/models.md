@@ -84,6 +84,6 @@ The [tweepy.User] class, which represents a Twitter profile.
 
 
 
-[models.py]: [https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
+[models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
