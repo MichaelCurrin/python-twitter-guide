@@ -14,7 +14,7 @@ Or, check with the Twitter developers or tweepy support group to see if the acti
 
 ## App restrictions 
 
-Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Therefore familiarize yourself with the policies page. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using a bot, then you need to be careful that you follow the automation rules.
+Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using a bot, then you need to be careful that you follow the automation rules.
 
 It is recommended to create a new Twitter account when registering a dev, to avoid your account getting blocked.
 
