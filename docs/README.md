@@ -8,9 +8,9 @@
 
 ## Features
 
-- Unofficial guide to _Tweepy_
+- Unofficial guide to [Tweepy](#tweepy)
 - Aimed at Python developers who want to use the Twitter API to do automated tasks, like make a bot or download thousands of tweets
-- Find practical solutions for common _Tweepy_ / Twitter API use-cases. This makes up for lack of practical examples or recommendations in official docs of both.
+- Find practical solutions for common Tweepy / Twitter API use-cases. This makes up for lack of practical examples or recommendations in official docs of both.
 - Content here is based on experience from various developers and docs, to save you having to research yourself
 
 
@@ -23,6 +23,7 @@ Section | Description
 [Twitter Policies](policies.md) | Recommendations and links are provided in this section to help you ensure you use the Twitter API fairly. Especially if you plan to make a bot or want to perform bulk actions but don't your account to be blocked or your dev application to be rejected.
 
 ?> **🚧 Note:** This site is an expanding work in progress. I'll be chipping away at adding content around topics like streaming, replies, trends, API policies and available attributes on tweets and users. If you want to see something added, message me directly on Tweepy discord or create / comment on a Github issue [here](https://github.com/MichaelCurrin/python-twitter-guide/issues). I'll aim to do the simple additions within a day.
+
 
 ## About
 > How to use this guide and why it exists
@@ -52,6 +53,8 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 
 ### Tweepy
 
+Tweepy is a Python library which is a wrapper on the Twitter API - you don't have to worry about writing URLs, handling auth, parsing data, paging and other complex tasks. The library can be used an abstract so you can fetch data and deal with it as Python objects and you can pass data to the API to perform actions like searches or post a status or retweet a status.
+
 - [tweepy.org homepage](https://www.tweepy.org/)
 - [Tweepy docs](http://tweepy.readthedocs.org/)
 - [Tweepy Discord](https://discord.gg/bJvqnhg) channel
@@ -59,19 +62,21 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 
 ### Other Twitter API tools
 
-These all use Twitter API. Any searches will have the one-week limitation.
+As an alternative to Tweepy, use one of these. You'll have to install one and configure it with API credentials, then you can do API requests.
 
-- [twurl](https://github.com/twitter/twurl)
-    - Command-line tool like `curl` for request the Twitter API. 
-    - Written in Ruby, but you can still use it in your command-line without knowing Ruby.
-    - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
-- Python 
-    - Twitter API wrapper libraries
-        - [twython](https://twython.readthedocs.io/en/latest/)
-        - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
-    - Utility scrips and repos
-        - [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
-            - Get replies using Twitter Search API.
+- Command-line
+    - [twurl](https://github.com/twitter/twurl)
+        - Command-line tool, like `curl` for request the Twitter API. 
+        - Written in Ruby, but you can still use it in your command-line without knowing Ruby.
+        - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
+- Python Twitter API wrapper libraries
+    - [twython](https://twython.readthedocs.io/en/latest/)
+    - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
+- Python utility scripts and repos
+    - [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
+        - Get replies using Twitter Search API.
+
+!> Any searches will have the **one-week** limitation if doing a search for say hashtags or replies to a tweet. This limit is at the Twitter Search API level.
 
 
 ## Browser scraping tools
