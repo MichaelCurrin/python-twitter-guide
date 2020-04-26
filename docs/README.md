@@ -1,7 +1,7 @@
 # Python Twitter Guide
 > Code snippets and links to docs around using Twitter API and Tweepy
 
-[![Made with Docsify](https://img.shields.io/badge/Made%20with-Docsify-blue.svg)](https://docsify.js.org/)
+[![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/python-twitter-guide.svg)](https://GitHub.com/MichaelCurrin/python-twitter-guide/tags/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/MichaelCurrin/python-twitter-guide/blob/master/README.md#license)
 
@@ -130,7 +130,7 @@ Install [5hirish/tweet_scrapper](https://github.com/5hirish/tweet_scrapper).
 
 The shell CLI does not support getting a thread of replies ("conversations" in the project), but we can use the Python code.
 
-Here is an example based on the repo's example, getting the threaded tweets on this tweet: [ewarren/status/1146132929065738246](Tweet: https://twitter.com/ewarren/status/1146132929065738246?conversation_id=1146132929065738246).
+Here is an example based on the repo's example, getting the threaded tweets on this tweet: [ewarren/status/1146132929065738246](https://twitter.com/ewarren/status/1146132929065738246?conversation_id=1146132929065738246).
 
 ```python
 tweets = TweetScrapperConversation(
