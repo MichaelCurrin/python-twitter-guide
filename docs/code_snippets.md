@@ -137,23 +137,20 @@ You can start using the application-only approach without hassle, but if you are
 >
 > API calls using app-only authentication are rate limited per API method at the app level. [source](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0)
 
-#### Aapplication-only flow
+#### Application-only flow
 
-There are two days to do an application-only flow.
+There are two way to do an application-only flow and get a App Access Token.
 
-One approach is using `OAuthHandler` - this is similar to the flow above but leaves out the `.set_access_token` step.
-
-```python
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-api = tweepy.API(auth)
-```
-
-The other approach uses `AppAuthHandler` and is covered in the [OAuth 2](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-2-authentication) part of Tweepy docs.
-
-```python
-auth = tweepy.AppAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-api = tweepy.API(auth)
-```
+- One approach is using `OAuthHandler` - this is similar to the flow above but leaves out the `.set_access_token` step.
+    ```python
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    api = tweepy.API(auth)
+    ```
+- The other approach uses `AppAuthHandler` and is covered in the [OAuth 2](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-2-authentication) part of Tweepy docs.
+    ```python
+    auth = tweepy.AppAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    api = tweepy.API(auth)
+    ```
 
 #### User flow
 
