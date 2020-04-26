@@ -151,6 +151,25 @@ tweet_count, last_tweet_id, last_tweet_time, dump_path = tweets.get_thread_tweet
 print(tweet_count)
 ```
 
+Sample data from the first row in the CSV (shown vertically for readability).
+
+Field | Value
+---   | ---
+`id` | `1146416291848359937`
+`type` | `tweet`
+`time` | `1562161918000`
+`author` | `YaronFishman`
+`author_id` | `1142627097397145600`
+`re_tweeter` |
+`associated_tweet` | `1146415363460141057`
+`text` | `Why does this exclude @marwilliamson?`
+`links` | `[]`
+`hashtags` | `[]`
+`mentions` | `['@marwilliamson']`
+`reply_count` | `7`
+`favorite_count` | `23`
+`retweet_count` | `1`
+
 If you need to repeat that for multiple tweets, you could do something like the following:
 
 ```python
