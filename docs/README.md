@@ -221,12 +221,31 @@ for target in targets:
 
 ## Terms of use
 
+### Accuracy 
+
 Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions. If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a Pull Request.
 
 While a best effort is made to keep this guide accurate and reflect the APIs and policies at the
 current time, this guide only provides recommendations and some useful info. 
 
-This guide comes with **no warranty or guarantee**. **You** are responsible
-for ensuring that you use Twitter and the API fairly and that you understand how it works. By using
+### App restrictions 
+
+Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Therefore familiarize yourself with the [Policies](policies) page. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using a bot, then you need to be careful that you follow the automation rules.
+
+It is recommended to create a new Twitter account when registering a dev, to avoid your account getting blocked.
+
+Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
+
+### Legal
+
+This guide comes with **no warranty or guarantee**. 
+
+**You** are responsible for ensuring that you use Twitter and the API fairly and that you understand how it works. By using
 this guide, you take responsibility for your own actions and do not hold the contributors to this
 guide responsible.
+
+Scraping a website or API is generally legal. Just make sure you are not abusing the servers, breaking Twitter's policies, trying to build a copy of Twitter or trying to sell the scraped data. I've seen services that sell Twitter data but I don't know if they are legal.
+
+Note that there are limitations on how you present the data - you can provide tweet messages on your website but not the tweet IDs.
+
+_References and links to be confirmed and shown here_.
