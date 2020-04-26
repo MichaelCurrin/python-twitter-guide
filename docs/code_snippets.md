@@ -350,3 +350,11 @@ tweets = api.search(
     result_type=result_type
 )
 ```
+
+
+## Streaming
+
+**Links:**
+
+- [Tweepy docs Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html).
+- [Tweepy examples/streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) script.
