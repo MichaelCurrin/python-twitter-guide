@@ -57,7 +57,7 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 - [Tweepy Discord](https://discord.gg/bJvqnhg) channel
 
 
-### API tools
+### Other Twitter API tools
 
 These all use Twitter API. Any searches will have the one-week limitation.
 
@@ -108,22 +108,74 @@ These using browsing scraping to avoid Twitter API limits.
     - Supports infinite scroll.
     - Exports to a file.
     
-
-
 ### Articles
 
 - [How to Scrape Tweets From Twitter](https://towardsdatascience.com/how-to-scrape-tweets-from-twitter-59287e20f0f1) on Towards Data Science
     > A quick introduction to two options for scraping tweets from Twitter using Python
+ 
+## Browser scraping snippets
+
+Tips for using browser scraping tools to get data as an alternative to using Tweepy and Twitter API.
+
+See [Browser scraping tools](#browser-scraping-tools) for links.
+
+### Get replies
+
+Install [5hirish/tweet_scrapper](https://github.com/5hirish/tweet_scrapper).
+
+The shell CLI does not support getting a thread of replies ("conversations" in the project), but we can use the Python code.
+
+Here is an example based on the repo's example, getting the threaded tweets on this tweet: [ewarren/status/1146132929065738246](Tweet: https://twitter.com/ewarren/status/1146132929065738246?conversation_id=1146132929065738246).
+
+```python
+tweets = TweetScrapperConversation(
+    username="ewarren", 
+    parent_tweet_id=1146415363460141057, 
+    num_tweets=40, 
+    tweet_dump_path='twitter_conv.csv', 
+    tweet_dump_format='csv'
+)
+tweet_count, tweet_id, tweet_time, dump_path = tweets.get_thread_tweets(True)
+
+for tweet in extracted_tweets:
+     print(str(tweet))
+
+print(tweet_count)
+```
+
+If you need to repeat that for multiple tweets, you could do something like the following:
+
+```python
+targets = [
+    {"username": "foo", tweet_id: 123},
+    {"username": "bar", tweet_id: 456},
+    # ...,
+}
+path = 'twitter_conv.csv'
+
+for target in targets:
+    print(target["username"], target["tweet_id"])
+    tweets = TweetScrapperConversation(
+        username=target["username"], 
+        parent_tweet_id=target["tweet_id"], 
+        num_tweets=1000, 
+        tweet_dump_path=path, 
+        tweet_dump_format='csv'
+    )
     
-    
+    tweet_count, tweet_id, tweet_time, dump_path = tweets.get_thread_tweets(True)
+    print(tweet_count)
+```
+
+
 ## Terms of use
 
-Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions.
-If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a
-Pull Request.
+Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions. If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a Pull Request.
 
 While a best effort is made to keep this guide accurate and reflect the APIs and policies at the
-current time, this guide only provides recommendations and some useful info. _You_ are responsible
+current time, this guide only provides recommendations and some useful info. 
+
+This guide comes with **no warranty or guarantee**. **You** are responsible
 for ensuring that you use Twitter and the API fairly and that you understand how it works. By using
 this guide, you take responsibility for your own actions and do not hold the contributors to this
 guide responsible.
