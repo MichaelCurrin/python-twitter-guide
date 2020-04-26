@@ -126,13 +126,19 @@ See [Browser scraping tools](#browser-scraping-tools) for links.
 
 ### Get replies
 
-Install [5hirish/tweet_scrapper](https://github.com/5hirish/tweet_scrapper).
+Install [5hirish/tweet_scrapper](https://github.com/5hirish/tweet_scrapper), preferably inside a new environment.
 
-The shell CLI does not support getting a thread of replies ("conversations" in the project), but we can use the Python code.
+```sh
+$ python3 -m venv venv && . venv/bin/activate
+$ pip install tweetscrape
+```
 
-Here is an example based on the repo's example, getting the threaded tweets on this tweet: [ewarren/status/1146132929065738246](https://twitter.com/ewarren/status/1146132929065738246?conversation_id=1146132929065738246).
+The shell CLI does not support getting a thread of replies ("conversations" in the project), but we can use the Python code. Here is an example based on the repo's example, getting the threaded tweets on this tweet: [ewarren/status/1146132929065738246](https://twitter.com/ewarren/status/1146132929065738246?conversation_id=1146132929065738246).
 
 ```python
+from tweetscrape.conversation_tweets import TweetScrapperConversation
+
+
 tweets = TweetScrapperConversation(
     username="ewarren", 
     parent_tweet_id=1146415363460141057, 
@@ -140,10 +146,7 @@ tweets = TweetScrapperConversation(
     tweet_dump_path='twitter_conv.csv', 
     tweet_dump_format='csv'
 )
-tweet_count, tweet_id, tweet_time, dump_path = tweets.get_thread_tweets(True)
-
-for tweet in extracted_tweets:
-     print(str(tweet))
+tweet_count, last_tweet_id, last_tweet_time, dump_path = tweets.get_thread_tweets(True)
 
 print(tweet_count)
 ```
@@ -160,6 +163,7 @@ path = 'twitter_conv.csv'
 
 for target in targets:
     print(target["username"], target["tweet_id"])
+    
     tweets = TweetScrapperConversation(
         username=target["username"], 
         parent_tweet_id=target["tweet_id"], 
@@ -168,7 +172,7 @@ for target in targets:
         tweet_dump_format='csv'
     )
     
-    tweet_count, tweet_id, tweet_time, dump_path = tweets.get_thread_tweets(save_output=True)
+    tweet_count, _, _, _ = tweets.get_thread_tweets(save_output=True)
     print(tweet_count)
 ```
 
