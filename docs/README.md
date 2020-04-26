@@ -83,35 +83,43 @@ As an alternative to Tweepy, use one of these. You'll have to install one and co
 
 These using browsing scraping to avoid Twitter API limits.
 
+### GetOldTweets3
+
 - [Mottl/GetOldTweets3](https://github.com/Mottl/GetOldTweets3)
     > A Python 3 library and a corresponding command line utility for accessing old tweets
-    - e.g. 
-        ```sh
-        GetOldTweets3 --querysearch "europe refugees" --maxtweets 10
-        ```
-    - e.g.
-        ```python
-        tweetCriteria = got.manager.TweetCriteria().setQuerySearch('europe refugees')\
-                                           .setSince("2015-05-01")\
-                                           .setUntil("2015-09-30")\
-                                           .setMaxTweets(1)
-        tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]
-        print(tweet.text)
-        ```
-- [tweet-scrapper](https://pypi.org/project/tweetscrape/)
+- e.g. 
+    ```sh
+    GetOldTweets3 --querysearch "europe refugees" --maxtweets 10
+    ```
+- e.g.
+    ```python
+    tweetCriteria = got.manager.TweetCriteria().setQuerySearch('europe refugees')\
+                                       .setSince("2015-05-01")\
+                                       .setUntil("2015-09-30")\
+                                       .setMaxTweets(1)
+    tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]
+    print(tweet.text)
+    ```
+    
+### tweet_scrapper
+
+- [tweet_scrapper](https://pypi.org/project/tweetscrape/) on PyPI
     > Twitter's API is annoying to work with, and has lots of limitations — luckily their frontend (JavaScript) has it's own API, which I reverse–engineered. No API rate limits. No restrictions. Extremely fast.
-    - Use the CLI tool or Python code.
-    - For help and usage instructions, see 
-        - [README.md](https://github.com/5hirish/tweet_scrapper/blob/master/README.md)
-        - [USAGE.md](https://github.com/5hirish/tweet_scrapper/blob/master/USAGE.md)
-        - Command-line help
-            ```sh
-            python -m tweetscrape.twitter_scrape --help
-            ```
-        - [twitter_scrape.py](https://github.com/5hirish/tweet_scrapper/blob/master/tweetscrape/twitter_scrape.py) which builds the CLI options.
+- [5hirish/tweet_scrapper](https://github.com/5hirish/tweet_scrapper) on Github
+- Features
+    - Scrapes using `requests` library - no API calls or API auth and no browser driver
     - Lets you search hashtags, mentions, profiles and reply threads.
     - Supports infinite scroll.
     - Exports to a file.
+- Use the CLI tool or Python code.
+- For help and usage instructions, see 
+    - [README.md](https://github.com/5hirish/tweet_scrapper/blob/master/README.md)
+    - [USAGE.md](https://github.com/5hirish/tweet_scrapper/blob/master/USAGE.md)
+    - Command-line help
+        ```sh
+        python -m tweetscrape.twitter_scrape --help
+        ```
+    - [twitter_scrape.py](https://github.com/5hirish/tweet_scrapper/blob/master/tweetscrape/twitter_scrape.py) which builds the CLI options.
     
 ### Articles
 
@@ -126,12 +134,22 @@ See [Browser scraping tools](#browser-scraping-tools) for links.
 
 ### Get replies
 
-Install [5hirish/tweet_scrapper](https://github.com/5hirish/tweet_scrapper), preferably inside a new environment.
+#### Install
+
+Preferably inside a new virtual environment. e.g.
 
 ```sh
-$ python3 -m venv venv && . venv/bin/activate
-$ pip install tweetscrape
+$ python3 -m venv venv
+$ source venv/bin/activate
 ```
+
+Install [tweet_scrapper](#tweet_scrapper).
+
+```sh
+pip install tweetscrape
+```
+
+#### Get replies on one tweet
 
 The shell CLI does not support getting a thread of replies ("conversations" in the project), but we can use the Python code. Here is an example based on the repo's example, getting the threaded tweets on this tweet: [ewarren/status/1146132929065738246](https://twitter.com/ewarren/status/1146132929065738246?conversation_id=1146132929065738246).
 
@@ -169,6 +187,8 @@ Field | Value
 `reply_count` | `7`
 `favorite_count` | `23`
 `retweet_count` | `1`
+
+#### Get replies on many tweets
 
 If you need to repeat that for multiple tweets, you could do something like the following:
 
