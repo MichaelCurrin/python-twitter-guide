@@ -57,17 +57,65 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 - [Tweepy Discord](https://discord.gg/bJvqnhg) channel
 
 
-### Other API tools
+### API tools
+
+These all use Twitter API. Any searches will have the one-week limitation.
 
 - [twurl](https://github.com/twitter/twurl)
     - Command-line tool like `curl` for request the Twitter API. 
     - Written in Ruby, but you can still use it in your command-line without knowing Ruby.
     - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
-- Python Twitter API wrappers
-    - [twython](https://twython.readthedocs.io/en/latest/)
-    - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
+- Python 
+    - Twitter API wrapper libraries
+        - [twython](https://twython.readthedocs.io/en/latest/)
+        - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
+    - Utility scrips and repos
+        - [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
+            - Get replies using Twitter Search API.
+
+
+## Browser scraping tools
+
+These using browsing scraping to avoid Twitter API limits.
+
+- [Mottl/GetOldTweets3](https://github.com/Mottl/GetOldTweets3)
+    > A Python 3 library and a corresponding command line utility for accessing old tweets
+    - e.g. 
+        ```sh
+        GetOldTweets3 --querysearch "europe refugees" --maxtweets 10
+        ```
+    - e.g.
+        ```python
+        tweetCriteria = got.manager.TweetCriteria().setQuerySearch('europe refugees')\
+                                           .setSince("2015-05-01")\
+                                           .setUntil("2015-09-30")\
+                                           .setMaxTweets(1)
+        tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]
+        print(tweet.text)
+        ```
+- [tweet-scrapper](https://pypi.org/project/tweetscrape/)
+    > Twitter's API is annoying to work with, and has lots of limitations — luckily their frontend (JavaScript) has it's own API, which I reverse–engineered. No API rate limits. No restrictions. Extremely fast.
+    - Use the CLI tool or Python code.
+    - For help and usage instructions, see 
+        - [README.md](https://github.com/5hirish/tweet_scrapper/blob/master/README.md)
+        - [USAGE.md](https://github.com/5hirish/tweet_scrapper/blob/master/USAGE.md)
+        - Command-line help
+            ```sh
+            python -m tweetscrape.twitter_scrape --help
+            ```
+        - [twitter_scrape.py](https://github.com/5hirish/tweet_scrapper/blob/master/tweetscrape/twitter_scrape.py) which builds the CLI options.
+    - Lets you search hashtags, mentions, profiles and reply threads.
+    - Supports infinite scroll.
+    - Exports to a file.
     
 
+
+### Articles
+
+- [How to Scrape Tweets From Twitter](https://towardsdatascience.com/how-to-scrape-tweets-from-twitter-59287e20f0f1) on Towards Data Science
+    > A quick introduction to two options for scraping tweets from Twitter using Python
+    
+    
 ## Terms of use
 
 Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions.
