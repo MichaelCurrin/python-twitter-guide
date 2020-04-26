@@ -38,9 +38,8 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 
 ## Resources
 
-- [tweepy.org homepage](https://www.tweepy.org/)
-- [Tweepy docs](http://tweepy.readthedocs.org/)
-- [Tweepy Discord](https://discord.gg/bJvqnhg) channel
+### Twitter docs
+
 - Twitter developer docs
     - [Developer docs](https://developer.twitter.com/en/docs) home
     - [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
@@ -51,9 +50,27 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
     - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy (this will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.)
 
 
+### Tweepy
+
+- [tweepy.org homepage](https://www.tweepy.org/)
+- [Tweepy docs](http://tweepy.readthedocs.org/)
+- [Tweepy Discord](https://discord.gg/bJvqnhg) channel
+
+
+### Other API tools
+
+- [twurl](https://github.com/twitter/twurl)
+    - Command-line tool like `curl` for request the Twitter API. 
+    - Written in Ruby, but you can still use it in your command-line without knowing Ruby.
+    - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
+- Python Twitter API wrappers
+    - [twython](https://twython.readthedocs.io/en/latest/)
+    - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
+    
+
 ## Terms of use
 
-Note that Tweepy and Twitter API are subject to change so this guide may not always be up to date.
+Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions.
 If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a
 Pull Request.
 
