@@ -161,6 +161,14 @@ You can let a user sign in on the browser side of a web app, or in the command-l
 
 The user will sign into Twitter and then will get a number to enter. The flow here is more complex. Read more [here](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-1a-authentication)
 
+## Tweepy API overview
+
+The `api` object returned in the auth section above will cover most of your needs for requesting the Twitter API, whether fetching or sending data.
+
+The `api` object is an instance of `tweepy.API` class and is covered in the docs here and is useful to see the allowed parameters, how they are used and what is returned.
+
+The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
+
 
 ## Users
 
@@ -218,6 +226,9 @@ msg = 'Hello, world!'
 tweet = api.update_status(msg)
 ```
 
+- Tweepy docs link: [API.update_status](http://docs.tweepy.org/en/latest/api.html#API.update_status).
+- Twitter API endpoint: [POST statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update)
+
 ### Message with media
 
 Upload an image or animated GIF on disk.
@@ -228,6 +239,8 @@ msg = 'Hello, world!'
 
 tweet = api.update_with_media(media_path, status=msg)
 ```
+
+- Tweepy docs link: [API.update_with_media](http://docs.tweepy.org/en/latest/api.html#API.update_with_media).
 
 
 ## Handle time values
