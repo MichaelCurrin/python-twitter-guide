@@ -154,24 +154,27 @@ print(tweet_count)
 If you need to repeat that for multiple tweets, you could do something like the following:
 
 ```python
+from tweetscrape.conversation_tweets import TweetScrapperConversation
+
+
 targets = [
-    {"username": "foo", tweet_id: 123},
-    {"username": "bar", tweet_id: 456},
+    {"username": "foo", "tweet_id": 123},
+    {"username": "bar", "tweet_id": 456},
     # ...,
-}
+]
 path = 'twitter_conv.csv'
 
 for target in targets:
     print(target["username"], target["tweet_id"])
-    
+
     tweets = TweetScrapperConversation(
-        username=target["username"], 
-        parent_tweet_id=target["tweet_id"], 
-        num_tweets=1000, 
-        tweet_dump_path=path, 
+        username=target["username"],
+        parent_tweet_id=target["tweet_id"],
+        num_tweets=1000,
+        tweet_dump_path=path,
         tweet_dump_format='csv'
     )
-    
+
     tweet_count, _, _, _ = tweets.get_thread_tweets(save_output=True)
     print(tweet_count)
 ```
