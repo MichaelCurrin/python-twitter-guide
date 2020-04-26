@@ -221,6 +221,8 @@ for target in targets:
 
 ## Terms of use
 
+!> Please read this section to ensure you understand conditions for use of this guide and what policies to follow.
+
 ### Accuracy 
 
 Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions. If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a Pull Request.
