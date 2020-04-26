@@ -61,8 +61,10 @@ python -c 'import tweepy; print("It works!")
 ?> Use `deactivate` command to revert to the global environment. Make sure you use the activate command above whenever you need to use `tweepy` in your project.
 
 
-## Authorization
-> Authenticating with Twitter API using dev account credentials
+## Authentication
+> Authenticating with the Twitter API using a dev app's credentials
+
+See also the [Authentication](http://docs.tweepy.org/en/latest/auth_tutorial.html) tutorial in the Tweepy docs.
 
 ### Setup credentials
 
@@ -121,7 +123,7 @@ api = get_api_connection(
 )
 ```
 
-If Access credentials are provided, create an App Access Token. Otherwise, create an Application-only Access Token, which has limited context (it can't access a current user), it but different API rate limit restrictions which can be more favorable for certain requests. 
+If Access credentials are provided, the function will create an App Access Token. Otherwise, the access token step will be left out and the function will return an Application-only Access Token. Which has limited context (it can't access a current user) and has different API rate limit restrictions which can be more favorable for certain requests. 
 
 ?> Not covered here is the User access token, which requires a user to sign into Twitter and then enter a short code into your application. So that your app can perform actions on their behalf - this flow is unnecessary if you want to make a bot, do bulk retweets as your own bot account or do searches. Rate limiting is on each user. This use flow would require you to setup your own API to handle this complex flow. Or you can enter the code on the command-line and capture using `input()` if you want to try that out locally without the extra setup. 
 
@@ -134,6 +136,30 @@ You can start using the application-only approach without hassle, but if you are
 > As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information. 
 >
 > API calls using app-only authentication are rate limited per API method at the app level. [source](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0)
+
+#### Aapplication-only flow
+
+There are two days to do an application-only flow.
+
+One approach is using `OAuthHandler` - this is similar to the flow above but leaves out the `.set_access_token` step.
+
+```python
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+api = tweepy.API(auth)
+```
+
+The other approach uses `AppAuthHandler` and is covered in the [OAuth 2](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-2-authentication) part of Tweepy docs.
+
+```python
+auth = tweepy.AppAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+api = tweepy.API(auth)
+```
+
+#### User flow
+
+You can let a user sign in on the browser side of a web app, or in the command-line for a local terminal-based application. This is not necessary for doing searches or making a bot but is necessary if you want to perform actions on behalf of the user with their permission (such as a liking a Tweet in a mobile app you made).
+
+The user will sign into Twitter and then will get a number to enter. The flow here is more complex. Read more [here](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-1a-authentication)
 
 
 ## Users
