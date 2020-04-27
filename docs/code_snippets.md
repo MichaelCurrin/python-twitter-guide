@@ -298,8 +298,66 @@ See also:
 retweets = tweet.retweets
 ```
 
+## Get tweet engagements
+
+See more on the [models](models.md) page of this guide.
+
+
+### Get favorites
+
+```python
+tweet.favorite_count
+```
+
+### Get retweets
+
+```python
+tweet.retweet_count
+```
+
+Get the retweets
+
+```python
+retweets = tweet.retweets
+```
+
+## Engage with tweet
+
+!> Note that you should only use these actions if you included them in your dev application otherwise you may get blocked. Also if you have a read-only app, you can upgrade to a read and write app.
+
+>! Please use these sparingly. The automation policy for Twitter API allows use of these actions as long as they are not used indiscriminately. If do favorite or retweet every tweet on a timeline or in a stream, you may get blocked for spammy low-quality behavior. If you do a search for popular tweets matching a hashtag and engage with a few of them, this will be fine.
+
+### Favorite 
+
+```python
+tweet.favorite()
+```
+
+### Retweet
+
+```python
+tweet.retweet
+```
+
+### Reply
+
+A reply is a tweet directed at another tweet ID or user.
+
+>! The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
+
 
 ## Post tweet
+
+### FAQs
+
+#### Can I reply to a tweet or @mention someone?
+
+>! The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
+
+#### Can I make a plain tweet?
+
+If you just want to make a tweet message without replying or mentioning, you are allowed to do this using the API. For example a bot which posts content daily from reddit or a weather or finance service.
+
 
 ### Message only
 
