@@ -260,24 +260,50 @@ See also [Search API](#search-api) section to lookup tweets matching keywords or
 Get tweets from your own account's timeline - the homepage feed of tweets you see when you log into Twitter that is based on users you follow.
 
 ```python
-api.home_timeline()
+tweets = api.home_timeline()
 ```
+
+?> Tweepy docs: [API.home_timeline](http://docs.tweepy.org/en/latest/api.html#API.home_timeline)
+
 
 ### Get a user's timeline
 
+Get the last 200 tweets of a user. 
+
+?> You can use `user_id` instead of `screen_name`.
+
 ```python
-new_tweets = api.user_timeline(
+screen_name = "foo"
+tweets = api.user_timeline(
     screen_name=screen_name,
     count=200, 
     tweet_mode="extended"
 )
 ```
 
+Print the results.
+
 ```python
 for tweet in tweets:
     print(tweet.full_text)
 ```
 
+?> Tweepy docs: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline)
+
+
+Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a retweet will be truncated still. So you this approach to get the full message on the _original_ tweet.
+
+```
+tweets = api.user_timeline(id=2271808427, tweet_mode="extended")
+
+# This is still truncated.
+tweets[6].full_text
+# => 'RT @blawson_lcsw: So proud of these amazing @HSESchools students who presented their ideas on how to help their peers manage stress in mean…'
+
+# Original expanded text.
+tweets[6].retweeted_status.full_text
+# => 'So proud of these amazing @HSESchools students who presented their ideas on how to help their peers manage stress in meaningful ways! Thanks @HSEPrincipal for giving us your time!'
+```
 
 ### Fetch tweets by ID
 
@@ -290,7 +316,7 @@ tweet_id = 123
 api.get_status(tweet_id)
 ```
 
-Tweepy docs: [API.get_status](http://docs.tweepy.org/en/latest/api.html#API.get_status)
+?> Tweepy docs: [API.get_status](http://docs.tweepy.org/en/latest/api.html#API.get_status)
 
 
 #### Lookup many tweets
