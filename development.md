@@ -50,10 +50,11 @@ If your changes are simple enough you can even make them all on Github without s
 2. Open in the browser:
     - http://localhost:3000
 
-The browser will autoreload when you save changes.
+The browser will auto reload when you save changes.
 
 
 ## Notes
 
-- The `python` and `bash` highlighting extensions have been added to `index.html`.
-- Use `bash` for shell codeblock language - the syntax highlighting plugin does not recognize `sh` properly.
+- The `python` and `bash` highlighting extensions have been added to [index.html](/docs/index.html), so those will work on the frontend.
+- Use `bash` only for shell codeblock language - the syntax highlighting plugin does not recognize `sh` properly.
+- Add info blocks with `?> Message` and alert blocks with `!> Message`.
