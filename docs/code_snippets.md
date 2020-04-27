@@ -145,6 +145,7 @@ You can start using the application-only approach without hassle, but if you are
 >
 > API calls using app-only authentication are rate limited per API method at the app level. [source](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0)
 
+
 #### Application-only flow
 
 There are two way to do an application-only flow and get a App Access Token.
@@ -191,7 +192,7 @@ Whenever you have a tweet object you can find the profile that authored the twee
 tweet.author
 ```
 
-See models page for in this guide for attributes on a User instance.
+See [models](models.md) page for in this guide for attributes on a User instance.
 
 ### Fetch profile by ID
 
@@ -321,11 +322,14 @@ Get the retweets
 retweets = tweet.retweets
 ```
 
+
 ## Engage with tweet
 
 !> Note that you should only use these actions if you included them in your dev application otherwise you may get blocked. Also if you have a read-only app, you can upgrade to a read and write app.
 
->! Please use these sparingly. The automation policy for Twitter API allows use of these actions as long as they are not used indiscriminately. If do favorite or retweet every tweet on a timeline or in a stream, you may get blocked for spammy low-quality behavior. If you do a search for popular tweets matching a hashtag and engage with a few of them, this will be fine.
+>! Please use these **sparingly**. The automation policy for Twitter API allows use of these actions as long as they are not used indiscriminately. If do favorite or retweet every tweet on a timeline or in a stream, you may get blocked for spammy low-quality behavior. If you do a search for popular tweets matching a hashtag and engage with a few of them, this will be fine.
+
+?> [Twitter policies](policies) page.
 
 ### Favorite 
 
@@ -336,7 +340,7 @@ tweet.favorite()
 ### Retweet
 
 ```python
-tweet.retweet
+tweet.retweet()
 ```
 
 ### Reply
@@ -344,6 +348,8 @@ tweet.retweet
 A reply is a tweet directed at another tweet ID or user.
 
 >! The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
+
+?> [Twitter policies](policies) page.
 
 
 ## Post tweet
