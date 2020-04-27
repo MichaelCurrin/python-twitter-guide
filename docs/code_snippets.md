@@ -345,13 +345,13 @@ tweet.retweet()
 
 ### Reply
 
-A reply is a tweet directed at another tweet ID or user.
+A reply is a tweet directed at another tweet ID or user. When you reply to a tweet, it becomes a "thread" or "threaded conversation".
 
 >! The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
 
 ?> [Twitter policies](policies) page.
 
-
+A novel way to make replies without hitting policy restrictions is to make a tweet and then reply to yourself. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
 ## Post tweet
 
 ### FAQs
