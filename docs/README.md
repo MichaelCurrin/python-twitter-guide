@@ -10,7 +10,7 @@
 
 ## Features
 
-- Unofficial guide to [Tweepy](#tweepy)
+- Unofficial guide to [Tweepy](#tweepy) library.
 - Aimed at Python developers who want to use the Twitter API to do automated tasks, like make a bot or download thousands of tweets
 - Find practical solutions for common Tweepy / Twitter API use-cases. This makes up for lack of practical examples or recommendations in official docs of both.
 - Content here is based on experience from various developers and docs, to save you having to research yourself
@@ -36,8 +36,6 @@ Also, the Tweepy library aims to be a _thin layer_ between your code and the Twi
 
 So this website aims at making Tweepy and Twitter API easier to use. With additional support by linking to docs and Twitter policies.
 
-?> **Note** This was guide was written main for _Linux_ and _macOS_ systems, so some commands will need to be adjusted to use on Window. In particular any shell commands - Python commands are mostly standard.
-
 
 ## Resources
 
@@ -56,9 +54,9 @@ For policies around Twitter and the Twitter API, see the [Twitter policies](poli
 
 Tweepy is a Python library which is a wrapper on the Twitter API - you don't have to worry about writing URLs, handling auth, parsing data, paging and other complex tasks. The library can be used an abstract so you can fetch data and deal with it as Python objects and you can pass data to the API to perform actions like searches or post a status or retweet a status.
 
-- [tweepy.org homepage](https://www.tweepy.org/)
+- [tweepy.org](https://www.tweepy.org/) homepage
 - [Tweepy docs](http://tweepy.readthedocs.org/)
-- [Tweepy Discord](https://discord.gg/bJvqnhg) channel
+- [Tweepy Discord channel](https://discord.gg/bJvqnhg)
 
 
 ### Other Twitter API tools
@@ -122,14 +120,16 @@ These using browsing scraping to avoid Twitter API limits.
         ```
     - [twitter_scrape.py](https://github.com/5hirish/tweet_scrapper/blob/master/tweetscrape/twitter_scrape.py) which builds the CLI options.
 
+
 ### Articles
 
 - [How to Scrape Tweets From Twitter](https://towardsdatascience.com/how-to-scrape-tweets-from-twitter-59287e20f0f1) on Towards Data Science
     > A quick introduction to two options for scraping tweets from Twitter using Python
 
+
 ## Browser scraping snippets
 
-Tips for using browser scraping tools to get data as an alternative to using Tweepy and Twitter API.
+Tips for using browser scraping tools to get data as an alternative to using Tweepy and Twitter API, should you need it.
 
 See [Browser scraping tools](#browser-scraping-tools) for links.
 
@@ -227,12 +227,8 @@ for target in targets:
 !> Please read this section to ensure you understand conditions for use of this guide and what policies to follow.
 
 
-### Policies
+See the [Twitter Policies](policies.md) page for use of Twitter. Read on below for terms of use for this guide.
 
-See [Twitter Policies](policies.md) page.
-
-
-### Legal
 
 Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions. If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a Pull Request.
 
@@ -247,6 +243,4 @@ guide responsible.
 
 Scraping a website or API is generally legal. Just make sure you are not abusing the servers, breaking Twitter's policies, trying to build a copy of Twitter or trying to sell the scraped data. I've seen services that sell Twitter data but I don't know if they are legal.
 
-Note that there are limitations on how you present the data - you can provide tweet messages on your website but not the tweet IDs.
-
-_References and links to be confirmed and shown here_.
+Note that there are limitations on how you present the data - you can provide details like tweet messages on your website but not the tweet IDs as well.
