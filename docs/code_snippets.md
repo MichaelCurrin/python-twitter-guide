@@ -301,7 +301,7 @@ for tweet in tweets:
     print(tweet.full_text)
 ```
 
-?> Tweepy docs: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline)
+?> Tweepy docs: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline) <br>Twitter API docs: [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline) - note daily limit of 100k tweets and getting 3,200 most recent tweets, otherwise there is not really a date restriction on how many days or years you can go back to.
 
 
 Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a retweet will be truncated still. So you this approach to get the full message on the _original_ tweet. Example from [source](https://stackoverflow.com/questions/42705314/getting-full-tweet-text-from-user-timeline-with-tweepy).
