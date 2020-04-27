@@ -7,6 +7,7 @@ Links:
 - See [models.py] in the Tweepy source code.
 
 
+
 ## Status
 
 The [tweepy.Status] class, which represents a tweet.
@@ -24,7 +25,7 @@ The [tweepy.Status] class, which represents a tweet.
 | `extended_entities` |                      |                                                                                                                                                                           |
 | `favorite_count`    | `int`                | Count of stars/favorites.                                                                                                                                                 |
 | `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet.                                                                                                                |
-| `full_text`         | `str`                | The tweet message, expanded. Only available is using *extended mode*.                                                                                                     |
+| `full_text`         | `str`                | The tweet message, expanded. Only available is using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                |
 | `text`              | `str`                | The tweet message which may be truncated. The default. Not available if is using *extended mode*.                                                                         |
 | `id`                | `int`                | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                             |
 | `id_str`            | `str`                | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language. |
@@ -77,10 +78,29 @@ The [tweepy.Status] class, which represents a tweet.
 - `user`
 
 
+### Expanded truncated messages
+
+
+By default Tweepy will return tweets which have a message up to 140 characters on the `tweet.text` attribute. 
+
+For tweets which go past this up to 280 characters, you need to pass in a flag. It is safe to do this all the time, regardless of whether the tweet is actually truncated.
+
+```python
+tweets = api.search(q=query, tweet_mode='extended')
+```
+
+Using the Cursor approach, based on the Tweepy Cursor tutorial
+
+```python
+tweets = tweepy.Cursor(api.search, q=query, tweet_mode='extended')
+
+for tweet in tweets:
+    print(tweet.full_text)
+```
+
 ## User
 
 The [tweepy.User] class, which represents a Twitter profile.
-
 
 
 
