@@ -349,8 +349,6 @@ count = 100
 retweets = api.retweets(tweet_id, count)
 ```
 
-I've not tested if this works with paging to get more.
-
 ?> Tweepy docs: [API.retweets](http://docs.tweepy.org/en/latest/api.html#API.retweets)
 
 See also:
@@ -389,6 +387,12 @@ tweet.favorite_count
 # => 0
 ```
 
+Get the favorites list. Supports paging.
+
+```python
+tweet.favorites
+```
+
 ### Get retweets
 
 ```python
@@ -396,14 +400,14 @@ tweet.retweet_count
 # => 0
 ```
 
-Get the retweets list.
+Get the retweets list. Supports paging.
 
 ```python
 retweets = tweet.retweets
 ```
 
 
-## Engage with tweet
+## Engage with a tweet
 
 !> Note that you should only use these actions if you included them in your dev application otherwise you may get blocked. Also if you have a read-only app, you can upgrade to a read and write app.
 
