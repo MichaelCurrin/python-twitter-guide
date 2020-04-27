@@ -2,7 +2,7 @@
 > The attributes and actions you can perform on Tweepy objects
 
 
-Links:
+**Links:**
 
 - See [models.py] in the Tweepy source code.
 
@@ -44,7 +44,7 @@ The [tweepy.Status] class, which represents a tweet.
 
 - `_json`
     - `dict`
-    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the tweet object. However, this is JSON attribute is useful if you want to convert to tweet to a string then write it out to a text file such as CSV or JSON. 
+    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the tweet object. However, this is JSON attribute is useful if you want to convert to tweet to a string then write it out to a text file such as CSV or JSON.
 - `display_text_range`
 - `geo`
 - `in_reply_to_screen_name`
@@ -81,7 +81,7 @@ The [tweepy.Status] class, which represents a tweet.
 ### Expanded truncated messages
 
 
-By default Tweepy will return tweets which have a message up to 140 characters on the `tweet.text` attribute. 
+By default Tweepy will return tweets which have a message up to 140 characters on the `tweet.text` attribute.
 
 For tweets which go past this up to 280 characters, you need to pass in a flag. It is safe to do this all the time, regardless of whether the tweet is actually truncated.
 
