@@ -2,7 +2,12 @@
 
 A guide to fair use of Twitter and the Twitter API by following their policies. Follow this guide to avoid abusing the API, getting your account rate-limit or blocked or annoying other Twitter users.
 
-Also, when you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
+
+## Dev app application
+
+When you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
+
+If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked. If you need to extend your app from say just searching to posting tweets or replying to users, you must request additional app permissions.
 
 
 ## Resources
