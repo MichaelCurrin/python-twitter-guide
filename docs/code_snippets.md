@@ -279,7 +279,7 @@ api.statuses_lookup(tweet_ids)
 ?> Tweepy docs: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
 
 
-### Get retweets
+### Get retweets of a tweet
 
 Get up to 100 retweets on a given tweet.
 
@@ -299,6 +299,22 @@ See also:
 retweets = tweet.retweets
 ```
 
+### Get the target of a reply
+
+Get tweet.
+
+```python
+original_tweet_id = tweet.in_reply_to_status_id
+original_tweet = api.get_status(original_tweet_id)
+```
+
+Get user.
+
+```python
+original_user = tweet.in_reply_to_user_id
+```
+
+
 ## Get tweet engagements
 
 See more on the [models](models.md) page of this guide.
@@ -308,15 +324,17 @@ See more on the [models](models.md) page of this guide.
 
 ```python
 tweet.favorite_count
+# => 0
 ```
 
 ### Get retweets
 
 ```python
 tweet.retweet_count
+# => 0
 ```
 
-Get the retweets
+Get the retweets list.
 
 ```python
 retweets = tweet.retweets
@@ -327,9 +345,10 @@ retweets = tweet.retweets
 
 !> Note that you should only use these actions if you included them in your dev application otherwise you may get blocked. Also if you have a read-only app, you can upgrade to a read and write app.
 
->! Please use these **sparingly**. The automation policy for Twitter API allows use of these actions as long as they are not used indiscriminately. If do favorite or retweet every tweet on a timeline or in a stream, you may get blocked for spammy low-quality behavior. If you do a search for popular tweets matching a hashtag and engage with a few of them, this will be fine.
+?! Please use these **sparingly**. The automation policy for Twitter API allows use of these actions as long as they are not used indiscriminately. If do favorite or retweet every tweet on a timeline or in a stream, you may get blocked for spammy low-quality behavior. If you do a search for popular tweets matching a hashtag and engage with a few of them, this will be fine.
 
-?> [Twitter policies](policies) page.
+?> See this guide's [Twitter policies](policies) page
+
 
 ### Favorite 
 
@@ -352,6 +371,8 @@ A reply is a tweet directed at another tweet ID or user. When you reply to a twe
 ?> [Twitter policies](policies) page.
 
 A novel way to make replies without hitting policy restrictions is to make a tweet and then reply to yourself. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
+
+
 ## Post tweet
 
 ### FAQs
