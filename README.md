@@ -9,8 +9,10 @@
 
 ## Online guide
 
-[![Github Pages site](https://img.shields.io/badge/site-Github_Pages-blue?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
+<div align="center">
 
+[![Github Pages site](https://img.shields.io/badge/site-Github_Pages-blue?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
+</div>
 
 ## Contributing
 
@@ -19,4 +21,6 @@ Please see [Contributing](CONTRIBUTING.md) guide.
 
 ## License
 
-Released under [MIT](/LICENSE).
+- Released under [MIT](/LICENSE).
+- A copy of the original license must be included in your project e.g. as `LICENSE-source`.
+- Freely modify and reuse.
