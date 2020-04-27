@@ -41,16 +41,15 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 
 ## Resources
 
-### Twitter docs
 
-- Twitter developer docs
-    - [Developer docs](https://developer.twitter.com/en/docs) home
-    - [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
-    - [Twitter apps](https://developer.twitter.com/en/apps) (manage your dev account apps)
-- Twitter docs
-    - [Terms of service](https://twitter.com/en/tos)
-    - [Rules and policies](https://help.twitter.com/en/rules-and-policies)
-    - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy (this will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.)
+For policies around Twitter and the Twitter API, see the [Twitter policies](policies.md#resources) page of this guide.
+
+
+### Twitter dev docs
+
+- [Twitter Developer docs](https://developer.twitter.com/en/docs) home
+- [Twitter API Reference](https://developer.twitter.com/en/docs/api-reference-index)
+- [Twitter apps](https://developer.twitter.com/en/apps) (manage your dev account apps)
 
 
 ### Tweepy

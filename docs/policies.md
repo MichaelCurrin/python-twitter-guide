@@ -12,12 +12,22 @@ If you use your app for something not allowed by the Twitter policies or beyond 
 
 ## Resources
 
-- Twitter developer docs
-    - [Developer docs](https://developer.twitter.com/en/docs) home
- - Twitter docs
-    - [Terms of service](https://twitter.com/en/tos)
-    - [Rules and policies](https://help.twitter.com/en/rules-and-policies)
-    - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy (this will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.)
+
+### Twitter developers
+
+- [Developer agreement and policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy)
+    - Read as a formal legal doc.
+- [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
+    - This reads more like a blog post, with chapters.
+- [Twitter Developer docs](https://developer.twitter.com/en/docs) home
+
+
+### Twitter.com
+
+- [Terms of service](https://twitter.com/en/tos)
+- [Rules and policies](https://help.twitter.com/en/rules-and-policies) overview
+- [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy
+    - This will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.
 
 
 ## Is an action allowed on the API?
@@ -27,7 +37,7 @@ When it comes to using the Twitter API and you are **not sure** if an action by 
 Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
 
 
-## App restrictions 
+## App restrictions
 
 Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using a bot, then you need to be careful that you follow the automation rules.
 
