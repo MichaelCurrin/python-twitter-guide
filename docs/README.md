@@ -134,6 +134,8 @@ See [Browser scraping tools](#browser-scraping-tools) for links.
 
 ### Get replies
 
+!> The library used here works well for small volumes but it had issues which might be bugs in the library such as not getting more than a small amount of replies and repeating replies.
+
 #### Install
 
 Preferably inside a new virtual environment. e.g.
