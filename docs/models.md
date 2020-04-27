@@ -89,7 +89,7 @@ For tweets which go past this up to 280 characters, you need to pass in a flag. 
 tweets = api.search(q=query, tweet_mode='extended')
 ```
 
-Using the Cursor approach, based on the Tweepy Cursor tutorial
+Using the Cursor approach, based on the Tweepy [Cursor tutorial]
 
 ```python
 tweets = tweepy.Cursor(api.search, q=query, tweet_mode='extended')
@@ -107,3 +107,4 @@ The [tweepy.User] class, which represents a Twitter profile.
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
+[Cursor tutorial]: http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
