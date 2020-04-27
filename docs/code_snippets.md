@@ -283,7 +283,14 @@ This is the equivalent of /timeline/home on the Web.
 
 Get the last 200 tweets of a user. 
 
-?> You can use `user_id` instead of `screen_name`.
+```python
+tweets = api.user_timeline()
+```
+
+The default behavior is for the authenticated use. You can specify `user_id` or `screen_name` to target a user.
+
+
+Example:
 
 ```python
 screen_name = "foo"
@@ -292,11 +299,7 @@ tweets = api.user_timeline(
     count=200, 
     tweet_mode="extended"
 )
-```
 
-Print the results.
-
-```python
 for tweet in tweets:
     print(tweet.full_text)
 ```
@@ -636,7 +639,7 @@ How to get images on tweets.
 ?> This example is for the [Search API](#search-api) but can work for other methods too such as [User timeline](#get-a-user39s-timeline).
 
 
-Add _entities_ to your request, then use the media value, if one exists on a tweet's entities.
+Add _entities_ to your request (this may not always be needed on some endpoints), then use the media value, if one exists on a tweet's entities.
 
 ```python
 cursor = tweepy.Cursor(
