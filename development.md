@@ -36,9 +36,9 @@ If your changes are simple enough you can even make them all on Github without s
 1. Install [NPM](https://npmjs.com/).
 2. Clone the repo (see the _Clone or download_ button on the repo's main page) and navigate to the project root.
 3. Install node dependencies (just Docsify CLI).
-  ```sh
-  $ npm install
-  ```
+    ```sh
+    $ npm install
+    ```
 
 
 ### Usage
@@ -58,4 +58,11 @@ The browser will auto reload when you save changes.
 - The `python` and `bash` highlighting extensions have been added to [index.html](/docs/index.html), so those will work on the frontend.
 - Use `bash` only for shell codeblock language - the syntax highlighting plugin does not recognize `sh` properly.
 - Add info blocks with `?> Message` and alert blocks with `!> Message`.
-- Ensure the search paths are kept up to date with the navbar. The `auto` setting for search seemed limited. See [Search](https://docsify.now.sh/plugins?id=full-text-search) plugin.
+
+
+### Plugins
+
+- [Search](https://docsify.now.sh/plugins?id=full-text-search)
+    - Ensure the search paths are kept up to date with the navbar. The `auto` setting for search seemed limited.
+- [Edit on Github](https://github.com/njleonzhang/docsify-edit-on-github)
+    - Unlike other plugins, this one must be loaded *before* the app is setup.
