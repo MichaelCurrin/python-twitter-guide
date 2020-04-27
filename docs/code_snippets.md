@@ -1,5 +1,5 @@
 # Code snippets
-> Common use-cases for Tweepy
+> Common use-cases for the Twitter API and how to solve them with Tweepy
 
 
 This section aims at making at easier by doing that work for you and suggesting a good path, by providing recommended code snippets and samples of the data or returned. This guide is not meant to be complete, but rather to cover typical situations in a way that is easy for beginners to follow.
@@ -141,9 +141,9 @@ api = get_api_connection(
 )
 ```
 
-If Access credentials are provided, the function will create an App Access Token. Otherwise, the access token step will be left out and the function will return an Application-only Access Token. Which has limited context (it can't access a current user) and has different API rate limit restrictions which can be more favorable for certain requests. 
+If Access credentials are provided, the function will create an App Access Token. Otherwise, the access token step will be left out and the function will return an Application-only Access Token. Which has limited context (it can't access a current user) and has different API rate limit restrictions which can be more favorable for certain requests.
 
-?> Not covered here is the User access token, which requires a user to sign into Twitter and then enter a short code into your application. So that your app can perform actions on their behalf - this flow is unnecessary if you want to make a bot, do bulk retweets as your own bot account or do searches. Rate limiting is on each user. This use flow would require you to setup your own API to handle this complex flow. Or you can enter the code on the command-line and capture using `input()` if you want to try that out locally without the extra setup. 
+?> Not covered here is the User access token, which requires a user to sign into Twitter and then enter a short code into your application. So that your app can perform actions on their behalf - this flow is unnecessary if you want to make a bot, do bulk retweets as your own bot account or do searches. Rate limiting is on each user. This use flow would require you to setup your own API to handle this complex flow. Or you can enter the code on the command-line and capture using `input()` if you want to try that out locally without the extra setup.
 
 Then set up an API instance which will automatically wait and print a notification if a rate limit is reached, to avoid getting blocked by the API.
 
@@ -222,7 +222,7 @@ user_id = "foo"
 user = api.get_user(user_id=user_id)
 ```
 
-?> Tweepy docs: [API.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user) 
+?> Tweepy docs: [API.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user)
 
 
 Then you can inspect the user object or do actions on it. See the [User](models.md#user) section of the models page.
@@ -281,7 +281,7 @@ This is the equivalent of /timeline/home on the Web.
 
 ### Get a user's timeline
 
-Get the last 200 tweets of a user. 
+Get the last 200 tweets of a user.
 
 ```python
 tweets = api.user_timeline()
@@ -296,7 +296,7 @@ Example:
 screen_name = "foo"
 tweets = api.user_timeline(
     screen_name=screen_name,
-    count=200, 
+    count=200,
     tweet_mode="extended"
 )
 
@@ -422,7 +422,7 @@ retweets = tweet.retweets
 ?> See this guide's [Twitter policies](policies) page
 
 
-### Favorite 
+### Favorite
 
 ```python
 tweet.favorite()
@@ -634,7 +634,7 @@ tweets = api.search(
 
 ### Get media
 
-How to get images on tweets. 
+How to get images on tweets.
 
 ?> This example is for the [Search API](#search-api) but can work for other methods too such as [User timeline](#get-a-user39s-timeline).
 
@@ -643,8 +643,8 @@ Add _entities_ to your request (this may not always be needed on some endpoints)
 
 ```python
 cursor = tweepy.Cursor(
-    api.search, 
-    q=query, 
+    api.search,
+    q=query,
     count=100
     include_entities=True
 )
