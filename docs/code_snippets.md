@@ -291,7 +291,7 @@ for tweet in tweets:
 ?> Tweepy docs: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline)
 
 
-Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a retweet will be truncated still. So you this approach to get the full message on the _original_ tweet.
+Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a retweet will be truncated still. So you this approach to get the full message on the _original_ tweet. Example from [source](https://stackoverflow.com/questions/42705314/getting-full-tweet-text-from-user-timeline-with-tweepy).
 
 ```
 tweets = api.user_timeline(id=2271808427, tweet_mode="extended")
