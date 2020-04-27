@@ -8,6 +8,14 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 ?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
 
+## Naming conventions
+
+- A tweet is called a status in the API and Tweepy.
+- A profile is called a user.
+- A username is called in a screen name.
+
+These terms will be used interchangeably in this guide.
+
 
 ## Installation
 
@@ -177,25 +185,34 @@ api.me()
 
 ### Get author of a tweet
 
+Whenever you have a tweet object you can find the profile that authored the tweet, without a doing a further API call.
+
 ```python
 tweet.author
 ```
 
-### Fetch profile
+See models page for in this guide for attributes on a User instance.
 
-Lookup by Twitter username (screen name).
+### Fetch profile by ID
 
-```python
-username = "foo"
-user = api.get_user(username)
-```
+#### Lookup a single profile
 
-Or lookup by ID. Note we didn't change how we call the method, just a different value was passed in and Tweepy figured out what to do. See [api.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user) API reference doc for more info on this.
+By screen name.
 
 ```python
-user_id = "1234567"
-user = api.get_user(user_id)
+screen_name = "foo"
+user = api.get_user(screen_name=screen_name)
 ```
+
+By ID.
+
+```python
+user_id = "foo"
+user = api.get_user(user_id=user_id)
+```
+
+?> Tweepy docs: [API.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user) 
+
 
 Then you can inspect the user object or do actions on it. See the [User](models.md#user) section of the models page.
 
@@ -212,9 +229,36 @@ user.followers_count
 # => 99
 ```
 
-## Get tweets or users
+#### Lookup many profiles
 
-### Lookup tweet by ID
+By screen name.
+
+```python
+screen_names = ["foo", "bar", "baz"]
+users = api.lookup_users(screen_names=screen_names)
+```
+
+By ID.
+
+```python
+user_ids = [123, 456, 789]
+users = api.lookup_users(user_ids=user_ids)
+```
+
+?> Tweepy docs: [API.lookup_users](http://docs.tweepy.org/en/latest/api.html#API.lookup_users)
+
+?> The endpoint only lets you request up to 100 IDs at once, so you'll never than more than one page of results. Therefore you get more results, you should batch your IDs into groups of 100 and then lookup each group.
+
+
+## Find tweets
+
+See also [Search API](#search-api), home timeline and user timeline in Tweepy.
+
+### Fetch tweets by ID
+
+If you know the ID of a tweet, you can fetch it. This is useful if you want to find the latest engagements count on a tweet, or if you have a list of just IDs from outside Tweepy and you want to turn them into Tweepy objects so you can get the message, author, date, etc.
+
+#### Lookup a single tweet
 
 ```python
 tweet_id = 123
@@ -224,8 +268,7 @@ api.get_status(tweet_id)
 Tweepy docs: [API.get_status](http://docs.tweepy.org/en/latest/api.html#API.get_status)
 
 
-
-### Lookup tweets by IDs
+#### Lookup many tweets
 
 ```python
 tweet_ids = [123, 456, 789]
@@ -233,6 +276,7 @@ api.statuses_lookup(tweet_ids)
 ```
 
 Tweepy docs: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
+
 
 ## Post tweet
 
