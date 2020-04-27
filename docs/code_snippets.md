@@ -267,11 +267,14 @@ See also [Search API](#search-api) section to lookup tweets matching keywords or
 
 ### Get my timeline
 
-Get tweets from your own account's timeline - the homepage feed of tweets you see when you log into Twitter that is based on users you follow.
+Get tweets from your own users's timeline, as a mix of their own and friend's tweets.
 
 ```python
 tweets = api.home_timeline()
 ```
+
+> Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user’s friends.
+This is the equivalent of /timeline/home on the Web.
 
 ?> Tweepy docs: [API.home_timeline](http://docs.tweepy.org/en/latest/api.html#API.home_timeline)
 
