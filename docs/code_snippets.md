@@ -17,6 +17,16 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 These terms will be used interchangeably in this guide.
 
 
+## Paging
+
+Follow the Tweepy tutorial to get familiar with how to use a Cursor to do paging - iterate over multiple pages of items of say 100 tweets each.
+
+
+http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
+
+The tutorial also explains truncated and full text.
+
+
 ## Installation
 
 ### Install Tweepy for your own projects
