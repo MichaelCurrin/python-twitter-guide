@@ -13,21 +13,25 @@ If you use your app for something not allowed by the Twitter policies or beyond 
 ## Resources
 
 
-### Twitter developers
+### Twitter developer docs
 
+- [Twitter Developer docs](https://developer.twitter.com/en/docs) homepage
 - [Developer agreement and policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy)
     - Read as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
     - This reads more like a blog post, with chapters.
-- [Twitter Developer docs](https://developer.twitter.com/en/docs) home
 
 
 ### Twitter.com
 
 - [Terms of service](https://twitter.com/en/tos)
-- [Rules and policies](https://help.twitter.com/en/rules-and-policies) overview
-- [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy
-    - This will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.
+- [Twitter help center](https://help.twitter.com)
+    - [Rules and policies](https://help.twitter.com/en/rules-and-policies) overview
+        - There are a lot of policies listed there. So some highlights are shown here.
+    - [About Twitter's APIs](https://help.twitter.com/en/rules-and-policies/twitter-api)
+        - How they work and what entities are available.
+    - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy
+        - This will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.
 
 
 ## Is an action allowed on the API?
