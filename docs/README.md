@@ -4,6 +4,8 @@
 [![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/python-twitter-guide.svg)](https://GitHub.com/MichaelCurrin/python-twitter-guide/tags/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/MichaelCurrin/python-twitter-guide/blob/master/README.md#license)
+[![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F)](https://twitter.com/intent/tweet?url=https%3A%2F%2FMichaelCurrin.github.io%2Fpython-twitter-guide&hashtags=twitter,tweepy,python,guide,tutorial)
+
 
 
 ## Features
@@ -66,7 +68,7 @@ As an alternative to Tweepy, use one of these. You'll have to install one and co
 
 - Command-line
     - [twurl](https://github.com/twitter/twurl)
-        - Command-line tool, like `curl` for request the Twitter API. 
+        - Command-line tool, like `curl` for request the Twitter API.
         - Written in Ruby, but you can still use it in your command-line without knowing Ruby.
         - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
 - Python Twitter API wrapper libraries
@@ -87,7 +89,7 @@ These using browsing scraping to avoid Twitter API limits.
 
 - [Mottl/GetOldTweets3](https://github.com/Mottl/GetOldTweets3)
     > A Python 3 library and a corresponding command line utility for accessing old tweets
-- e.g. 
+- e.g.
     ```sh
     GetOldTweets3 --querysearch "europe refugees" --maxtweets 10
     ```
@@ -100,7 +102,7 @@ These using browsing scraping to avoid Twitter API limits.
     tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]
     print(tweet.text)
     ```
-    
+
 ### tweet_scrapper
 
 - [tweet_scrapper](https://pypi.org/project/tweetscrape/) on PyPI
@@ -112,7 +114,7 @@ These using browsing scraping to avoid Twitter API limits.
     - Supports infinite scroll.
     - Exports to a file.
 - Use the CLI tool or Python code.
-- For help and usage instructions, see 
+- For help and usage instructions, see
     - [README.md](https://github.com/5hirish/tweet_scrapper/blob/master/README.md)
     - [USAGE.md](https://github.com/5hirish/tweet_scrapper/blob/master/USAGE.md)
     - Command-line help
@@ -120,12 +122,12 @@ These using browsing scraping to avoid Twitter API limits.
         python -m tweetscrape.twitter_scrape --help
         ```
     - [twitter_scrape.py](https://github.com/5hirish/tweet_scrapper/blob/master/tweetscrape/twitter_scrape.py) which builds the CLI options.
-    
+
 ### Articles
 
 - [How to Scrape Tweets From Twitter](https://towardsdatascience.com/how-to-scrape-tweets-from-twitter-59287e20f0f1) on Towards Data Science
     > A quick introduction to two options for scraping tweets from Twitter using Python
- 
+
 ## Browser scraping snippets
 
 Tips for using browser scraping tools to get data as an alternative to using Tweepy and Twitter API.
@@ -160,10 +162,10 @@ from tweetscrape.conversation_tweets import TweetScrapperConversation
 
 
 tweets = TweetScrapperConversation(
-    username="ewarren", 
-    parent_tweet_id=1146415363460141057, 
-    num_tweets=40, 
-    tweet_dump_path='twitter_conv.csv', 
+    username="ewarren",
+    parent_tweet_id=1146415363460141057,
+    num_tweets=40,
+    tweet_dump_path='twitter_conv.csv',
     tweet_dump_format='csv'
 )
 tweet_count, last_tweet_id, last_tweet_time, dump_path = tweets.get_thread_tweets(True)
@@ -226,7 +228,7 @@ for target in targets:
 !> Please read this section to ensure you understand conditions for use of this guide and what policies to follow.
 
 
-### Policies 
+### Policies
 
 See [Twitter Policies](policies.md) page.
 
@@ -236,9 +238,9 @@ See [Twitter Policies](policies.md) page.
 Note that Tweepy and Twitter API are subject to change, so this guide may not always be up to date or work with newer versions. If anything is inaccurate or not up to date, see the contributing guide in the repo and a submit a Pull Request.
 
 While a best effort is made to keep this guide accurate and reflect the APIs and policies at the
-current time, this guide only provides recommendations and some useful info. 
+current time, this guide only provides recommendations and some useful info.
 
-This guide comes with **no warranty or guarantee**. 
+This guide comes with **no warranty or guarantee**.
 
 **You** are responsible for ensuring that you use Twitter and the API fairly and that you understand how it works. By using
 this guide, you take responsibility for your own actions and do not hold the contributors to this
