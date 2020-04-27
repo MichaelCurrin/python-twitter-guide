@@ -253,7 +253,31 @@ users = api.lookup_users(user_ids=user_ids)
 
 ## Find tweets
 
-See also [Search API](#search-api), home timeline and user timeline in Tweepy.
+See also [Search API](#search-api) section to lookup tweets matching keywords or hashtags or directed at a user
+
+### Get my timeline
+
+Get tweets from your own account's timeline - the homepage feed of tweets you see when you log into Twitter that is based on users you follow.
+
+```python
+api.home_timeline()
+```
+
+### Get a user's timeline
+
+```python
+new_tweets = api.user_timeline(
+    screen_name=screen_name,
+    count=200, 
+    tweet_mode="extended"
+)
+```
+
+```python
+for tweet in tweets:
+    print(tweet.full_text)
+```
+
 
 ### Fetch tweets by ID
 
