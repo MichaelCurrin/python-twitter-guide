@@ -5,7 +5,7 @@ A guide to fair use of Twitter and the Twitter API by following their policies. 
 Also, when you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
 
 
-### Resources
+## Resources
 
 - Twitter developer docs
     - [Developer docs](https://developer.twitter.com/en/docs) home
