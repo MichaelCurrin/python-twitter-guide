@@ -275,7 +275,22 @@ tweet_ids = [123, 456, 789]
 api.statuses_lookup(tweet_ids)
 ```
 
-Tweepy docs: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
+?> Tweepy docs: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
+
+
+### Get retweets
+
+Get up to 100 retweets on a given tweet.
+
+```python
+tweet_id = 123
+count = 100
+tweets = api.retweets(tweet_id, count)
+```
+
+I've not tested if this works with paging to get more.
+
+?> Tweepy docs: [API.retweets](http://docs.tweepy.org/en/latest/api.html#API.retweets)
 
 
 ## Post tweet
