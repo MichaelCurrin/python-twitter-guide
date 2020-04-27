@@ -212,6 +212,27 @@ user.followers_count
 # => 99
 ```
 
+## Get tweets or users
+
+### Lookup tweet by ID
+
+```python
+tweet_id = 123
+api.get_status(tweet_id)
+```
+
+Tweepy docs: [API.get_status](http://docs.tweepy.org/en/latest/api.html#API.get_status)
+
+
+
+### Lookup tweets by IDs
+
+```python
+tweet_ids = [123, 456, 789]
+api.statuses_lookup(tweet_ids)
+```
+
+Tweepy docs: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
 
 ## Post tweet
 
