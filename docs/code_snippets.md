@@ -631,10 +631,12 @@ tweets = api.search(
 
 ### Get media
 
-How to get images on tweets. This example is for the [Search API](#search-api) but can work for other methods too.
+How to get images on tweets. 
+
+?> This example is for the [Search API](#search-api) but can work for other methods too such as [User timeline](#get-a-user39s-timeline).
 
 
-Add entities to your request, then use the media value if one exists on entities.
+Add _entities_ to your request, then use the media value, if one exists on a tweet's entities.
 
 ```python
 cursor = tweepy.Cursor(
