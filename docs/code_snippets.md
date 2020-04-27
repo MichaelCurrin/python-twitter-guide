@@ -305,7 +305,9 @@ Get tweet.
 
 ```python
 original_tweet_id = tweet.in_reply_to_status_id
-original_tweet = api.get_status(original_tweet_id)
+
+if original_tweet_id is not None:
+    original_tweet = api.get_status(original_tweet_id)
 ```
 
 Get user.
