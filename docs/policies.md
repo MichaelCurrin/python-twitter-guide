@@ -3,13 +3,6 @@
 A guide to fair use of Twitter and the Twitter API by following their policies. Follow this guide to avoid abusing the API, getting your account rate-limited or get blocked because of doing actions which Twitter does not allow.
 
 
-## Dev app application
-
-When you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
-
-If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked. If you need to extend your app from say just searching to posting tweets or replying to users, you must request additional app permissions.
-
-
 ## Resources
 > Links to docs on Twitter dev and Twitter around automation and policies
 
@@ -42,13 +35,20 @@ When it comes to using the Twitter API and you are **not sure** if an action by 
 Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
 
 
+## Dev app application
+
+When you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
+
+If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked. If you need to extend your app from say just searching to posting tweets or replying to users, you must request additional app permissions.
+
+
 ## App restrictions
 
 Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using a bot, then you need to be careful that you follow the automation rules.
 
-It is recommended to create a new Twitter account when registering a dev, to avoid your account getting blocked.
+It is recommended to create a **new** Twitter account and use that to register a dev app, to avoid your main Twitter account getting blocked even from accidental violation of 0lppl
 
 Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NTAyMzA3NCwtMTI0Nzk2MjA5MV19
+eyJoaXN0b3J5IjpbMjE5MTk3NzcxLC0xMjQ3OTYyMDkxXX0=
 -->
