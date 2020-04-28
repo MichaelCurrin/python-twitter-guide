@@ -1,6 +1,6 @@
 # Twitter policies
 
-A guide to fair use of Twitter and the Twitter API by following their policies. Follow this guide to avoid abusing the API, getting your account rate-limit or blocked or annoying other Twitter users.
+A guide to fair use of Twitter and the Twitter API by following their policies. Follow this guide to avoid abusing the API, getting your account rate-limited or te5tt blocked because of doing actions which Twitterannoying other Twitter users.
 
 
 ## Dev app application
@@ -50,6 +50,5 @@ It is recommended to create a new Twitter account when registering a dev, to avo
 
 Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTk4Mjk5NTEsLTEyNDc5NjIwOTFdfQ
-==
+eyJoaXN0b3J5IjpbOTAxMDk0MjUyLC0xMjQ3OTYyMDkxXX0=
 -->
