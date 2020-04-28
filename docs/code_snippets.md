@@ -564,7 +564,7 @@ Example usage:
 
 The Twitter Search API lets you get tweets made in the past 7 to 10 days. The approaches below take you from getting 20 tweets to thousands of tweets.
 
->? If you want a live stream of tweets, see [Streaming](#streaming) section.
+?. If you want a live stream of tweets, see the [Streaming](#streaming) section.
 
 ### Query syntax
 
@@ -588,18 +588,21 @@ Some examples to demonstrate common use of the search syntax.
     - `'foo`
     - `#foo`
     - `@some_handle`
-- Require all terms. Note that `AND` logic is implied. And the order does not matter.
+- Require _all terms_. Note that `AND` logic is implied. The order does not matter.
     - `foo bar baz`
     - `to:some_handle foo`
     - `from:some_handle foo`
-- Require any term. Using `OR` keyword.
+- Require _at least one term_ - uses the `OR` keyword.
     - `foo OR bar`
     - `#foo OR bar`
-- Exclusion
+- Exclusion - Using leading minus sign.
     - `foo -bar`
-- Require all groups, using brackets.
-    - `(foo OR bar) (spam OR eggs)`
-    - `(foo OR bar) -(spam OR eggs)`
+- Groups
+    - Require _all groups_.
+        - `(foo OR bar) (spam OR eggs)`
+        - `(foo OR bar) -(spam OR eggs)`
+    - Require _any group_.
+        - `(foo OR bar) OR (spam OR eggs)`
 - Exact match on a phrase
     - `"Foo bar"`
     - `"Foo bar" OR "Fizz buzz" OR spam`
