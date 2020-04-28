@@ -73,7 +73,7 @@ pip install tweepy
 
 Now you can import Tweepy within the context of your project's virtual environment. A one-liner to test `tweepy`:
 
-```sh
+```bash
 python -c 'import tweepy; print("It works!")
 ```
 
@@ -886,5 +886,5 @@ The Twitter API will look for a tweet which contains _at least one_ of the items
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track**).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjY3MjgwNjddfQ==
+eyJoaXN0b3J5IjpbOTUzNzY3MjI4XX0=
 -->
