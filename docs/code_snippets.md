@@ -482,7 +482,9 @@ A novel way to make replies without hitting policy restrictions is to make a twe
 
 #### Can I reply to a tweet or @mention someone?
 
->! The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
+Yes, but only if they have first messaged you. The Twitter automation [policy](policies.md is **strict** on this. Please make sure you understand it before replying to tweets. 
+
+Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will likely get your account shutdown.
 
 #### Can I make a plain tweet?
 
@@ -565,7 +567,7 @@ Example usage:
 
 The Twitter Search API lets you get tweets made in the past 7 to 10 days. The approaches below take you from getting 20 tweets to thousands of tweets.
 
-?. If you want a live stream of tweets, see the [Streaming](#streaming) section.
+?> If you want a live stream of tweets, see the [Streaming](#streaming) section.
 
 ### Query syntax
 
@@ -675,7 +677,7 @@ for tweet in tweets:
     process_tweet(tweet)
 ```
 
-#### Get more tweets
+#### Get a page of 100 tweets
 
 With search API, you can specify a max of up to `100` items (tweets) per page. The other endpoints like user timelines seem to mostly allow up to `200` items on a page.
 
@@ -686,11 +688,13 @@ tweets = api.search(
 )
 ```
 
-If you want to get the _next_ 100 tweets after that, you could get the ID of the last tweet and use that to start the search at the next page, modified with `since_id=last_tweet_id-1`. You'd also have to check when there are no Tweets left and then stop searching.
+If you want to get the _next_ 100 tweets after that, you could get the ID of the last tweet and use that to start the search at the next page, modified with `since_id=last_tweet_id-1`. You'd also have to check when there are no Tweets left and then stop searching. However, it is much more practical to use Tweepy's **Cursor** approach to do paging, covered next.
 
-However, it is much more practical to use Tweepy's **Cursor** approach to do paging. This lets Tweepy do multiple requests for tweets - allowing you get thousands of tweets.
+#### Get many tweets using paging
 
-!> Twitter API imposes rate limiting to prevent abuse. So after you've met your quota of searches (whether new searches or paging on one search) in a 15 minute window, you'll have to wait before it resets and do more queries. This waiting can be turned on as covered in [Installation](#installation) section.
+This approach using the [Paging](#paging) approach to do multiple requests for pages of up to 100 tweets each, allowing you get thousands of tweets.
+
+!> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as covered in [Installation](#installation) section.
 
 ```python
 cursor = tweepy.Cursor(api.search, count=100)
