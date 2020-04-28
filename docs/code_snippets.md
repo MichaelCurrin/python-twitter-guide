@@ -164,7 +164,7 @@ If you are doing automation for a task like search, which doesn't need a concept
 
 You can start using the application-only approach without hassle, but if you are interested to learn you can read the  [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
 
-> As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information. 
+> As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information. 
 >
 > API calls using app-only authentication are rate limited per API method at the app level. [source](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0)
 
@@ -556,7 +556,7 @@ Twitter has a flexible search syntax for using "and" / "or" logic and quoting ph
 See links to Twitter API docs:
 
 - [Build a standard query](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/build-standard-queries).
-- [Rules and filtering](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/using-premium-operators).
+- [Rules and filtering](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/build-standard-queries).
 
 
 ?> You can test a search query out in the Twitter search bar before trying it in the API.
@@ -653,7 +653,6 @@ Set `result_type` to one of the following, according to Twitter API:
 - `popular`- The tweets with the highest engagements. Note that this list might be very short - just a few tweets - compared with running the `recent` query query.
 - `mixed` - A balance of the other two. Default option.
 
-
 ```python
 result_type = "popular"
 
@@ -696,3 +695,6 @@ for tweet in cursor:
 
 - [Tweepy docs Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html).
 - [Tweepy examples/streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) script.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMzkwMTI1NTJdfQ==
+-->
