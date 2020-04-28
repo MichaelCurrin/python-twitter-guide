@@ -579,13 +579,40 @@ Twitter API docs on search.
 
 ?> You can test a search query out in the Twitter search bar before trying it in the API.
 
-Here we choose a high volume term for testing but you can choose anything.
 
-e.g.
+### Search query examples
 
-```python
-query = "python"
-```
+Some examples to demonstrate common use of the search syntax.
+
+- Single term
+    - `'foo`
+    - `#foo`
+    - `@some_handle`
+- Require all terms. Note that `AND` logic is implied. And the order does not matter.
+    - `foo bar baz`
+    - `to:some_handle foo`
+    - `from:some_handle foo`
+- Require any term. Using `OR` keyword.
+    - `foo OR bar`
+    - `#foo OR bar`
+- Exclusion
+    - `foo -bar`
+- Require all groups, using brackets.
+    - `(foo OR bar) (spam OR eggs)`
+    - `(foo OR bar) -(spam OR eggs)`
+- Exact match on a phrase
+    - `"Foo bar"`
+    - `"Foo bar" OR "Fizz buzz" OR spam`
+    
+?> Searching is case **insensitive**.
+
+?> The `to` and `from` operators are provided by the Twitters docs. Using `@some_handle` might provide the same as `to:some_handle` but I have not tested. Using `@some_handle` might include tweets by the user too. 
+
+?> When looking up a user, you may wish to _leave off_ the `@` to get more results which are still relevant, provided the handle is not a common word. I found this increase the volume.
+
+?> When combing `AND` and `OR` functionality in a single rule, the `AND` logic is evaluated first. Such that `foo OR bar fizz`  is equivalent to `foo OR (bar fizz)`. Though, braces are preferred for readability.
+
+?> Note for the last example above that double-quoted phrases must be *before* ordinary terms, due to a known Twitter Search API bug. 
 
 
 ### Tweepy search method
@@ -598,6 +625,30 @@ query = "python"
     - That section explains how it works and what the method parameters do.
 
 
+#### Define query
+
+
+Create a variable which contains your query. The query should be a single string, not a list, and should match exactly what you'd put in the Twitter.com search bar (which also makes it easy to test).
+
+
+**Examples:**
+
+- Basic.
+    ```python
+    query = "#python"
+    ```
+- Complex - Use the rules linked above or see the [Query syntax](#query-syntax) section.
+    ```python
+    query = "foo bar"
+    
+    query = "foo OR bar"
+    ```
+- A quoted phrase - just change the outside to single quotes.
+    ```python
+    query = '"foo bar"'
+    ```
+
+
 #### Basic
 
 Return tweets for a search query. Only gives 20 tweets by default, so read on to get more.
@@ -605,6 +656,8 @@ Return tweets for a search query. Only gives 20 tweets by default, so read on to
 ```python
 tweets = api.search(query)
 ```
+
+Example of iterating over the results in `tweets` object:
 
 ```python
 def process_tweet(tweet):
