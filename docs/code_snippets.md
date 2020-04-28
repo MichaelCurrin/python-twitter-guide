@@ -184,11 +184,12 @@ There are two way to do an application-only flow and get a App Access Token.
     api = tweepy.API(auth)
     ```
 
-#### User flow
+#### User auth flow
 
 You can let a user sign in on the browser side of a web app, or in the command-line for a local terminal-based application. This is not necessary for doing searches or making a bot but is necessary if you want to perform actions on behalf of the user with their permission (such as a liking a Tweet in a mobile app you made).
 
 The user will sign into Twitter and then will get a number to enter. The flow here is more complex. Read more [here](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-1a-authentication)
+
 
 ## Tweepy API overview
 
@@ -207,7 +208,7 @@ The methods on `tweepy.API`  also include some useful links in their docstrings,
 api.me()
 ```
 
-### Get author of a tweet
+### Get the author of a tweet
 
 Whenever you have a tweet object you can find the profile that authored the tweet, without a doing a further API call.
 
@@ -273,10 +274,26 @@ users = api.lookup_users(user_ids=user_ids)
 
 ?> The endpoint only lets you request up to 100 IDs at once, so you'll never than more than one page of results. Therefore you get more results, you should batch your IDs into groups of 100 and then lookup each group.
 
+### Search for user
+
+```python
+users = api.search_users(q, count=20)
+```
+
+The count argument may not be greater than 20 according to Tweepy docs, but you may use paging.
+
+?> Tweepy docs: [API.search_users](http://docs.tweepy.org/en/latest/api.html#API.search_users)
+
 
 ## Find tweets
 
-See also [Search API](#search-api) section to lookup tweets matching keywords or hashtags or directed at a user
+?> If you want to do a search for tweets based on hashtags or phrases or that are directed at a user, go to the [Search API](#search-api) section.
+
+**Links:**
+
+- Twitter API: [Timelines overview](https://developer.twitter.com/en/docs/tweets/timelines/overview)
+- Twitter API: [Post, retrieve, and engage with Tweets](https://developer.twitter.com/en/docs/tweets/post-and-engage/overview)
+
 
 ### Get my timeline
 
@@ -573,6 +590,14 @@ query = "python"
 
 ### Tweepy search method
 
+
+**Links to docs:**
+
+- Twitter API  docs: [Standard search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets).
+- Tweepy docs: [API.search](http://docs.tweepy.org/en/latest/api.html#API.search)
+    - That section explains how it works and what the method parameters do.
+
+
 #### Basic
 
 Return tweets for a search query. Only gives 20 tweets by default, so read on to get more.
@@ -697,6 +722,5 @@ for tweet in cursor:
 
 - [Tweepy docs Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html).
 - [Tweepy examples/streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) script.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMjMwNTg1NCw3OTc2MDgyMTJdfQ==
--->
+- Twitter API docs [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
+    - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
