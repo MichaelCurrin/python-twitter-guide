@@ -882,6 +882,6 @@ The Twitter API will look for a tweet which contains _at least one_ of the items
 
 !> You **cannot** use quoted phrases. The API doc says: "Exact matching of phrases (equivalent to quoted phrases in most search engines) is not supported.".
 
->? UTF-8 characters are supported. e.g. `Twitter’s`.
+?> UTF-8 characters are supported. e.g. `Twitter’s`.
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track**).
