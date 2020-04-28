@@ -18,16 +18,6 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 These terms will be used interchangeably in this guide.
 
 
-## Paging
-
-Follow the Tweepy tutorial to get familiar with how to use a Cursor to do paging - iterate over multiple pages of items of say 100 tweets each.
-
-
-http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
-
-The tutorial also explains truncated and full text.
-
-
 ## Installation
 > How to install Tweepy
 
@@ -198,6 +188,17 @@ The `api` object returned in the auth section above will cover most of your need
 The `api` object is an instance of `tweepy.API` class and is covered in the docs here and is useful to see the allowed parameters, how they are used and what is returned.
 
 The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
+
+
+
+## Paging
+
+Follow the Tweepy tutorial to get familiar with how to use a Cursor to do paging - iterate over multiple pages of items of say 100 tweets each.
+
+
+http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
+
+The tutorial also explains truncated and full text.
 
 
 ## Users
