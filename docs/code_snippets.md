@@ -8,6 +8,7 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 ?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
 
+
 ## Naming conventions
 
 - A tweet is called a status in the API and Tweepy.
@@ -28,28 +29,35 @@ The tutorial also explains truncated and full text.
 
 
 ## Installation
+> How to install Tweepy
 
-### Install Tweepy for your own projects
+Using your shell (PowerShell or Bash/ZSH), install the Tweepy Python package so that you can run it inside Python code in the rest of this guide.
 
-If you are new to Python or virtual environments, read through this guide for more background on the instructions below.
+I strongly recommend installing Tweepy in a virtual environment and not using a global install.
 
-- [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
+!> Avoid using the `sudo` command to become root and install with elevated privileges. i.e. Leave out `sudo` here: `sudo pip install ...`. Since running `sudo` allows a package to run malicious code at the root level including deleting files or installing a virus.
 
-
-#### Install system dependencies
-
-<!-- TODO: Link to Learn to Code project when links are updated -->
-
-Install [Python 3](python.org/).
+>? If you are new to Python or virtual environments, I recommend that you read through this guide for more background on the instructions covered below. [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
 
 
-#### Install Python packages
+### Install system dependencies
+
+<!-- TODO: Link to Learn to Code project or gist when links are updated -->
+
+Install [Python 3](https://python.org/).
+
+
+### Install Python packages
+
+Navigate to your project root folder.
 
 ```bash
 cd my-project
 ```
 
-Create a virtual environment. Here we use the `venv` tool which built-in for Python 3, but you can use something else.
+Create a virtual environment named `venv`.
+
+?> Here we use the builtin `venv` tool, but you can use something else like Pipenv if you like.
 
 ```bash
 python3 -m venv venv
@@ -60,6 +68,7 @@ Activate the virtual environment.
 ```bash
 # Linux and macOS
 source venv/bin/activate
+
 # Windows
 source venv\Scripts\activate
 ```
