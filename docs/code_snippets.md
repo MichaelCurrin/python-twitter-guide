@@ -12,14 +12,14 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 ## Naming conventions
 
 - A tweet is called a status in the API and Tweepy.
-- A profile is called a user.
-- A username is called in a screen name.
+- A profile is called a user or author. 
+- A username is called a screen name.
 
 These terms will be used interchangeably in this guide.
 
 
 ## Installation
-> How to install Tweepy    
+> How to install Tweepy on Windows and macOS / Linux
 
 Using your shell (PowerShell or Bash/ZSH), install the Tweepy Python package so that you can run it inside Python code in the rest of this guide.
 
@@ -886,5 +886,5 @@ The Twitter API will look for a tweet which contains _at least one_ of the items
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track**).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MDE2ODI3XX0=
+eyJoaXN0b3J5IjpbLTE1MjY3MjgwNjddfQ==
 -->
