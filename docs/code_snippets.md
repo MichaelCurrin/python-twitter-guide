@@ -553,13 +553,12 @@ The Twitter Search API lets you get tweets made in the past 7 to 10 days. The ap
 
 Twitter has a flexible search syntax for using "and" / "or" logic and quoting phrases.
 
-See links to Twitter API docs. 
-
-Be sure to use the _standard_ docs as the _premium_ operators do not work on the free search services.
+Twitter API docs on search.
 
 - [Overview of standard operators](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators).
 - [Guide to build standard queries](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/build-standard-queries).
 
+?> Be sure to use the _standard_ docs as the _premium_ operators do not work on the free search services.
 
 ?> You can test a search query out in the Twitter search bar before trying it in the API.
 
@@ -570,6 +569,9 @@ e.g.
 ```python
 query = "python"
 ```
+
+### Examples
+
 
 ### Tweepy search method
 
@@ -698,5 +700,5 @@ for tweet in cursor:
 - [Tweepy docs Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html).
 - [Tweepy examples/streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIxMTYxMDYxXX0=
+eyJoaXN0b3J5IjpbOTIxMjc4MDA4XX0=
 -->
