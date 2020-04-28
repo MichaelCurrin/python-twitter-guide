@@ -14,7 +14,8 @@ A guide to fair use of Twitter and the Twitter API by following their policies. 
     - Reads as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
     - This reads more like an easy to follow blog post, with chapters.
-- [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits)
+- [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits) docs
+- [Rate limits per endpoint](https://developer.twitter.com/en/docs/basics/rate-limits)
 
 ### Twitter.com docs
 
@@ -52,5 +53,5 @@ It is recommended to create a **new** Twitter account and use that to register a
 
 Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMzQ2NTc4NywtMTI0Nzk2MjA5MV19
+eyJoaXN0b3J5IjpbMzQzMjgyMjYxLC0xMjQ3OTYyMDkxXX0=
 -->
