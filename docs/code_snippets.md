@@ -33,9 +33,9 @@ The tutorial also explains truncated and full text.
 
 Using your shell (PowerShell or Bash/ZSH), install the Tweepy Python package so that you can run it inside Python code in the rest of this guide.
 
-I strongly recommend installing Tweepy in a virtual environment and not using a global install.
+I strongly recommend installing Tweepy in a virtual environment and not using a global install for your user or root user.
 
-!> Avoid using the `sudo` command to become root and install with elevated privileges. i.e. Leave out `sudo` here: `sudo pip install ...`. Since running `sudo` allows a package to run malicious code at the root level including deleting files or installing a virus.
+!> Avoid using the `sudo` command to become root and install with elevated privileges. i.e. Leave out `sudo` here: `sudo pip install ...`. Since running `sudo` allows a package to run malicious code at the root level including deleting files or installing a virus. If you _really_ want to install at the global level for your user and `pip install PACKAGE` gives an error, add `--user` flag.
 
 >? If you are new to Python or virtual environments, I recommend that you read through this guide for more background on the instructions covered below. [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
 
@@ -57,7 +57,7 @@ cd my-project
 
 Create a virtual environment named `venv`.
 
-?> Here we use the builtin `venv` tool, but you can use something else like Pipenv if you like.
+?> Here we use the builtin `venv` tool after the `-m` module flag, but you can use something else like Pipenv if you like.
 
 ```bash
 python3 -m venv venv
@@ -79,6 +79,8 @@ Install Tweepy into the virtual environment.
 pip install tweepy
 ```
 
+?> You're already inside a sandboxes Python 3 environment so no need to specify `pip3` or `sudo`.
+
 Now you can import Tweepy within the context of your project's virtual environment. A one-liner to test `tweepy`:
 
 ```sh
@@ -95,21 +97,23 @@ See also the [Authentication](http://docs.tweepy.org/en/latest/auth_tutorial.htm
 
 ### Setup credentials
 
-Dummy values:
+Paste each of the four values from your credentials in your code like this. Replace the dummy values in quotes with your own values.
 
 ```python
-CONSUMER_KEY = ''
-CONSUMER_SECRET = ''
-ACCESS_KEY = ''
-ACCESS_SECRET = ''
+CONSUMER_KEY = 'abc'
+CONSUMER_SECRET = 'def'
+ACCESS_KEY = 'foo'
+ACCESS_SECRET = 'bar'
 ```
 
-Make sure to **never** includes these in version control (repo commits). They can be stored in an unversioned config file (ignored by `.gitignore`) or using environment variables.
+!> Make sure to **never** includes these in version control (repo commits). They can be stored in an unversioned config file (ignored by `.gitignore`) or using environment variables.
 
-A typical config setup would be one of these:
+A typical setup is to store your credentials in a config file ignored by `git`, rather than in a Python script. Here are some options:
 
 - `.env` - Shell script of properties. Readable from the shell or a Python package (e.g. `dotenv`).
-- `config_local.yaml` - A YAML config file. Readable using PyYAML.
+- `config_local.ini` - A config file readable using the builtin ConfigParser in Python.
+- `config_local.yaml` - A YAML config file. Readable using the PyYAML library once that is installed.
+
 
 ### Simple usage
 
