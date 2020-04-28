@@ -570,8 +570,6 @@ e.g.
 query = "python"
 ```
 
-### E
-
 
 ### Tweepy search method
 
@@ -700,5 +698,5 @@ for tweet in cursor:
 - [Tweepy docs Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html).
 - [Tweepy examples/streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk3NjA4MjEyXX0=
+eyJoaXN0b3J5IjpbLTYwMjMwNTg1NCw3OTc2MDgyMTJdfQ==
 -->
