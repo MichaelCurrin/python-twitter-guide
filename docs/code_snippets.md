@@ -458,7 +458,7 @@ A novel way to make replies without hitting policy restrictions is to make a twe
 If you just want to make a tweet message without replying or mentioning, you are allowed to do this using the API. For example a bot which posts content daily from reddit or a weather or finance service.
 
 
-### Message only
+### Tweet a text message
 
 ```python
 msg = 'Hello, world!'
@@ -469,9 +469,18 @@ tweet = api.update_status(msg)
 - Tweepy docs link: [API.update_status](http://docs.tweepy.org/en/latest/api.html#API.update_status).
 - Twitter API endpoint: [POST statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update)
 
-### Message with media
 
-Upload an image or animated GIF on disk.
+To choose a random text message:
+
+
+```python
+msgs = ["Foo", "Bar baz")
+msg = randon.choice(msgs)
+```
+
+### Tweet a message with media
+
+Upload an image or animated GIF.
 
 ```python
 media_path = 'foo.gif'
