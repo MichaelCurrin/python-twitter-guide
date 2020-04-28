@@ -775,9 +775,109 @@ for tweet in cursor:
 
 ## Streaming
 
-**Links:**
+This section focuses on the free streaming API service. There are other premium services available, covered in Twitter's dev docs.
 
-- [Tweepy docs Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html).
-- [Tweepy examples/streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) script.
-- Twitter API docs [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
-    - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
+### Resources
+
+- Tweepy
+    - [Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html) in the docs.
+    - [streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) example script in the repo.
+    - [streaming.py](https://github.com/tweepy/tweepy/blob/tweepy/streaming.py) script in the repo. This is useful to find or override existing methods.
+        - See [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class.
+        - See [Stream](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L209) class and [Stream.filter](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L451-L474) method.
+     - [test_streaming.py](https://github.com/tweepy/tweepy/blob/master/tests/test_streaming.py) - Python tests for `streaming` module.
+- Twitter API docs
+    - [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
+        - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
+    - [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters)
+
+
+### Setup stream  object
+
+Based on the script in the [tweepy/examples](https://github.com/tweepy/examples/) repo.
+
+See the original [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class.
+
+```python
+import tweepy
+
+
+class StreamWatcherListener(tweepy.StreamListener):
+
+    status_wrapper = TextWrapper(width=60, initial_indent='    ', subsequent_indent='    ')
+
+    def on_status(self, status):
+        try:
+            print(self.status_wrapper.fill(status.text))
+            print('\n %s  %s  via %s\n' % (status.author.screen_name, status.created_at, status.source))
+        except:
+            # Catch any unicode errors while printing to console
+            # and just ignore them to avoid breaking application.
+            pass
+
+    def on_error(self, status_code):
+        print('An error has occured! Status code = %s' % status_code)
+        
+        return True  # keep stream alive
+
+    def on_timeout(self):
+        print('Snoozing Zzzzzz')
+      
+
+auth = tweepy.auth.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+stream = tweepy.Stream(
+    auth, 
+    StreamWatcherListener(), 
+    timeout=None
+)
+```
+
+Follow the sections below to start streaming using the `stream` object.
+
+
+### Follow tweets by users
+
+Use the **follow** parameter the IDs of one or more Twitter users
+
+!> Do not use Twitter handles. 
+
+If you need to the get ID of a user, use:
+
+```python
+user = api.get_user(screen_name=screen_name)
+user_id = user.id
+```
+
+In Tweepy, this must be a `list` of strings.
+
+e.g.
+
+```python
+user_ids = ["1234567", "456789", "9876543"]
+
+streamer.filter(follow=user_ids)
+```
+
+?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow**).
+
+
+### Follow tweets by content
+
+Use the **track** parameter and one or more terms.
+
+Example:
+
+```python
+track = ["foo", "#bar", "fizz buzz", "example.com"]
+
+streamer.filter(track=track)
+```
+
+The Twitter API will look for a tweet which contains _at least one_ of the items in the list, so it uses `OR` logic. Use a space between words in a string to use `AND` logic.
+
+!> You **cannot** use quoted phrases. The API doc says: "Exact matching of phrases (equivalent to quoted phrases in most search engines) is not supported.".
+
+>? UTF-8 characters are supported. e.g. `Twitter’s`.
+
+?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track**).
