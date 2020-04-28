@@ -15,7 +15,7 @@ If you use your app for something not allowed by the Twitter policies or beyond 
 
 ### Twitter developer docs
 
-- [developer.twitter.com](https://developer.twitter.com/en/docs) homepage
+- [developer.twitter.com docs](https://developer.twitter.com/en/docs) homepage
 - [Developer agreement and policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy)
     - Read as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
@@ -49,5 +49,5 @@ It is recommended to create a new Twitter account when registering a dev, to avo
 
 Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzYyODU2NTVdfQ==
+eyJoaXN0b3J5IjpbNDk0Mzc2OTUwXX0=
 -->
