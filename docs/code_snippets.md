@@ -19,7 +19,7 @@ These terms will be used interchangeably in this guide.
 
 
 ## Installation
-> How to install Tweepy
+> How to install Tweepy    
 
 Using your shell (PowerShell or Bash/ZSH), install the Tweepy Python package so that you can run it inside Python code in the rest of this guide.
 
@@ -885,3 +885,6 @@ The Twitter API will look for a tweet which contains _at least one_ of the items
 ?> UTF-8 characters are supported. e.g. `Twitter’s`.
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track**).
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTM1MDE2ODI3XX0=
+-->
