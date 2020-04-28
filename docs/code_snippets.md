@@ -850,7 +850,7 @@ If you need to the get ID of a user, use:
 
 ```python
 user = api.get_user(screen_name=screen_name)
-user_id = user.id
+user_id = user.id_str
 ```
 
 In Tweepy, this must be a `list` of strings.
@@ -860,7 +860,7 @@ e.g.
 ```python
 user_ids = ["1234567", "456789", "9876543"]
 
-streamer.filter(follow=user_ids)
+stream.filter(follow=user_ids)
 ```
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow**).
@@ -875,7 +875,7 @@ Example:
 ```python
 track = ["foo", "#bar", "fizz buzz", "example.com"]
 
-streamer.filter(track=track)
+stream.filter(track=track)
 ```
 
 The Twitter API will look for a tweet which contains _at least one_ of the items in the list, so it uses `OR` logic. Use a space between words in a string to use `AND` logic.
