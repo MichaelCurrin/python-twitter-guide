@@ -553,6 +553,11 @@ The Twitter Search API lets you get tweets made in the past 7 to 10 days. The ap
 
 Twitter has a flexible search syntax for using "and" / "or" logic and quoting phrases.
 
+See links to Twitter API docs:
+
+- [Build a standard query](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/build-standard-queries).
+- [Rules and filtering](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/using-premium-operators).
+
 
 ?> You can test a search query out in the Twitter search bar before trying it in the API.
 
