@@ -15,14 +15,14 @@ If you use your app for something not allowed by the Twitter policies or beyond 
 
 ### Twitter developer docs
 
-- [Twitter Developer docs](https://developer.twitter.com/en/docs) homepage
+- [developer.twitter.com](https://developer.twitter.com/en/docs) homepage
 - [Developer agreement and policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy)
     - Read as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
     - This reads more like a blog post, with chapters.
 
 
-### Twitter.com
+### Twitter.com docs
 
 - [Terms of service](https://twitter.com/en/tos)
 - [Twitter help center](https://help.twitter.com)
@@ -48,3 +48,6 @@ Your dev app may get restricted or deactivated if you regularly exceed API limit
 It is recommended to create a new Twitter account when registering a dev, to avoid your account getting blocked.
 
 Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyMzYyODU2NTVdfQ==
+-->
