@@ -545,11 +545,16 @@ Example usage:
 
 ## Search API
 
-The Twitter Search API lets you get tweets made in the past 7 to 10 days.
+The Twitter Search API lets you get tweets made in the past 7 to 10 days. The approaches below take you from getting 20 tweets to thousands of tweets.
+
+>? If you want a live stream of tweets, see [Streaming](#streaming) section.
 
 ### Query syntax
 
-You can test a search query out in the Twitter search bar before trying it in the API.
+Twitter has a flexible search syntax for using "and" / "or" logic and quoting phrases.
+
+
+?> You can test a search query out in the Twitter search bar before trying it in the API.
 
 Here we choose a high volume term for testing but you can choose anything.
 
@@ -563,7 +568,7 @@ query = "python"
 
 #### Basic
 
-Return tweets for a search query. Only gives 20 tweets.
+Return tweets for a search query. Only gives 20 tweets by default, so read on to get more.
 
 ```python
 tweets = api.search(query)
@@ -594,7 +599,9 @@ tweets = api.search(
 
 If you want to get the _next_ 100 tweets after that, you could get the ID of the last tweet and use that to start the search at the next page, modified with `since_id=last_tweet_id-1`. You'd also have to check when there are no Tweets left and then stop searching.
 
-However, it is much more practical to use Tweepy's **cursor** approach to do paging.
+However, it is much more practical to use Tweepy's **Cursor** approach to do paging. This lets Tweepy do multiple requests for tweets - allowing you get thousands of tweets.
+
+!> Twitter API imposes rate limiting to prevent abuse. So after you've met your quota of searches (whether new searches or paging on one search) in a 15 minute window, you'll have to wait before it resets and do more queries. This waiting can be turned on as covered in [Installation](#installation) section.
 
 ```python
 cursor = tweepy.Cursor(api.search, count=100)
