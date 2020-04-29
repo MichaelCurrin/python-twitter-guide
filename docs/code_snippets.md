@@ -685,6 +685,13 @@ Return tweets for a search query. Only gives 20 tweets by default, so read on to
 tweets = api.search(query)
 ```
 
+Or use `q` explicitly for the same result.
+
+```python
+tweets = api.search(q=query)
+```
+
+
 Example of iterating over the results in `tweets` object:
 
 ```python
@@ -719,7 +726,11 @@ This approach using the [Paging](#paging) approach to do multiple requests for p
 !> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as covered in [Installation](#installation) section.
 
 ```python
-cursor = tweepy.Cursor(api.search, count=100)
+cursor = tweepy.Cursor(
+    api.search, 
+    query,
+    count=100
+)
 ```
 
 In both examples below, we process 500 tweets (assuming there are actually 500 tweets out there matching the search).
@@ -765,10 +776,11 @@ Set `result_type` to one of the following, according to Twitter API:
 
 ```python
 result_type = "popular"
+count = 100
 
 tweets = api.search(
     query,
-    count=100,
+    count=count,
     result_type=result_type
 )
 ```
@@ -787,8 +799,8 @@ Add _entities_ to your request (this may not always be needed on some endpoints)
 ```python
 cursor = tweepy.Cursor(
     api.search,
-    q=query,
-    count=100
+    query,
+    count=count
     include_entities=True
 )
 
