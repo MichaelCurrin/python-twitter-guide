@@ -834,7 +834,7 @@ class MyStreamListener(tweepy.StreamListener):
         print(status.text)
 ```
 
-?> In some guides this class is named `_StdOutListener`.
+?> Some people name this class as `_StdOutListener`.
 
 
 ### Setup stream instance
