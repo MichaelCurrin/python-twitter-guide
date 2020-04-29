@@ -820,7 +820,12 @@ This section focuses on the free streaming API service. There are other premium 
 
 ### Setup stream listener class
 
-In some guides this class is named `_StdOutListener`.
+Create a class which inherits from [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30).
+
+Most of the methods just return, so you will need to override methods to handle statuses and errors.
+
+?> There are a couple of errors which can happen so they are not handled here - see the original class linked above for what methods there are or see the examples at the end of this section.
+
 
 ```python
 class MyStreamListener(tweepy.StreamListener):
@@ -829,7 +834,7 @@ class MyStreamListener(tweepy.StreamListener):
         print(status.text)
 ```
 
-You can view the original [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class in the Tweepy repo.
+?> In some guides this class is named `_StdOutListener`.
 
 
 ### Setup stream instance
