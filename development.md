@@ -35,7 +35,7 @@ If your changes are simple enough you can even make them all on Github without s
 
 1. Install [NPM](https://npmjs.com/).
 2. Clone the repo (see the _Clone or download_ button on the repo's main page) and navigate to the project root.
-3. Install node dependencies (just Docsify CLI).
+3. Install node dependencies (just Docsify CLI). This can be run from the VS Code task too.
     ```sh
     $ npm install
     ```
@@ -43,7 +43,7 @@ If your changes are simple enough you can even make them all on Github without s
 
 ### Usage
 
-1. Run this command in the project root to serve the [docs](/docs) directory.
+1. Serve the [docs](/docs) directory. This can be run from the configured VS Code task too.
     ```sh
     $ npm start
     ```
