@@ -12,7 +12,7 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 ## Naming conventions
 
 - A tweet is called a status in the API and Tweepy.
-- A profile is called a user or author. 
+- A profile is called a user or author.
 - A username is called a screen name.
 
 These terms will be used interchangeably in this guide.
@@ -154,7 +154,7 @@ If you are doing automation for a task like search, which doesn't need a concept
 
 You can start using the application-only approach without hassle, but if you are interested to learn you can read the  [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
 
-> As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information. 
+> As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information.
 >
 > API calls using app-only authentication are rate limited per API method at the app level. [source](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0)
 
@@ -253,6 +253,28 @@ user.id
 
 user.followers_count
 # => 99
+```
+
+
+### Lookup user ID for a screen name
+
+
+```python
+user = api.get_user(screen_name='foo')
+```
+
+Get ID as an `int`. You will probably be find with this in most cases.
+
+```python
+user_id = user.id
+# 1234567
+```
+
+Get ID as a `str`. Useful for streaming
+
+```python
+user_id = user.id_str
+# "1234567"
 ```
 
 #### Lookup many profiles
@@ -482,7 +504,7 @@ A novel way to make replies without hitting policy restrictions is to make a twe
 
 #### Can I reply to a tweet or @mention someone?
 
-Yes, but only if they have first messaged you. The Twitter automation [policy](policies.md is **strict** on this. Please make sure you understand it before replying to tweets. 
+Yes, but only if they have first messaged you. The Twitter automation [policy](policies.md is **strict** on this. Please make sure you understand it before replying to tweets.
 
 Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will likely get your account shutdown.
 
@@ -609,16 +631,16 @@ Some examples to demonstrate common use of the search syntax.
 - Exact match on a phrase
     - `"Foo bar"`
     - `"Foo bar" OR "Fizz buzz" OR spam`
-    
+
 ?> Searching is case **insensitive**.
 
-?> The `to` and `from` operators are provided by the Twitters docs. Using `@some_handle` might provide the same as `to:some_handle` but I have not tested. Using `@some_handle` might include tweets by the user too. 
+?> The `to` and `from` operators are provided by the Twitters docs. Using `@some_handle` might provide the same as `to:some_handle` but I have not tested. Using `@some_handle` might include tweets by the user too.
 
 ?> When looking up a user, you may wish to _leave off_ the `@` to get more results which are still relevant, provided the handle is not a common word. I found this increase the volume.
 
 ?> When combing `AND` and `OR` functionality in a single rule, the `AND` logic is evaluated first. Such that `foo OR bar fizz`  is equivalent to `foo OR (bar fizz)`. Though, braces are preferred for readability.
 
-?> Note for the last example above that double-quoted phrases must be *before* ordinary terms, due to a known Twitter Search API bug. 
+?> Note for the last example above that double-quoted phrases must be *before* ordinary terms, due to a known Twitter Search API bug.
 
 
 ### Tweepy search method
@@ -646,7 +668,7 @@ Create a variable which contains your query. The query should be a single string
 - Complex - Use the rules linked above or see the [Query syntax](#query-syntax) section.
     ```python
     query = "foo bar"
-    
+
     query = "foo OR bar"
     ```
 - A quoted phrase - just change the outside to single quotes.
@@ -796,79 +818,63 @@ This section focuses on the free streaming API service. There are other premium 
     - [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters)
 
 
-### Setup stream  object
+### Setup stream listener class
 
-Based on the script in the [tweepy/examples](https://github.com/tweepy/examples/) repo.
-
-See the original [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class.
+In some guides this class is named `_StdOutListener`.
 
 ```python
-import tweepy
-
-
-class StreamWatcherListener(tweepy.StreamListener):
-
-    status_wrapper = TextWrapper(width=60, initial_indent='    ', subsequent_indent='    ')
+class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        try:
-            print(self.status_wrapper.fill(status.text))
-            print('\n %s  %s  via %s\n' % (status.author.screen_name, status.created_at, status.source))
-        except:
-            # Catch any unicode errors while printing to console
-            # and just ignore them to avoid breaking application.
-            pass
-
-    def on_error(self, status_code):
-        print('An error has occured! Status code = %s' % status_code)
-        
-        return True  # keep stream alive
-
-    def on_timeout(self):
-        print('Snoozing Zzzzzz')
-      
-
-auth = tweepy.auth.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-stream = tweepy.Stream(
-    auth, 
-    StreamWatcherListener(), 
-    timeout=None
-)
+        print(status.text)
 ```
 
-Follow the sections below to start streaming using the `stream` object.
+You can view the original [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class in the Tweepy repo.
+
+
+### Setup stream instance
+
+```python
+myStreamListener = MyStreamListener()
+stream = tweepy.Stream(auth=auth, listener=myStreamListener)
+```
+
+Some people do this in one line instead:
+
+```python
+stream = tweepy.Stream(auth=auth, listener=MyStreamListener())
+```
+
+### Start streaming
+
+Follow the sections below to start streaming with the `stream` object.
+
+?> Only the `.filter` method is covered here as that is accessible without a premium account.
 
 
 ### Follow tweets by users
 
-Use the **follow** parameter the IDs of one or more Twitter users
+Get the user IDs of one or more Twitter users to follow.
 
-!> Do not use Twitter handles. 
+?> Do not use Twitter screen names. If you only have screen names, follow the instructions in [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name)
 
-If you need to the get ID of a user, use:
-
-```python
-user = api.get_user(screen_name=screen_name)
-user_id = user.id_str
-```
-
-In Tweepy, this must be a `list` of strings.
+Pass the **follow** parameter using a `list` of strings.
 
 e.g.
 
 ```python
+user_ids = ["1234567"]
 user_ids = ["1234567", "456789", "9876543"]
 
 stream.filter(follow=user_ids)
 ```
 
-?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow**).
+?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow** section).
 
 
 ### Follow tweets by content
 
-Use the **track** parameter and one or more terms.
+Use the **track** parameter and one or more terms, like keywords or hashtags or URLs.
 
 Example:
 
@@ -878,13 +884,31 @@ track = ["foo", "#bar", "fizz buzz", "example.com"]
 stream.filter(track=track)
 ```
 
-The Twitter API will look for a tweet which contains _at least one_ of the items in the list, so it uses `OR` logic. Use a space between words in a string to use `AND` logic.
+- OR
+    - The Twitter API will look for a tweet which contains *any* (i.e. _at least one_) of the items in the list, so it uses `OR` logic.
+- AND
+    - Use a *space between words* to use `AND` logic. e.g. `"fizz buzz"`.
 
 !> You **cannot** use quoted phrases. The API doc says: "Exact matching of phrases (equivalent to quoted phrases in most search engines) is not supported.".
 
 ?> UTF-8 characters are supported. e.g. `Twitter’s`.
 
-?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track**).
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbOTUzNzY3MjI4XX0=
--->
+?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track** section).
+
+
+
+#### Full examples
+
+<details>
+<summary><b>tweepy_docs_example.py</b></summary>
+
+[tweepy_docs_example.py](_scripts/streaming/tweepy_docs_example.py ':include :type=code')
+
+</details>
+
+<details>
+<summary><b>tweepy_example_repo_example.py</b></summary>
+
+[tweepy_example_repo_example.py](_scripts/streaming/tweepy_example_repo_example.py ':include :type=code')
+
+</details>
