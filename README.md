@@ -6,6 +6,11 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F)](https://twitter.com/intent/tweet?url=https%3A%2F%2FMichaelCurrin.github.io%2Fpython-twitter-guide&hashtags=twitter,tweepy,python,guide,tutorial)
 
+**Supports**
+
+[![Made for Tweepy](https://img.shields.io/badge/tweepy-v3.8.0-blue.svg)](http://docs.tweepy.org/)
+[![Made for Twitter API](https://img.shields.io/badge/Twitter_API-1.1-blue.svg)](https://developer.twitter.com/en/docs)
+
 
 ## Online guide
 
