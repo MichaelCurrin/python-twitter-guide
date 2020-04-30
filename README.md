@@ -8,6 +8,7 @@
 
 **Supports**
 
+[![Made for Python 3](https://img.shields.io/badge/Python-3-blue.svg)](http://python.org/)
 [![Made for Tweepy](https://img.shields.io/badge/tweepy-v3.8.0-blue.svg)](http://docs.tweepy.org/)
 [![Made for Twitter API](https://img.shields.io/badge/Twitter_API-1.1-blue.svg)](https://developer.twitter.com/en/docs)
 
@@ -16,7 +17,7 @@
 
 <div align="center">
 
-[![Github Pages site](https://img.shields.io/badge/site-Github_Pages-blue?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
+[![Github Pages site](https://img.shields.io/badge/Site-Python_Twitter_Guide-blue?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
 
 </div>
 
