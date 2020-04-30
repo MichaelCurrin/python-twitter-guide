@@ -6,14 +6,18 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/MichaelCurrin/python-twitter-guide/blob/master/README.md#license)
 [![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F)](https://twitter.com/intent/tweet?url=https%3A%2F%2FMichaelCurrin.github.io%2Fpython-twitter-guide&hashtags=twitter,tweepy,python,guide,tutorial)
 
+**Supports**
+
+[![Made for Tweepy](https://img.shields.io/badge/tweepy-v3.8.0-blue.svg)](http://docs.tweepy.org/)
+[![Made for Twitter API](https://img.shields.io/badge/Twitter_API-1.1-blue.svg)](https://developer.twitter.com/en/docs)
 
 
 ## Features
 
-- Unofficial guide to [Tweepy](#tweepy) library.
-- Aimed at Python developers who want to use the Twitter API to do automated tasks, like make a bot or download thousands of tweets
-- Find practical solutions for common Tweepy / Twitter API use-cases. This makes up for lack of practical examples or recommendations in official docs of both.
-- Content here is based on experience from various developers and docs, to save you having to research yourself
+- This guide is aimed at Python developers who want to use the Twitter API to do automated tasks, like make a bot or download thousands of tweets.
+- Unofficial guide to [Tweepy](#tweepy) - a Python library which conveniently wraps the Twitter API, so you can focus on the fun stuff. No experience with Tweepy is needed.
+- Find practical solutions for common Tweepy / Twitter API use-cases all in one place - this saves piecing together various docs, examples and tutorials.
+- The content here is from my own experience, what I've learnt from other developers or what I researched to help solve someone's question in the Tweepy discord.
 
 
 ## Site overview
@@ -38,7 +42,6 @@ So this website aims at making Tweepy and Twitter API easier to use. With additi
 
 
 ## Resources
-
 
 For policies around Twitter and the Twitter API, see the [Twitter policies](policies.md#resources) page of this guide.
 
