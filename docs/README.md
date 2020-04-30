@@ -1,5 +1,5 @@
 # Python Twitter Guide
-> Code snippets and links to docs around using Twitter API and Tweepy
+> Code snippets and links to docs around using the Twitter API and Tweepy :bird: :snake:
 
 [![Made with latest Docsify](https://img.shields.io/npm/v/docsify?label=docsify)](https://docsify.js.org/)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/python-twitter-guide.svg)](https://GitHub.com/MichaelCurrin/python-twitter-guide/tags/)
