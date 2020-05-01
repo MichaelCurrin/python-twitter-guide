@@ -782,15 +782,19 @@ If you want to update a stream, you must **stop** it and then **start** a new st
 
 !> This also means you are **not** allowed to have more than one streaming running at a time for account, not in the same script, same machine or even on another machine.
 
-Here is how to implement it:
+One way is to stop your application, reconfigure it and then start it again.
+
+If you want to keep the script running, you can restart like this:
+
 
 ```python
 track = ["foo"]
+# Start initial stream.
 stream.filter(track=track, is_async=True)
 
 time.sleep(5)
 
-# Update.
+# Update. This won't get applied yet.
 track.append("bar")
 
 # Stop.
