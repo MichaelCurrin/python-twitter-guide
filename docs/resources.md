@@ -15,12 +15,13 @@ Tweepy is a Python library which is a wrapper on the Twitter API - you don't hav
 
 - [tweepy.org](https://www.tweepy.org/) homepage
 - [Tweepy docs](http://tweepy.readthedocs.org/)
+- [tweepy/tweepy](https://github.com/tweepy/tweepy) repo on Github
 - [Tweepy Discord channel](https://discord.gg/bJvqnhg)
 
 
 As an alternative to Tweepy, use one of these below. You'll have to install one and configure it with API credentials, then you can do API requests.
 
-### Twurl command-line tool
+## Twurl command-line tool
 
 - Repo: [twitter/twurl](https://github.com/twitter/twurl)
 - Command-line tool created by Twitter, like `curl` for request the Twitter API.
@@ -28,13 +29,13 @@ As an alternative to Tweepy, use one of these below. You'll have to install one 
 - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
 
 
-### Python Twitter API wrapper libraries
+## Python Twitter API wrapper libraries
 
 - [twython](https://twython.readthedocs.io/en/latest/)
 - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
 
 
-### Python utility scripts and repos
+## Python utility scripts and repos
 
 - [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
     - Get replies using Twitter Search API.
