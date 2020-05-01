@@ -1,5 +1,5 @@
-# Code snippets
-> Common use-cases for the Twitter API and how to solve them with Tweepy
+# How to
+> Common use-cases for the Twitter API and how to solve them in Python 3 using Tweepy
 
 
 This section aims at making at easier by doing that work for you and suggesting a good path, by providing recommended code snippets and samples of the data or returned. This guide is not meant to be complete, but rather to cover typical situations in a way that is easy for beginners to follow.
@@ -201,7 +201,7 @@ http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
 The tutorial also explains truncated and full text.
 
 
-## Users
+## Get users
 
 ### Fetch the profile for the authenticated user
 
@@ -308,7 +308,7 @@ The count argument may not be greater than 20 according to Tweepy docs, but you 
 ?> Tweepy docs: [API.search_users](http://docs.tweepy.org/en/latest/api.html#API.search_users)
 
 
-## Find tweets
+## Get tweets
 
 ?> If you want to do a search for tweets based on hashtags or phrases or that are directed at a user, go to the [Search API](#search-api) section.
 
@@ -727,7 +727,7 @@ This approach using the [Paging](#paging) approach to do multiple requests for p
 
 ```python
 cursor = tweepy.Cursor(
-    api.search, 
+    api.search,
     query,
     count=100
 )
