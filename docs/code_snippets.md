@@ -1,5 +1,5 @@
-# Code snippets
-> Common use-cases for the Twitter API and how to solve them with Tweepy
+# Tweepy code samples
+> Common use-cases for the Twitter API and how to solve them in Python 3 using Tweepy
 
 
 This section aims at making at easier by doing that work for you and suggesting a good path, by providing recommended code snippets and samples of the data or returned. This guide is not meant to be complete, but rather to cover typical situations in a way that is easy for beginners to follow.
@@ -7,6 +7,13 @@ This section aims at making at easier by doing that work for you and suggesting 
 This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 ?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
+
+**Highlights of this page**
+
+- [Get tweets](code_snippets.md#get-tweets)
+- [Post tweet](code_snippets.md#post-tweet)
+- [Search](code_snippets.md#search-api)
+- [Streaming](code_snippets.md#streaming)
 
 
 ## Naming conventions
@@ -17,170 +24,6 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 These terms will be used interchangeably in this guide.
 
-
-## Installation
-> How to install Tweepy on Windows and macOS / Linux
-
-Using your shell (PowerShell or Bash/ZSH), install the Tweepy Python package so that you can run it inside Python code in the rest of this guide.
-
-I strongly recommend installing Tweepy in a virtual environment and not using a global install for your user or root user.
-
-!> Avoid using the `sudo` command to become root and install with elevated privileges. i.e. Leave out `sudo` here: `sudo pip install ...`. Since running `sudo` allows a package to run malicious code at the root level including deleting files or installing a virus. If you _really_ want to install at the global level for your user and `pip install PACKAGE` gives an error, add `--user` flag.
-
->? If you are new to Python or virtual environments, I recommend that you read through this guide for more background on the instructions covered below. [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
-
-
-### Install system dependencies
-
-<!-- TODO: Link to Learn to Code project or gist when links are updated -->
-
-Install [Python 3](https://python.org/).
-
-
-### Install Python packages
-
-Navigate to your project root folder.
-
-```bash
-cd my-project
-```
-
-Create a virtual environment named `venv`.
-
-?> Here we use the builtin `venv` tool after the `-m` module flag, but you can use something else like Pipenv if you like.
-
-```bash
-python3 -m venv venv
-```
-
-Activate the virtual environment.
-
-```bash
-# Linux and macOS
-source venv/bin/activate
-
-# Windows
-source venv\Scripts\activate
-```
-
-Install Tweepy into the virtual environment.
-
-```bash
-pip install tweepy
-```
-
-?> You're already inside a sandboxes Python 3 environment so no need to specify `pip3` or `sudo`.
-
-Now you can import Tweepy within the context of your project's virtual environment. A one-liner to test `tweepy`:
-
-```bash
-python -c 'import tweepy; print("It works!")
-```
-
-?> Use `deactivate` command to revert to the global environment. Make sure you use the activate command above whenever you need to use `tweepy` in your project.
-
-
-## Authentication
-> Authenticating with the Twitter API using a dev app's credentials
-
-See also the [Authentication](http://docs.tweepy.org/en/latest/auth_tutorial.html) tutorial in the Tweepy docs.
-
-### Setup credentials
-
-Paste each of the four values from your credentials in your code like this. Replace the dummy values in quotes with your own values.
-
-```python
-CONSUMER_KEY = 'abc'
-CONSUMER_SECRET = 'def'
-ACCESS_KEY = 'foo'
-ACCESS_SECRET = 'bar'
-```
-
-!> Make sure to **never** includes these in version control (repo commits). They can be stored in an unversioned config file (ignored by `.gitignore`) or using environment variables.
-
-A typical setup is to store your credentials in a config file ignored by `git`, rather than in a Python script. Here are some options:
-
-- `.env` - Shell script of properties. Readable from the shell or a Python package (e.g. `dotenv`).
-- `config_local.ini` - A config file readable using the builtin ConfigParser in Python.
-- `config_local.yaml` - A YAML config file. Readable using the PyYAML library once that is installed.
-
-
-### Simple usage
-
-```python
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-api = tweepy.API(auth)
-
-api.verify_credentials()
-```
-
-### Use a function
-
-Put the logic above in a function. This makes keeps the values out of the global scope and it means it is easy to import and use the function in multiple scripts.
-
-```python
-def get_api_connection(consumer_key, consumer_secret, access_key=None,
-                       access_secret=None):
-    """
-    Authorize with Twitter and return API connection object.
-    """
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-
-    if access_key and access_secret:
-        auth.set_access_token(access_key, access_secret)
-
-    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
-
-    return api
-
-
-# Example use:
-api = get_api_connection(
-    CONSUMER_KEY,
-    CONSUMER_SECRET,
-    ACCESS_KEY,
-    ACCESS_SECRET
-)
-```
-
-If Access credentials are provided, the function will create an App Access Token. Otherwise, the access token step will be left out and the function will return an Application-only Access Token. Which has limited context (it can't access a current user) and has different API rate limit restrictions which can be more favorable for certain requests.
-
-?> Not covered here is the User access token, which requires a user to sign into Twitter and then enter a short code into your application. So that your app can perform actions on their behalf - this flow is unnecessary if you want to make a bot, do bulk retweets as your own bot account or do searches. Rate limiting is on each user. This use flow would require you to setup your own API to handle this complex flow. Or you can enter the code on the command-line and capture using `input()` if you want to try that out locally without the extra setup.
-
-Then set up an API instance which will automatically wait and print a notification if a rate limit is reached, to avoid getting blocked by the API.
-
-If you are doing automation for a task like search, which doesn't need a concept of "me" as a Twitter account, you can use the "application-only" flow above which does **not** use access details, only consumer details. The drawback is that some methods around `.me` or `.home_timeline` will no longer work, but the advantage is that certain endpoints like `.search` have a higher threshold for rate limiting.
-
-You can start using the application-only approach without hassle, but if you are interested to learn you can read the  [application-only](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) doc.
-
-> As this method is specific to the application, it does not involve any users. This method is typically for developers that need read-only access to public information.
->
-> API calls using app-only authentication are rate limited per API method at the app level. [source](https://developer.twitter.com/en/docs/basics/authentication/oauth-2-0)
-
-
-#### Application-only flow
-
-There are two way to do an application-only flow and get a App Access Token.
-
-- One approach is using `OAuthHandler` - this is similar to the flow above but leaves out the `.set_access_token` step.
-    ```python
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    api = tweepy.API(auth)
-    ```
-- The other approach uses `AppAuthHandler` and is covered in the [OAuth 2](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-2-authentication) part of Tweepy docs.
-    ```python
-    auth = tweepy.AppAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    api = tweepy.API(auth)
-    ```
-
-#### User auth flow
-
-You can let a user sign in on the browser side of a web app, or in the command-line for a local terminal-based application. This is not necessary for doing searches or making a bot but is necessary if you want to perform actions on behalf of the user with their permission (such as a liking a Tweet in a mobile app you made).
-
-The user will sign into Twitter and then will get a number to enter. The flow here is more complex. Read more [here](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-1a-authentication)
-
-
 ## Tweepy API overview
 
 The `api` object returned in the auth section above will cover most of your needs for requesting the Twitter API, whether fetching or sending data.
@@ -188,7 +31,6 @@ The `api` object returned in the auth section above will cover most of your need
 The `api` object is an instance of `tweepy.API` class and is covered in the docs here and is useful to see the allowed parameters, how they are used and what is returned.
 
 The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
-
 
 
 ## Paging
@@ -201,7 +43,7 @@ http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
 The tutorial also explains truncated and full text.
 
 
-## Users
+## Get users
 
 ### Fetch the profile for the authenticated user
 
@@ -308,7 +150,7 @@ The count argument may not be greater than 20 according to Tweepy docs, but you 
 ?> Tweepy docs: [API.search_users](http://docs.tweepy.org/en/latest/api.html#API.search_users)
 
 
-## Find tweets
+## Get tweets
 
 ?> If you want to do a search for tweets based on hashtags or phrases or that are directed at a user, go to the [Search API](#search-api) section.
 
@@ -723,11 +565,11 @@ If you want to get the _next_ 100 tweets after that, you could get the ID of the
 
 This approach using the [Paging](#paging) approach to do multiple requests for pages of up to 100 tweets each, allowing you get thousands of tweets.
 
-!> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as covered in [Installation](#installation) section.
+!> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as a config option on setting up the `auth` object, as covered in [Installation](installation.md) section.
 
 ```python
 cursor = tweepy.Cursor(
-    api.search, 
+    api.search,
     query,
     count=100
 )
