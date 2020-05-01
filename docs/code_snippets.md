@@ -711,7 +711,7 @@ Follow the sections below to start streaming with the `stream` object.
 ?> Only the `.filter` method is covered here as that is accessible without a premium account.
 
 
-### Follow tweets by users
+#### Follow tweets by users
 
 Get the user IDs of one or more Twitter users to follow.
 
@@ -731,7 +731,7 @@ stream.filter(follow=user_ids)
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow** section).
 
 
-### Follow tweets by content
+#### Follow tweets matching keywords
 
 Use the **track** parameter and one or more terms, like keywords or hashtags or URLs.
 
@@ -771,3 +771,14 @@ stream.filter(track=track)
 [tweepy_example_repo_example.py](_scripts/streaming/tweepy_example_repo_example.py ':include :type=code')
 
 </details>
+
+
+### Update stream
+
+!> Not that you are **not** allowed to have more than one streaming running at a time for account, not in the same script, same machine or even on another machine.
+
+If you want to update a stream, you must **stop** it and then **start** a new stream, according to this [Twitter dev page](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview). 
+
+One filter rule on one allowed connection, disconnection required to adjust rule.
+
+The gap will hopefully be very short so you don't lose much
