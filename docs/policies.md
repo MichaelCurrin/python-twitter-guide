@@ -3,10 +3,7 @@
 A guide to fair use of Twitter and the Twitter API by following their policies. Follow this guide to avoid abusing the API, getting your account rate-limited or get blocked because of doing actions which Twitter does not allow.
 
 
-## Resources
-> Links to docs on Twitter dev and Twitter around automation and policies
-
-### Twitter developer docs
+## Twitter developer docs
 > Docs targeted at developers and the API
 
 - [developer.twitter.com docs homepage](https://developer.twitter.com/en/docs)
@@ -17,7 +14,7 @@ A guide to fair use of Twitter and the Twitter API by following their policies. 
 - [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits) docs
 - [Rate limits per endpoint](https://developer.twitter.com/en/docs/basics/rate-limits)
 
-### Twitter.com docs
+## Twitter.com docs
 
 - [Terms of service](https://twitter.com/en/tos)
 - [Twitter help center](https://help.twitter.com)
@@ -34,6 +31,7 @@ A guide to fair use of Twitter and the Twitter API by following their policies. 
 When it comes to using the Twitter API and you are **not sure** if an action by your code is allowed by Twitter API, it is safest to be conservative by **not** doing the action and staying well under any limits which might be considered abuse.
 
 Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
+
 
 ## Dev app
 > Recommendations and warnings around applying for and using a Twitter dev app
@@ -52,6 +50,3 @@ Your dev app may get restricted or deactivated if you regularly exceed API limit
 It is recommended to create a **new** Twitter account and use that to register a dev app, to avoid your main Twitter account getting blocked even from accidental violation of policies.
 
 Even if you use a browser scraping approach rather than the API, note that Twitter might block your IP address if you do high volume scraping or similar suspicious behavior.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQzMjgyMjYxLC0xMjQ3OTYyMDkxXX0=
--->
