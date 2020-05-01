@@ -1,8 +1,6 @@
 # Resources
 > Links to external docs and tools
 
-For policies around Twitter and the Twitter API, see the [Twitter policies](policies.md#resources) page of this guide.
-
 
 ## Twitter dev docs
 

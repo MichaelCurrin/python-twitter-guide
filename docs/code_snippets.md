@@ -668,7 +668,7 @@ If you want to get the _next_ 100 tweets after that, you could get the ID of the
 
 This approach using the [Paging](#paging) approach to do multiple requests for pages of up to 100 tweets each, allowing you get thousands of tweets.
 
-!> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as covered in [Installation](#installation) section.
+!> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as a config option on setting up the `auth` object, as covered in [Installation](installation.md) section.
 
 ```python
 cursor = tweepy.Cursor(
