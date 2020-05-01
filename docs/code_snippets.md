@@ -775,10 +775,29 @@ stream.filter(track=track)
 
 ### Update stream
 
-!> Not that you are **not** allowed to have more than one streaming running at a time for account, not in the same script, same machine or even on another machine.
 
 If you want to update a stream, you must **stop** it and then **start** a new stream, according to this [Twitter dev page](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview). 
 
-One filter rule on one allowed connection, disconnection required to adjust rule.
+> One filter rule on one allowed connection, disconnection required to adjust rule.
 
-The gap will hopefully be very short so you don't lose much
+!> This also means you are **not** allowed to have more than one streaming running at a time for account, not in the same script, same machine or even on another machine.
+
+Here is how to implement it:
+
+```python
+track = ["foo"]
+stream.filter(track=track, is_async=True)
+
+time.sleep(5)
+
+# Update.
+track.append("bar")
+
+# Stop.
+stream.running = False
+
+# Start again.
+stream.filter(track=track, is_async=True)
+```
+
+The gap will hopefully be very short so you don't lose much.
