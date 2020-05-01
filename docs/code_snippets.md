@@ -549,7 +549,7 @@ tweet = api.update_with_media(media_path, status=msg)
 
 ## Handle time values
 
-Parse a datetime string as returned from Twitter API. Tweepy does not do any logic here, so we convert it into a datetime object to make it more useful.
+Parse a datetime string as returned from Twitter API. Tweepy does not do any logic here, so we convert a string into a timezone-aware datetime object to make it more useful for calculations and representations.
 
 ```python
 import datetime
@@ -562,7 +562,7 @@ def parse_datetime(value):
     """
     Convert from Twitter datetime string to a datetime object.
 
-    >>> parse_datetime('2020-01-24T08:37:37+00:00')
+    >>> parse_datetime("2020-01-24T08:37:37+00:00")
     datetime.datetime(2020, 1, 24, 8, 37, tzinfo=datetime.timezone.utc)
     """
     dt = ":".join(value.split(":", 2)[:2])
@@ -572,14 +572,14 @@ def parse_datetime(value):
     return datetime.datetime.strptime(clean_value, TIME_FORMAT_IN)
 ```
 
-?> When splitting, we don't need seconds and any decimals (which have changed style before between API versions). So ignore after the 2nd colon.
+?> When splitting, we don't need seconds and any decimals (plus these have changed style before between API versions so are unreliable). So we just ignore after the 2nd colon (minutes) and pick up the timezone from the last 6 characters.
 
-?> The value from Twitter will be in GMT zone, regardless of your location or profile settings.
+?> The datetime value from Twitter will be always be UTC zone (GMT+00:00), regardless of your location or profile settings. Lookup the datetime docs for more info.
 
 Example usage:
 
 ```python
->>> dt = parse_datetime(tweet.created_at())
+>>> dt = parse_datetime(tweet.created_at)
 >>> print(dt.year)
 2020
 ```
