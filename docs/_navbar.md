@@ -1,6 +1,7 @@
 - [Home](/)
-- How to
+- [How to](how_to.md)
     - [Installation](installation.md)
+    - [Authentication](auth.md)
     - [Tweepy code samples](code_snippets.md)
     - [Browser scraping](browser_scraping.md)
 - [Models](models.md)

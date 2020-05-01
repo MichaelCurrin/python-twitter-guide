@@ -1,5 +1,5 @@
 # Resources
-> Links to external docs and tools
+> Links to external docs for reference and some recommended tools
 
 
 ## Twitter dev docs
@@ -18,20 +18,25 @@ Tweepy is a Python library which is a wrapper on the Twitter API - you don't hav
 - [Tweepy Discord channel](https://discord.gg/bJvqnhg)
 
 
-## Other Twitter API tools
+As an alternative to Tweepy, use one of these below. You'll have to install one and configure it with API credentials, then you can do API requests.
 
-As an alternative to Tweepy, use one of these. You'll have to install one and configure it with API credentials, then you can do API requests.
+### Twurl command-line tool
 
-- Command-line
-    - [twurl](https://github.com/twitter/twurl)
-        - Command-line tool, like `curl` for request the Twitter API.
-        - Written in Ruby, but you can still use it in your command-line without knowing Ruby.
-        - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
-- Python Twitter API wrapper libraries
-    - [twython](https://twython.readthedocs.io/en/latest/)
-    - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
-- Python utility scripts and repos
-    - [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
-        - Get replies using Twitter Search API.
+- Repo: [twitter/twurl](https://github.com/twitter/twurl)
+- Command-line tool created by Twitter, like `curl` for request the Twitter API.
+- Written in Ruby, but you can still use it in your command-line without knowing Ruby.
+- Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
+
+
+### Python Twitter API wrapper libraries
+
+- [twython](https://twython.readthedocs.io/en/latest/)
+- [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
+
+
+### Python utility scripts and repos
+
+- [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
+    - Get replies using Twitter Search API.
 
 !> Any searches will have the **one-week** limitation if doing a search for say hashtags or replies to a tweet. This limit is at the Twitter Search API level.
