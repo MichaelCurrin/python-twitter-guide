@@ -17,11 +17,9 @@
 
 - This guide is aimed at Python developers who want to use the Twitter API to do automated tasks, like make a bot or download thousands of tweets.
 - Unofficial guide to [Tweepy](#tweepy) - a Python library which conveniently wraps the Twitter API, so you can focus on the fun stuff. No experience with Tweepy is needed.
-- Find practical solutions for common Tweepy / Twitter API use-cases all in one place - this saves piecing together various docs, examples and tutorials.
+- See [Code snippets](code_snippets.md) page - Find practical solutions for common Tweepy / Twitter API use-cases all in one place - this saves piecing together various docs, examples and tutorials.
+- See [Resources](resources.md) and [Twitter Policies](policies.md) pages if you're looking for links to documentation.
 - The content here is from my own experience, what I've learnt from other developers or what I researched to help solve someone's question in the Tweepy discord.
-
-
-?> **🚧 Note:** This site is an expanding work in progress. I'll be chipping away at adding content around topics like streaming, replies, trends, API policies and available attributes on tweets and users. If you want to see something added, message me directly on Tweepy discord or create / comment on a Github issue [here](https://github.com/MichaelCurrin/python-twitter-guide/issues). I'll aim to do the simple additions within a day.
 
 
 ## About
