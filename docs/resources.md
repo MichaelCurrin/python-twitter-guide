@@ -5,8 +5,9 @@
 ## Twitter dev docs
 
 - [Twitter Developer docs](https://developer.twitter.com/en/docs) home
-- [Twitter API Reference](https://developer.twitter.com/en/docs/api-reference-index)
-- [Twitter apps](https://developer.twitter.com/en/apps) (manage your dev account apps)
+- [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
+- [Getting Started](https://developer.twitter.com/en/docs/basics/getting-started)
+- [Twitter apps](https://developer.twitter.com/en/apps) page to manage your dev account's apps
 
 
 ## Tweepy links
