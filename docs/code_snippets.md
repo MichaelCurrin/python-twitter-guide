@@ -672,12 +672,12 @@ This section focuses on the free streaming API service. There are other premium 
         - Note deprecation warning:
             > This endpoint will be deprecated in favor of the filtered stream endpoint, now available in Twitter Developer Labs.
     - [POST statuses/filter](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) endpoint reference
-        - Including URL and response structure
+        - Including URL and response structure.
         - Including allowed parameters.
     - [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters)
         - Covers parameters in more detail.
         - `filter_level`
-            - The defaul value is `none`, which is all available tweets. If you don't need all tweets or performance is an issue, you can set this to `low` or `medium`.
+            - The default value is `none`, which is all available tweets. If you don't need all tweets or performance is an issue, you can set this to `low` or `medium`.
         - `language`
             - You can this to a standard code like `en`. However, when using the Search API I found the labels were inconsistent even on several tweets from the same person. Twitter guesses the language, it doesn't use your settings.
             
@@ -734,7 +734,6 @@ Then pass the **follow** parameter using a `list` of strings.
 e.g.
 
 ```python
-user_ids = ["1234567"]
 user_ids = ["1234567", "456789", "9876543"]
 
 stream.filter(follow=user_ids)
@@ -768,7 +767,6 @@ stream.filter(track=track)
 ?> UTF-8 characters are supported but must be used explicitly in your search. e.g. `'touché'`, `'Twitter’s'`.
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track** section).
-
 
 
 #### Full examples
