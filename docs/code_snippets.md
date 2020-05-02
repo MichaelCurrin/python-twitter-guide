@@ -657,20 +657,30 @@ for tweet in cursor:
 
 This section focuses on the free streaming API service. There are other premium services available, covered in Twitter's dev docs.
 
-### Resources
+### Streaming resources
 
 - Tweepy
     - [Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html) in the docs.
-    - [streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) example script in the repo.
-    - [streaming.py](https://github.com/tweepy/tweepy/blob/tweepy/streaming.py) script in the repo. This is useful to find or override existing methods.
+    - [streaming.py](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py) module in the repo. This is useful to find or override existing methods.
         - See [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class.
         - See [Stream](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L209) class and [Stream.filter](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L451-L474) method.
-     - [test_streaming.py](https://github.com/tweepy/tweepy/blob/master/tests/test_streaming.py) - Python tests for `streaming` module.
+    - [streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) example script in the repo.
+    - [test_streaming.py](https://github.com/tweepy/tweepy/blob/master/tests/test_streaming.py) - Python tests for `streaming` module.
 - Twitter API docs
     - [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
         - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
+        - Note deprecation warning:
+            > This endpoint will be deprecated in favor of the filtered stream endpoint, now available in Twitter Developer Labs.
+    - [POST statuses/filter](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) endpoint reference
+        - Including URL and response structure
+        - Including allowed parameters.
     - [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters)
-
+        - Covers parameters in more detail.
+        - `filter_level`
+            - The defaul value is `none`, which is all available tweets. If you don't need all tweets or performance is an issue, you can set this to `low` or `medium`.
+        - `language`
+            - You can this to a standard code like `en`. However, when using the Search API I found the labels were inconsistent even on several tweets from the same person. Twitter guesses the language, it doesn't use your settings.
+            
 
 ### Setup stream listener class
 
@@ -713,11 +723,13 @@ Follow the sections below to start streaming with the `stream` object.
 
 #### Follow tweets by users
 
-Get the user IDs of one or more Twitter users to follow.
+Stream public tweets by one or more users. This includes tweets and retweets created and replies to the user, but not mentions of the user.
 
-?> Do not use Twitter screen names. If you only have screen names, follow the instructions in [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name)
+First get the user IDs of one or more Twitter users to follow.
 
-Pass the **follow** parameter using a `list` of strings.
+?> Make sure you specify **user IDs** and not screen names. If you need to, see the instructions on how to [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
+
+Then pass the **follow** parameter using a `list` of strings.
 
 e.g.
 
@@ -738,7 +750,7 @@ Use the **track** parameter and one or more terms, like keywords or hashtags or 
 Example:
 
 ```python
-track = ["foo", "#bar", "fizz buzz", "example.com"]
+track = ["foo", "#bar", "fizz buzz"]
 
 stream.filter(track=track)
 ```
@@ -748,9 +760,12 @@ stream.filter(track=track)
 - AND
     - Use a *space between words* to use `AND` logic. e.g. `"fizz buzz"`.
 
+
 !> You **cannot** use quoted phrases. The API doc says: "Exact matching of phrases (equivalent to quoted phrases in most search engines) is not supported.".
 
-?> UTF-8 characters are supported. e.g. `Twitter’s`.
+?> The docs say you can track a URL but recommends including a space between parts for the most inclusive search. `"example com"`.
+
+?> UTF-8 characters are supported but must be used explicitly in your search. e.g. `'touché'`, `'Twitter’s'`.
 
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track** section).
 
