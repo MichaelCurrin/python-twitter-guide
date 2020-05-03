@@ -914,7 +914,6 @@ Experimental Twitter API endpoints.
 - [COVID-19 stream](https://developer.twitter.com/en/docs/labs/covid19-stream/overview)
 
 
-
 ## How do I store tweets?
 
 You can easily write to a CSV file using the Python `csv` module.
@@ -949,26 +948,26 @@ Twitter API docs:
     > Consuming Direct Messages in **real-time** can be accomplished via webhooks with the [Account Activity API](https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/overview).
 
 
-
 ### List messages
 
 Get direct messages to the authenticated Twitter account (such as your bot) in the last **30** days.
 
 ```python
-dms = api.list_direct_messages(5)
+dms = api.list_direct_messages()
 ```
 
-Supports paging.
+The default value for count is `20` and this can be increased to `50`.
+
+If you need to get more than that, using paging.
 
 ```python
-tweepy.Cursor(api.direct_messages).items(100)
+tweepy.Cursor(api.direct_messages, count=50).items(200)
 ```
 
 ?> **Twitter API docs:** [List messages endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/list-events)
 
 
 ### Get message
-
 
 Fetch a message by known ID.
 
@@ -1003,8 +1002,6 @@ print(json.dumps(dm.message_create, indent=4))
 ```
 
 
-
-
 ### Filter to messages from a certain user
 
 ```python
@@ -1017,6 +1014,18 @@ filtered_dms = [dm for dm in dms if msg.message_create['target']['recipient_id']
 
 ?> If don't have a user ID, then [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
 
+Here's a more complete example:
+
+```python
+dms = api.list_direct_messages()
+
+screen_name = "foo"
+user_id = api.get_user(screen_name).id
+
+for dm in dms:
+    if dm.message_create['target']['recipient_id'] == str(user_id):
+        print(dm.message_create['message_data']['text'])
+```
 
 ### Send message
 
