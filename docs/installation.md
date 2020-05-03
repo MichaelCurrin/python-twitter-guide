@@ -3,11 +3,11 @@
 
 Using your shell (PowerShell or Bash/ZSH), install the Tweepy Python package so that you can run it inside Python code in the rest of this guide.
 
-I strongly recommend installing Tweepy in a virtual environment and not using a global install for your user or root user.
+I strongly recommend installing Tweepy in a **virtual environment** and not using a global install for your user or root user.
 
-!> Avoid using the `sudo` command to become root and install with elevated privileges. i.e. Leave out `sudo` here: `sudo pip install ...`. Since running `sudo` allows a package to run malicious code at the root level including deleting files or installing a virus. If you _really_ want to install at the global level for your user and `pip install PACKAGE` gives an error, add `--user` flag.
+?> **Virtual env note:** <br>If you are new to Python or virtual environments or for more background on the instructions on this page, I recommend that you read through this guide to [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7).
 
->? If you are new to Python or virtual environments, I recommend that you read through this guide for more background on the instructions covered below. [Setup a Python 3 virtual environment](https://gist.github.com/MichaelCurrin/3a4d14ba1763b4d6a1884f56a01412b7)
+!> **User install note:** <br>In general, when installing Python packages, **avoid** using the `sudo` command to become root and install with elevated privileges. Since running `sudo` allows a package to run arbitrary and possibly **malicious** code at the root level, including deleting files or installing a virus. There are known cases of this for Python and NPM packages<br>If you _really_ want to install at the global level for your user and `pip install PACKAGE` gives an error, add `--user` flag. Just don't add `sudo` as a prefix.
 
 
 ## Install system dependencies
