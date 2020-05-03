@@ -13,13 +13,18 @@
 [![Made for Twitter API](https://img.shields.io/badge/Twitter_API-1.1-blue.svg)](https://developer.twitter.com/en/docs)
 
 
-## Features
+## Quicklinks
+
+[How to install Tweepy](installation.md) | [How to handle auth](auth.md) | [Code for common use-cases](code_snippets.md)
+
+[Tweepy and Twitter API docs](resources.md) | [Read about Twitter policies](policies.md)
+
+
+## Features of this guide
 
 - This guide is aimed at Python developers who want to use the Twitter API to do automated tasks, like make a bot or download thousands of tweets.
 - Unofficial guide to [Tweepy](#tweepy) - a Python library which conveniently wraps the Twitter API, so you can focus on the fun stuff. No experience with Tweepy is needed.
-- See [Code snippets](code_snippets.md) page - Find practical solutions for common Tweepy / Twitter API use-cases all in one place - this saves piecing together various docs, examples and tutorials.
-- See [Resources](resources.md) and [Twitter Policies](policies.md) pages if you're looking for links to documentation.
-- The content here is from my own experience, what I've learnt from other developers or what I researched to help solve someone's question in the Tweepy discord.
+- Find practical solutions for common Tweepy / Twitter API use-cases all in one place - this saves piecing together various docs, examples and tutorials.
 
 
 ## About
@@ -30,3 +35,10 @@ The Tweepy docs do cover how the library works on the API page, but examples of 
 Also, the Tweepy library aims to be a _thin layer_ between your code and the Twitter API, so Tweepy does not always make it clear what values are valid in requests. This puts more burden on the developer to figuring things out by looking at both.
 
 So this website aims at making Tweepy and Twitter API easier to use. With additional support by linking to docs and Twitter policies.
+
+The content here is from my own experience, what I've learnt from other developers or what I researched to help solve someone's question in the Tweepy discord.
+
+
+## Contributing
+
+To request new content or fixes or submit your own changes through a Pull Request, see the [Contributing](https://github.com/MichaelCurrin/python-twitter-guide/blob/master/CONTRIBUTING.md) doc.

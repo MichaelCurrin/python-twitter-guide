@@ -2,18 +2,19 @@
 > Common use-cases for the Twitter API and how to solve them in Python 3 using Tweepy
 
 
+## Quick links
+
+[Get users](#get-users) |  [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
+
+
+## About
+
 This section aims at making at easier by doing that work for you and suggesting a good path, by providing recommended code snippets and samples of the data or returned. This guide is not meant to be complete, but rather to cover typical situations in a way that is easy for beginners to follow.
 
 This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 ?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
 
-**Highlights of this page**
-
-- [Get tweets](code_snippets.md#get-tweets)
-- [Post tweet](code_snippets.md#post-tweet)
-- [Search](code_snippets.md#search-api)
-- [Streaming](code_snippets.md#streaming)
 
 
 ## Naming conventions
@@ -23,6 +24,7 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 - A username is called a screen name.
 
 These terms will be used interchangeably in this guide.
+
 
 ## Tweepy API overview
 
@@ -38,7 +40,8 @@ The methods on `tweepy.API`  also include some useful links in their docstrings,
 Follow the Tweepy tutorial to get familiar with how to use a Cursor to do paging - iterate over multiple pages of items of say 100 tweets each.
 
 
-http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
+?> Tweepy docs: [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html)
+
 
 The tutorial also explains truncated and full text.
 
@@ -433,6 +436,8 @@ The Twitter Search API lets you get tweets made in the past 7 to 10 days. The ap
 
 ?> If you want a live stream of tweets, see the [Streaming](#streaming) section.
 
+?> If you want to go back more than a week and are willing to pay, see the [Batch historical tweets](https://developer.twitter.com/en/docs/tweets/batch-historical/overview) API docs.
+
 ### Query syntax
 
 Twitter has a flexible search syntax for using "and" / "or" logic and quoting phrases.
@@ -655,32 +660,40 @@ for tweet in cursor:
 
 ## Streaming
 
-This section focuses on the free streaming API service. There are other premium services available, covered in Twitter's dev docs.
+This section focuses on the free "filtered" streaming API service.
+
+There are other premium services available, covered in Twitter's dev docs.
 
 ### Streaming resources
 
-- Tweepy
-    - [Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html) in the docs.
-    - [streaming.py](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py) module in the repo. This is useful to find or override existing methods.
-        - See [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class.
-        - See [Stream](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L209) class and [Stream.filter](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L451-L474) method.
-    - [streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) example script in the repo.
-    - [test_streaming.py](https://github.com/tweepy/tweepy/blob/master/tests/test_streaming.py) - Python tests for `streaming` module.
-- Twitter API docs
-    - [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
-        - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
-        - Note deprecation warning:
-            > This endpoint will be deprecated in favor of the filtered stream endpoint, now available in Twitter Developer Labs.
-    - [POST statuses/filter](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) endpoint reference
-        - Including URL and response structure.
-        - Including allowed parameters.
-    - [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters)
-        - Covers parameters in more detail.
-        - `filter_level`
-            - The default value is `none`, which is all available tweets. If you don't need all tweets or performance is an issue, you can set this to `low` or `medium`.
-        - `language`
-            - You can this to a standard code like `en`. However, when using the Search API I found the labels were inconsistent even on several tweets from the same person. Twitter guesses the language, it doesn't use your settings.
-            
+
+#### Tweepy
+
+- [Streaming tutorial](http://docs.tweepy.org/en/latest/streaming_how_to.html) in the docs.
+- [streaming.py](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py) module in the repo. This is useful to find or override existing methods.
+    - See [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30) class.
+    - See [Stream](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L209) class and [Stream.filter](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L451-L474) method.
+- [streaming.py](https://github.com/tweepy/tweepy/blob/master/examples/streaming.py) example script in the repo.
+- [test_streaming.py](https://github.com/tweepy/tweepy/blob/master/tests/test_streaming.py) - Python tests for `streaming` module.
+
+
+### Twitter API docs
+
+- [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
+    - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
+    - Note deprecation warning:
+        > This endpoint will be deprecated in favor of the filtered stream endpoint, now available in Twitter Developer Labs.
+- [POST statuses/filter](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter) endpoint reference
+    - Including URL and response structure.
+    - Including allowed parameters.
+- [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters)
+    - Covers parameters in more detail.
+    - `filter_level`
+        - The default value is `none`, which is all available tweets. If you don't need all tweets or performance is an issue, you can set this to `low` or `medium`.
+    - `language`
+        - You can this to a standard code like `en`. However, when using the Search API I found the labels were inconsistent even on several tweets from the same person. Twitter guesses the language, it doesn't use your settings.
+- [Premium stream operators](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/premium-operators)
+
 
 ### Setup stream listener class
 
@@ -769,7 +782,7 @@ stream.filter(track=track)
 ?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track** section).
 
 
-#### Full examples
+#### Full stream examples
 
 <details>
 <summary><b>tweepy_docs_example.py</b></summary>
@@ -788,8 +801,7 @@ stream.filter(track=track)
 
 ### Update stream
 
-
-If you want to update a stream, you must **stop** it and then **start** a new stream, according to this [Twitter dev page](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview). 
+If you want to update a stream, you must **stop** it and then **start** a new stream, according to this [Twitter dev page](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview).
 
 > One filter rule on one allowed connection, disconnection required to adjust rule.
 
@@ -818,3 +830,59 @@ stream.filter(track=track, is_async=True)
 ```
 
 The gap will hopefully be very short so you don't lose much.
+
+
+### How do I stream faster?
+
+The streaming API is meant to be realtime but you have still experience a delay. In one case I heard that posting a tweet was delayed in the streaming up by 5 seconds, which I'd say is still good.
+
+This delay might just be built into the way the Twitter API works.
+
+Here are some ideas to improve performance when streaming:
+
+- The obvious ones - improve your internet connection speed or improve your hardware. Use a remote machine through AWS to "rent" a machine in the cloud dedicated to your application. Besides choosing higher specs than your local machine, it can also be online and run 24/7.
+- Run your script in _unbuffered_ mode. Rather than waiting until the console output meets a threshold, tell Python to print immediately.
+    - e.g.
+        ```sh
+        python -U script.py
+        ```
+- If you performance bottleneck is processing the tweet locally (writing to CSV or database), you can make that task asynchronous by using RabbitMQ or similar.
+    - This may not improve the delay, but it will make sure your application can process every tweet that Twitter Streaming API sends at you and that you don't get disconnected (which can happen if Twitter Streaming API decides you are handling the offloaded tweets to slowly).
+    - Example of repo which does this (though it's archived, so it's not maintained and might not work).
+        - [ukgovdatascience/twitter-mq-feed](https://github.com/ukgovdatascience/twitter-mq-feed)
+        > A script that gets data from the Twitter real-time API, passes it to a message-queue (e.g. RabbitMQ) and stores tweets into MongoDB
+- If using the premium streaming API, use an advanced filter.
+
+
+### Other streams
+
+
+#### Decahose
+
+Enterprise stream to get 10% of tweets.
+
+
+?> **Twitter docs:** [Decahose API reference](https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/decahose)
+
+
+#### Powertrack
+
+Enterprise stream to get 100% of tweets.
+
+> The PowerTrack API provides customers with the ability to filter the full Twitter firehose, and only receive the data that they or their customers are interested in.
+
+?> **Twitter docs:** [Powertrack API reference](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview/powertrack-api)
+
+
+#### Lab streams
+
+Experimental Twitter API endpoints.
+
+- [Labs V2 Overview](https://developer.twitter.com/en/docs/labs/overview/introduction)
+- [Sample stream v1](https://developer.twitter.com/en/docs/labs/sampled-stream/overview) (replaces [Sample realtime tweets](https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/get_statuses_sample) endpoint)
+    > The sampled stream endpoint allows developers to stream about 1% of all new public Tweets as they happen. You can connect no more than one client per session, and can disconnect and reconnect no more than 50 times per 15 minute window.
+- [Filtered stream v1](https://developer.twitter.com/en/docs/labs/filtered-stream/overview)
+    > The filtered stream endpoints allow developers to filter the real-time stream of public Tweets. Developers can filter the real-time stream by applying a set of rules (specified using a combination of operators), and they can select the response format on connection.
+    >
+    > This preview contains a streaming endpoint that delivers Tweets in real-time. It also contains a set of rules endpoints to create, delete and dry-run rule changes. During Labs, you can create up to 10 rules (each one up to 512 characters long) can be set on your stream at the same time. Unlike the existing statuses/filter endpoint, these rules are retained and are not specified at connection time.
+- [COVID-19 stream](https://developer.twitter.com/en/docs/labs/covid19-stream/overview)
