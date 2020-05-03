@@ -66,3 +66,27 @@ The browser will auto reload when you save changes.
     - Ensure the search paths are kept up to date with the navbar. The `auto` setting for search seemed limited.
 - [Edit on Github](https://github.com/njleonzhang/docsify-edit-on-github)
     - Unlike other plugins, this one must be loaded *before* the app is setup.
+
+
+## Hyperlinks
+
+Use an understated info block for external links.
+
+```
+?> **Tweepy docs:** [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html)
+```
+
+?> **Tweepy docs:** [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html)
+
+
+Avoid using stronger CTA button:
+
+```html
+<a href="http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html">
+    <button class="myButton">See Cursor tutorial on Tweepy docs</button>
+</a>
+```
+
+<a href="http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html">
+    <button class="myButton">See Cursor tutorial on Tweepy docs</button>
+</a>

@@ -1,14 +1,27 @@
 # Contributing
 > How to improve this project
 
-Either raise things you think need improving or make change and submit it.
+Either raise things you think need improving, or make a change and submit it.
+
+
+## Tweepy Discord
+
+If you have a very specific problem to solve, consider asking on the [Tweepy Discord channel](https://discord.gg/bJvqnhg) `#support` section.
+
+If want a tutorial on how to do Direct Messages with Tweepy and this is not covered in this guide yet, then make a request using [Issues](#issues).
 
 
 ## Issues
 
-Create an issue suggest a section be added or further detail needs to be on a section. Please use the labels provided - usually enhancement, bugfix or docs.
+To request new content or fixes, create an issue on Github here:
 
-Or find an existing issue on the list which you'd like to work on.
+- [MichaelCurrin/python-twitter-guide/issues](https://github.com/MichaelCurrin/python-twitter-guide/issues)
+
+Please use the labels provided - usually enhancement, bugfix or docs.
+
+Note that any new functionality or bugs around Tweepy itself should go directly to the Tweepy repo issues or the Discord channel.
+
+- [tweepy/tweepy/issues](https://github.com/tweepy/tweepy/issues)
 
 
 ## Submit changes
