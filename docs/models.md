@@ -103,7 +103,6 @@ for tweet in tweets:
 The [tweepy.User] class, which represents a Twitter profile.
 
 
-
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
@@ -129,6 +128,12 @@ To see how to lookup values, see [Get attributes on a message object](code_snipp
 Here is a full breakdown the values, copied from the [Message Create Object] reference in the API docs.
 
 [Message Create Object]: https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/guides/message-create-object
+
+
+
+
+<details>
+<summary><b>Example JSON output</b></summary>
 
 ```json
 {
@@ -158,3 +163,172 @@ Here is a full breakdown the values, copied from the [Message Create Object] ref
     }
 }
 ```
+
+</details>
+
+
+## Rate limit status
+
+See [Get rate limit status](code_snippets.md#get-rate-limit-status) section of code snippets page.
+
+The resources are split into:
+
+- `users`
+- `statuses`
+- `help`
+- `search`
+
+Within those is a path of an endpoint e.g. `/users/search`.
+
+Then each time has the follow attributes:
+
+- `limit` - The maximum number of requests available for any window period.
+- `remaining` - How many requests are left in the current rate limit window.
+- `rest` - Time that the window rests. This is a unixtimestamp.
+
+
+
+<details>
+<summary><b>Example JSON output</b></summary>
+
+Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status).
+
+```json
+{
+  "rate_limit_context": {
+    "access_token": "786491-24zE39NUezJ8UTmOGOtLhgyLgCkPyY4dAcx6NA6sDKw"
+  },
+
+  "resources": {
+
+    "users": {
+      "/users/profile_banner": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1403602426
+      },
+      "/users/suggestions/:slug/members": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/users/show/:id": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1403602426
+      },
+      "/users/suggestions": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/users/lookup": {
+        "limit": 900,
+        "remaining": 900,
+        "reset": 1403602426
+      },
+      "/users/search": {
+        "limit": 900,
+        "remaining": 900,
+        "reset": 1403602426
+      },
+      "/users/contributors": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/users/contributees": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/users/suggestions/:slug": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      }
+    },
+
+    "statuses": {
+      "/statuses/mentions_timeline": {
+        "limit": 75,
+        "remaining": 75,
+        "reset": 1403602426
+      },
+      "/statuses/lookup": {
+        "limit": 900,
+        "remaining": 900,
+        "reset": 1403602426
+      },
+      "/statuses/show/:id": {
+        "limit": 900,
+        "remaining": 900,
+        "reset": 1403602426
+      },
+      "/statuses/oembed": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1403602426
+      },
+      "/statuses/retweeters/ids": {
+        "limit": 75,
+        "remaining": 75,
+        "reset": 1403602426
+      },
+      "/statuses/home_timeline": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/statuses/user_timeline": {
+        "limit": 900,
+        "remaining": 900,
+        "reset": 1403602426
+      },
+      "/statuses/retweets/:id": {
+        "limit": 75,
+        "remaining": 75,
+        "reset": 1403602426
+      },
+      "/statuses/retweets_of_me": {
+        "limit": 75,
+        "remaining": 75,
+        "reset": 1403602426
+      }
+    },
+
+    "help": {
+      "/help/privacy": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/help/tos": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/help/configuration": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      },
+      "/help/languages": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1403602426
+      }
+    },
+
+    "search": {
+      "/search/tweets": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1403602426
+      }
+    }
+  }
+}
+```
+
+</details>

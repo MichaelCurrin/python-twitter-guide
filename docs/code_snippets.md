@@ -437,7 +437,14 @@ tweet = api.update_with_media(media_path, status=msg)
 
 ## Handle time values
 
-Parse a datetime string as returned from Twitter API. Tweepy does not do any logic here, so we convert a string into a timezone-aware datetime object to make it more useful for calculations and representations.
+
+### Date and time
+
+The Twitter API often provides a datetime value in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format and Tweepy returns this to you as a string still.
+
+e.g. `"2020-05-03T18:01:41+00:00"`.
+
+This section covers how to parse a datetime string to a timezone-aware datetime object, to make it more useful for calculations and representations.
 
 ```python
 import datetime
@@ -470,6 +477,19 @@ Example usage:
 >>> dt = parse_datetime(tweet.created_at)
 >>> print(dt.year)
 2020
+```
+
+### Timestamp
+
+If you get any numbers which are timestamps such as from the Rate Limit endpoint, you can convert them to datetime objects.
+
+```python
+import datetime
+
+
+timestamp = "1403602426"
+datetime.datetime.fromtimestamp(float(timestamp))
+# => datetime.datetime(2014, 6, 24, 11, 33, 46)
 ```
 
 
@@ -1077,3 +1097,23 @@ api.send_direct_message(user_id, msg)
 ?> If don't have a user ID, then [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
 
 ?> **Twitter API doc:** [Create message endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event) - see optional parameters like `quick_reply` and `attachment`.
+
+
+## Get rate limit status
+
+Twitter provides an endpoint to get the rate limit status for your token across all endpoints at once.
+
+```python
+data = api.rate_limit_status()
+```
+
+The response is a `dict` which you can lookup like this:
+
+```python
+data['resources']['statuses']['/statuses/home_timeline']
+data['resources']['users']['/users/lookup']
+```
+
+See more on the [Rate limit status](models#rate-limit-status) section of the models page.
+
+?> **Twitter API docs:** [Get app rate limit status](https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status)
