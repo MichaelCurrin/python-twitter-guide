@@ -556,15 +556,10 @@ Some examples to demonstrate common use of the search syntax.
 ### Tweepy search method
 
 
-**Links to docs:**
-
-- Twitter API  docs: [Standard search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets).
-- Tweepy docs: [API.search](http://docs.tweepy.org/en/latest/api.html#API.search)
-    - That section explains how it works and what the method parameters do.
+?> **Tweepy docs:** [API.search](http://docs.tweepy.org/en/latest/api.html#API.search) - that section explains how it works and what the method parameters do. <br>**Twitter API docs:** [Standard search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets)
 
 
 #### Define query
-
 
 Create a variable which contains your query. The query should be a single string, not a list, and should match exactly what you'd put in the Twitter.com search bar (which also makes it easy to test).
 
@@ -1101,6 +1096,7 @@ api.send_direct_message(user_id, msg)
 
 ## Get rate limit status
 
+
 Twitter provides an endpoint to get the rate limit status for your token across all endpoints at once.
 
 ```python
@@ -1117,3 +1113,5 @@ data['resources']['users']['/users/lookup']
 See more on the [Rate limit status](models#rate-limit-status) section of the models page.
 
 ?> **Twitter API docs:** [Get app rate limit status](https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status)
+
+?> There is also a way to get the rate limit stats on the response object on a successful call, though this is not covered here.

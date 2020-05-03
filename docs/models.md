@@ -15,20 +15,20 @@ The [tweepy.Status] class, which represents a tweet.
 ### Attributes
 > Read-only values on a tweet
 
-| Name                | Type                 | Description                                                                                                                                                               |
-| ------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `author`            | [tweepy.User](#user) | The Twitter profile that made the tweet.                                                                                                                                  |
-| `contributors`      |                      |                                                                                                                                                                           |
-| `coordinates`       |                      |                                                                                                                                                                           |
-| `created_at`        | `str`                | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value.                                              |
-| `entities`          |                      | See [entities-object] in Twitter dev docs.                                                                                                                                |
-| `extended_entities` |                      |                                                                                                                                                                           |
-| `favorite_count`    | `int`                | Count of stars/favorites.                                                                                                                                                 |
-| `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet.                                                                                                                |
-| `full_text`         | `str`                | The tweet message, expanded. Only available is using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                |
-| `text`              | `str`                | The tweet message which may be truncated. The default. Not available if is using *extended mode*.                                                                         |
-| `id`                | `int`                | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                             |
-| `id_str`            | `str`                | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language. |
+| Name                | Type                 | Description                                                                                                                                                                                                                   |
+| ------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `author`            | [tweepy.User](#user) | The Twitter profile that made the tweet.                                                                                                                                                                                      |
+| `contributors`      |                      |                                                                                                                                                                                                                               |
+| `coordinates`       |                      |                                                                                                                                                                                                                               |
+| `created_at`        | `str`                | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value. |
+| `entities`          |                      | See [entities-object] in Twitter dev docs.                                                                                                                                                                                    |
+| `extended_entities` |                      |                                                                                                                                                                                                                               |
+| `favorite_count`    | `int`                | Count of stars/favorites.                                                                                                                                                                                                     |
+| `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet.                                                                                                                                                                    |
+| `full_text`         | `str`                | The tweet message, expanded. Only available is using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                                                                    |
+| `text`              | `str`                | The tweet message which may be truncated. The default. Not available if is using *extended mode*.                                                                                                                             |
+| `id`                | `int`                | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                                                                                 |
+| `id_str`            | `str`                | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language.                                                     |
 
 [entities-object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/entities-object
 
@@ -130,8 +130,6 @@ Here is a full breakdown the values, copied from the [Message Create Object] ref
 [Message Create Object]: https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/guides/message-create-object
 
 
-
-
 <details>
 <summary><b>Example JSON output</b></summary>
 
@@ -169,7 +167,7 @@ Here is a full breakdown the values, copied from the [Message Create Object] ref
 
 ## Rate limit status
 
-See [Get rate limit status](code_snippets.md#get-rate-limit-status) section of code snippets page.
+See the [Get rate limit status](code_snippets.md#get-rate-limit-status) section on the code snippets page.
 
 The resources are split into:
 
@@ -187,7 +185,6 @@ Then each time has the follow attributes:
 - `rest` - Time that the window rests. This is a unixtimestamp.
 
 
-
 <details>
 <summary><b>Example JSON output</b></summary>
 
@@ -195,139 +192,134 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 
 ```json
 {
-  "rate_limit_context": {
-    "access_token": "786491-24zE39NUezJ8UTmOGOtLhgyLgCkPyY4dAcx6NA6sDKw"
-  },
-
-  "resources": {
-
-    "users": {
-      "/users/profile_banner": {
-        "limit": 180,
-        "remaining": 180,
-        "reset": 1403602426
-      },
-      "/users/suggestions/:slug/members": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/users/show/:id": {
-        "limit": 180,
-        "remaining": 180,
-        "reset": 1403602426
-      },
-      "/users/suggestions": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/users/lookup": {
-        "limit": 900,
-        "remaining": 900,
-        "reset": 1403602426
-      },
-      "/users/search": {
-        "limit": 900,
-        "remaining": 900,
-        "reset": 1403602426
-      },
-      "/users/contributors": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/users/contributees": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/users/suggestions/:slug": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      }
+    "rate_limit_context": {
+        "access_token": "..."
     },
-
-    "statuses": {
-      "/statuses/mentions_timeline": {
-        "limit": 75,
-        "remaining": 75,
-        "reset": 1403602426
-      },
-      "/statuses/lookup": {
-        "limit": 900,
-        "remaining": 900,
-        "reset": 1403602426
-      },
-      "/statuses/show/:id": {
-        "limit": 900,
-        "remaining": 900,
-        "reset": 1403602426
-      },
-      "/statuses/oembed": {
-        "limit": 180,
-        "remaining": 180,
-        "reset": 1403602426
-      },
-      "/statuses/retweeters/ids": {
-        "limit": 75,
-        "remaining": 75,
-        "reset": 1403602426
-      },
-      "/statuses/home_timeline": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/statuses/user_timeline": {
-        "limit": 900,
-        "remaining": 900,
-        "reset": 1403602426
-      },
-      "/statuses/retweets/:id": {
-        "limit": 75,
-        "remaining": 75,
-        "reset": 1403602426
-      },
-      "/statuses/retweets_of_me": {
-        "limit": 75,
-        "remaining": 75,
-        "reset": 1403602426
-      }
-    },
-
-    "help": {
-      "/help/privacy": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/help/tos": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/help/configuration": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      },
-      "/help/languages": {
-        "limit": 15,
-        "remaining": 15,
-        "reset": 1403602426
-      }
-    },
-
-    "search": {
-      "/search/tweets": {
-        "limit": 180,
-        "remaining": 180,
-        "reset": 1403602426
-      }
+    "resources": {
+        "help": {
+            "/help/configuration": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/help/languages": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/help/privacy": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/help/tos": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            }
+        },
+        "search": {
+            "/search/tweets": {
+                "limit": 180,
+                "remaining": 180,
+                "reset": 1403602426
+            }
+        },
+        "statuses": {
+            "/statuses/home_timeline": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/statuses/lookup": {
+                "limit": 900,
+                "remaining": 900,
+                "reset": 1403602426
+            },
+            "/statuses/mentions_timeline": {
+                "limit": 75,
+                "remaining": 75,
+                "reset": 1403602426
+            },
+            "/statuses/oembed": {
+                "limit": 180,
+                "remaining": 180,
+                "reset": 1403602426
+            },
+            "/statuses/retweeters/ids": {
+                "limit": 75,
+                "remaining": 75,
+                "reset": 1403602426
+            },
+            "/statuses/retweets/:id": {
+                "limit": 75,
+                "remaining": 75,
+                "reset": 1403602426
+            },
+            "/statuses/retweets_of_me": {
+                "limit": 75,
+                "remaining": 75,
+                "reset": 1403602426
+            },
+            "/statuses/show/:id": {
+                "limit": 900,
+                "remaining": 900,
+                "reset": 1403602426
+            },
+            "/statuses/user_timeline": {
+                "limit": 900,
+                "remaining": 900,
+                "reset": 1403602426
+            }
+        },
+        "users": {
+            "/users/contributees": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/users/contributors": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/users/lookup": {
+                "limit": 900,
+                "remaining": 900,
+                "reset": 1403602426
+            },
+            "/users/profile_banner": {
+                "limit": 180,
+                "remaining": 180,
+                "reset": 1403602426
+            },
+            "/users/search": {
+                "limit": 900,
+                "remaining": 900,
+                "reset": 1403602426
+            },
+            "/users/show/:id": {
+                "limit": 180,
+                "remaining": 180,
+                "reset": 1403602426
+            },
+            "/users/suggestions": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/users/suggestions/:slug": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            },
+            "/users/suggestions/:slug/members": {
+                "limit": 15,
+                "remaining": 15,
+                "reset": 1403602426
+            }
+        }
     }
-  }
 }
 ```
 
