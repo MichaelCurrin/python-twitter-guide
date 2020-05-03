@@ -108,3 +108,53 @@ The [tweepy.User] class, which represents a Twitter profile.
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
 [Cursor tutorial]: http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
+
+
+## Direct message
+
+When fetching a direct message, you'll get an object back. You can access useful data on that using this attribute:
+
+```python
+dm.message_create
+```
+
+
+That is a `dict` object.
+
+To see how to lookup values, see [Get attributes on a message object](code_snippets.md#get-attributes-on-a-message-object).
+
+
+### JSON data structure
+
+Here is a full breakdown the values, copied from the [Message Create Object] reference in the API docs.
+
+[Message Create Object]: https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/guides/message-create-object
+
+```json
+{
+    "target": {
+        "recipient_id": "1234858592"
+    },
+    "sender_id": "3805104374",
+    "source_app_id": "268278",
+
+    "message_data": {
+        "text": "Blue Bird",
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "urls": [],
+            "user_mentions": [],
+        },
+        "quick_reply_response": {
+            "type": "options",
+            "metadata": "external_id_2"
+        },
+        "attachment": {
+            "type": "media",
+            "media": {
+            }
+        }
+    }
+}
+```

@@ -939,6 +939,17 @@ Methods relating to Twitter account direct messages.
 ?> **Tweepy docs:** [Direct message methods](http://docs.tweepy.org/en/latest/api.html#direct-message-methods)
 
 
+Twitter API docs:
+
+- [Sending and receiving events overview](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/overview)
+    > *Receiving messages events*
+    >
+    > You can retrieve Direct Messages from up to the past **30** days with GET direct_messages/events/list.
+    >
+    > Consuming Direct Messages in **real-time** can be accomplished via webhooks with the [Account Activity API](https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/overview).
+
+
+
 ### List messages
 
 Get direct messages to the authenticated Twitter account (such as your bot) in the last **30** days.
@@ -953,6 +964,9 @@ Supports paging.
 tweepy.Cursor(api.direct_messages).items(100)
 ```
 
+?> **Twitter API docs:** [List messages endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/list-events)
+
+
 ### Get message
 
 
@@ -963,20 +977,35 @@ dm_id = dms[0].id
 dm = api.get_direct_message(dm_id)
 ```
 
-Get text of message.
+?> **Twitter API docs:** [Show message endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-event)
+
+
+### Get attributes on a message object
+
+- Get the text of a message.
+    ```python
+    dm.message_create['message_data']['text'])
+    ```
+- Get recipient user ID:
+    ```python
+    dm.message_create['target']['recipient_id']
+    ```
+
+See the [Direct message](models.md#direct-message) section on the Models page to see a preview of the full structure.
+
+### Show all data
+
+Print the entire object, prettified with the `json` builtin library.
 
 ```python
-dm.message_create['message_data']['text'])
+import json
+print(json.dumps(dm.message_create, indent=4))
 ```
 
-Get recipient ID of a message.
 
-```python
-dm.message_create['target']['recipient_id'])
-```
+
 
 ### Filter to messages from a certain user
-
 
 ```python
 user_id = "12345"
@@ -1001,3 +1030,5 @@ api.send_direct_message(user_id, msg)
 ```
 
 ?> If don't have a user ID, then [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
+
+?> **Twitter API doc:** [Create message endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event) - see optional parameters like `quick_reply` and `attachment`.
