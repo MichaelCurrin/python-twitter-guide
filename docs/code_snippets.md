@@ -918,15 +918,21 @@ Experimental Twitter API endpoints.
 
 You can easily write to a CSV file using the Python `csv` module.
 
+
 Here are some options for storing in a database.
 
 - [Twitter MQ feed](https://github.com/ukgovdatascience/twitter-mq-feed) - this project stores in MongoDB.
 - [Streaming Twitter Data into a MySQL Database](https://towardsdatascience.com/streaming-twitter-data-into-a-mysql-database-d62a02b050d6)
 
 
-### Demo script using SQLite
+### SQLite
+
+<details>
+<summary><b>Demo script using SQLite</b></summary>
 
 [SQLite3 demo](//gist.githubusercontent.com/MichaelCurrin/8105070b9e580342c380a9c42f1d97e1/raw/python_sqlite_demo.py ':include :type=code')
+
+</details>
 
 
 ## Direct messages
