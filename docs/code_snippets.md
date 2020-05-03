@@ -660,9 +660,22 @@ for tweet in cursor:
 
 ## Streaming
 
-This section focuses on the free "filtered" streaming API service.
+This section focuses on the standard and free "filtered" Streaming API service. There are more services available, covered in the [Other streams](#other-streams) subsection.
 
-There are other premium services available, covered in Twitter's dev docs.
+
+### What is streaming and how many tweets can I get?
+
+The [Search API](#search-api) gives about 90% of tweets and back 7 days, but you have to query it repeatedly if you want "live" data and this can result in reaching API limits.
+
+The filtered streaming API lets you connect to the firehose of Twitter tweets made in realtime. You must specify a filter to apply - either keywords or users to track.
+
+However, the volume is much lower than the search API.
+
+> Studies have estimated that using Twitter’s Streaming API users can expect to receive anywhere from 1% of the tweets to over 40% of tweets in near real-time.
+>
+> The reason that you do not receive all of the tweets from the Twitter Streaming API is simply because Twitter doesn’t have the current infrastructure to support it, nor do they don’t want to support it; hence, the Twitter Firehose.[source](https://brightplanet.com/2013/06/25/twitter-firehose-vs-twitter-api-whats-the-difference-and-why-should-you-care/)
+
+
 
 ### Streaming resources
 
@@ -886,3 +899,19 @@ Experimental Twitter API endpoints.
     >
     > This preview contains a streaming endpoint that delivers Tweets in real-time. It also contains a set of rules endpoints to create, delete and dry-run rule changes. During Labs, you can create up to 10 rules (each one up to 512 characters long) can be set on your stream at the same time. Unlike the existing statuses/filter endpoint, these rules are retained and are not specified at connection time.
 - [COVID-19 stream](https://developer.twitter.com/en/docs/labs/covid19-stream/overview)
+
+
+
+## How do I store tweets?
+
+You can easily write to a CSV file using the Python `csv` module.
+
+Here are some options for storing in a database.
+
+- [Twitter MQ feed](https://github.com/ukgovdatascience/twitter-mq-feed) - this project stores in MongoDB.
+- [Streaming Twitter Data into a MySQL Database](https://towardsdatascience.com/streaming-twitter-data-into-a-mysql-database-d62a02b050d6)
+
+
+### Using SQLite
+
+[SQLite3 demo](//gist.githubusercontent.com/MichaelCurrin/8105070b9e580342c380a9c42f1d97e1/raw/python_sqlite_demo.py ':include :type=code')

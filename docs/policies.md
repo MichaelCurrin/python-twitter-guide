@@ -18,6 +18,9 @@ This guide is especially useful if you plan to make a **bot** or want to perform
     - Reads as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
     - This reads more like an easy to follow blog post, with chapters.
+
+### Rate limits docs
+
 - [Rate limit basics](https://developer.twitter.com/en/docs/basics/rate-limits) in the docs
 - [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits) by endpoint
 
@@ -34,14 +37,32 @@ This guide is especially useful if you plan to make a **bot** or want to perform
         - This will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.
 
 
-## Is an action allowed on the API?
+## FAQs
+
+### What are the rate limits?
+
+The Twitter API sets rate limiting on a per-token basis, to avoid applications from overloading the Twitter API servers, unintentionally or maliciously.
+
+See the links in the [Rate limits docs](#rate-limits-docs) section of this page.
+
+There is a limit per endpoint of how many requests can be done in a 15-minute window, or in a longer period such as an hour or 3 hours or 24 hours.
+
+
+### How do I avoid being rate limited?
+
+If you use the **wait** functionality built into Tweepy, you don't have to worry about waiting for most cases - Tweepy will tell you it is waiting and it will wait. This is covered in the [Auth](auth.md) page.
+
+This works well for doing a search or getting a timeline using a cursor. I don't know if it works with actions such as liking a tweet.
+
+
+### Is a certain action allowed on the API?
 
 When it comes to using the Twitter API and you are **not sure** if an action by your code is allowed by Twitter API, it is safest to be conservative by **not** doing the action and staying well under any limits which might be considered abuse.
 
 Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
 
 
-## Dev app
+## Dev app notes
 > Recommendations and warnings around applying for and using a Twitter dev app
 
 ### Application process
