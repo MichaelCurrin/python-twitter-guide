@@ -304,10 +304,23 @@ tweet.retweet_count
 # => 0
 ```
 
-Get the retweets list. Supports paging.
+Get a list of retweets of the tweet. This has a max of 100 but supports paging.
 
 ```python
-retweets = tweet.retweets
+api.retweets(tweet.id)
+
+# Untested
+retweets = tweet.retweets()
+```
+
+
+### Get retweeters
+
+Get the user IDs of the users who retweeted the tweet. This has a max of 100 but supports paging.
+
+```python
+# Untested
+retweeters = tweet.retweeters
 ```
 
 
@@ -915,3 +928,59 @@ Here are some options for storing in a database.
 ### Demo script using SQLite
 
 [SQLite3 demo](//gist.githubusercontent.com/MichaelCurrin/8105070b9e580342c380a9c42f1d97e1/raw/python_sqlite_demo.py ':include :type=code')
+
+
+## Direct messages
+
+Methods relating to Twitter account direct messages.
+
+!> Please ensure you comply with the Twitter API policies and do not spam users. See [Twitter policies](policies.md) page to find links to appropriate docs.
+
+?> Tweepy docs: [Direct message methods](http://docs.tweepy.org/en/latest/api.html#direct-message-methods)
+
+
+### List messages
+
+Get direct messages to the authenticated Twitter account (such as your bot) in the last **30** days.
+
+
+```python
+dms = api.list_direct_messages(5)
+```
+
+Supports paging.
+
+```python
+tweepy.Cursor(api.direct_messages).items(100)
+```
+
+### Get message
+
+```python
+dm_id = dms[0].id
+dm = api.get_direct_message(dm_id)
+```
+
+Get text of message.
+
+```python
+dm.message_create['message_data']['text'])
+```
+
+Get recipient ID of a message.
+
+```python
+dm.message_create['target']['recipient_id'])
+```
+
+### Send message
+
+
+```python
+user_id = "123"
+msg = "Hello, world!
+
+api.send_direct_message(user_id, msg)
+```
+
+?> If don't have a user ID, then [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
