@@ -975,8 +975,23 @@ Get recipient ID of a message.
 dm.message_create['target']['recipient_id'])
 ```
 
+### Filter to messages from a certain user
+
+
+```python
+user_id = "12345"
+
+filtered_dms = [dm for dm in dms if msg.message_create['target']['recipient_id'] == user_id
+```
+
+?> We use a list comprehension here with an `if` condition, as it is has faster performance than a standard `for` loop and also it can be more readable (since it fits on one line and there's no `.append` step needed).
+
+?> If don't have a user ID, then [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
+
+
 ### Send message
 
+Send a direct message to given user ID.
 
 ```python
 user_id = "123"
