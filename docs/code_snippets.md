@@ -943,7 +943,6 @@ Methods relating to Twitter account direct messages.
 
 Get direct messages to the authenticated Twitter account (such as your bot) in the last **30** days.
 
-
 ```python
 dms = api.list_direct_messages(5)
 ```
@@ -955,6 +954,9 @@ tweepy.Cursor(api.direct_messages).items(100)
 ```
 
 ### Get message
+
+
+Fetch a message by known ID.
 
 ```python
 dm_id = dms[0].id
