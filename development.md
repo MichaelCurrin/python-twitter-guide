@@ -68,7 +68,7 @@ The browser will auto reload when you save changes.
     - Unlike other plugins, this one must be loaded *before* the app is setup.
 
 
-## Hyperlinks
+### Hyperlinks
 
 Use an understated info block for external links.
 
@@ -90,3 +90,8 @@ Avoid using stronger CTA button:
 <a href="http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html">
     <button class="myButton">See Cursor tutorial on Tweepy docs</button>
 </a>
+
+
+### How to embed a gist
+
+See this [guide](https://gist.github.com/MichaelCurrin/c2bece08f27c4277001f123898d16a7c).
