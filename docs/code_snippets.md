@@ -40,7 +40,7 @@ The methods on `tweepy.API`  also include some useful links in their docstrings,
 Follow the Tweepy tutorial to get familiar with how to use a Cursor to do paging - iterate over multiple pages of items of say 100 tweets each.
 
 
-?> Tweepy docs: [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html)
+?> **Tweepy docs**: [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html)
 
 
 The tutorial also explains truncated and full text.
@@ -82,7 +82,7 @@ user_id = "foo"
 user = api.get_user(user_id=user_id)
 ```
 
-?> Tweepy docs: [API.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user)
+?> **Tweepy docs**: [API.get_user](http://docs.tweepy.org/en/v3.8.0/api.html#API.get_user)
 
 
 Then you can inspect the user object or do actions on it. See the [User](models.md#user) section of the models page.
@@ -138,7 +138,7 @@ user_ids = [123, 456, 789]
 users = api.lookup_users(user_ids=user_ids)
 ```
 
-?> Tweepy docs: [API.lookup_users](http://docs.tweepy.org/en/latest/api.html#API.lookup_users)
+?> **Tweepy docs**: [API.lookup_users](http://docs.tweepy.org/en/latest/api.html#API.lookup_users)
 
 ?> The endpoint only lets you request up to 100 IDs at once, so you'll never than more than one page of results. Therefore you get more results, you should batch your IDs into groups of 100 and then lookup each group.
 
@@ -150,7 +150,7 @@ users = api.search_users(q, count=20)
 
 The count argument may not be greater than 20 according to Tweepy docs, but you may use paging.
 
-?> Tweepy docs: [API.search_users](http://docs.tweepy.org/en/latest/api.html#API.search_users)
+?> **Tweepy docs**: [API.search_users](http://docs.tweepy.org/en/latest/api.html#API.search_users)
 
 
 ## Get tweets
@@ -174,7 +174,7 @@ tweets = api.home_timeline()
 > Returns the 20 most recent statuses, including retweets, posted by the authenticating user and that user’s friends.
 This is the equivalent of /timeline/home on the Web.
 
-?> Tweepy docs: [API.home_timeline](http://docs.tweepy.org/en/latest/api.html#API.home_timeline)
+?> **Tweepy docs**: [API.home_timeline](http://docs.tweepy.org/en/latest/api.html#API.home_timeline)
 
 
 ### Get a user's timeline
@@ -202,7 +202,7 @@ for tweet in tweets:
     print(tweet.full_text)
 ```
 
-?> Tweepy docs: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline) <br>Twitter API docs: [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline) - note daily limit of 100k tweets and getting 3,200 most recent tweets, otherwise there is not really a date restriction on how many days or years you can go back to.
+?> **Tweepy docs**: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline) <br>Twitter API docs: [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline) - note daily limit of 100k tweets and getting 3,200 most recent tweets, otherwise there is not really a date restriction on how many days or years you can go back to.
 
 
 Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a retweet will be truncated still. So you this approach to get the full message on the _original_ tweet. Example from [source](https://stackoverflow.com/questions/42705314/getting-full-tweet-text-from-user-timeline-with-tweepy).
@@ -230,7 +230,7 @@ tweet_id = 123
 api.get_status(tweet_id)
 ```
 
-?> Tweepy docs: [API.get_status](http://docs.tweepy.org/en/latest/api.html#API.get_status)
+?> **Tweepy docs**: [API.get_status](http://docs.tweepy.org/en/latest/api.html#API.get_status)
 
 
 #### Lookup many tweets
@@ -240,7 +240,7 @@ tweet_ids = [123, 456, 789]
 api.statuses_lookup(tweet_ids)
 ```
 
-?> Tweepy docs: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
+?> **Tweepy docs**: [API.statuses_lookup](http://docs.tweepy.org/en/latest/api.html#API.statuses_lookup)
 
 
 ### Get retweets of a tweet
@@ -253,7 +253,7 @@ count = 100
 retweets = api.retweets(tweet_id, count)
 ```
 
-?> Tweepy docs: [API.retweets](http://docs.tweepy.org/en/latest/api.html#API.retweets)
+?> **Tweepy docs**: [API.retweets](http://docs.tweepy.org/en/latest/api.html#API.retweets)
 
 See also:
 
@@ -778,7 +778,7 @@ user_ids = ["1234567", "456789", "9876543"]
 stream.filter(follow=user_ids)
 ```
 
-?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow** section).
+?> **Twitter API docs**: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow** section).
 
 
 #### Follow tweets matching keywords
@@ -805,7 +805,7 @@ stream.filter(track=track)
 
 ?> UTF-8 characters are supported but must be used explicitly in your search. e.g. `'touché'`, `'Twitter’s'`.
 
-?> Twitter API docs: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track** section).
+?> **Twitter API docs**: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **track** section).
 
 
 #### Full stream examples
@@ -936,7 +936,7 @@ Methods relating to Twitter account direct messages.
 
 !> Please ensure you comply with the Twitter API policies and do not spam users. See [Twitter policies](policies.md) page to find links to appropriate docs.
 
-?> Tweepy docs: [Direct message methods](http://docs.tweepy.org/en/latest/api.html#direct-message-methods)
+?> **Tweepy docs:** [Direct message methods](http://docs.tweepy.org/en/latest/api.html#direct-message-methods)
 
 
 ### List messages

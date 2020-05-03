@@ -140,4 +140,4 @@ The user will sign into Twitter in the browser and then will get a short number 
 
 Rate limiting is on *each user* token.
 
-?> Tweepy docs: [auth tutorial](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-1a-authentication)
+?> **Tweepy docs**: [auth tutorial](http://docs.tweepy.org/en/latest/auth_tutorial.html#oauth-1a-authentication)
