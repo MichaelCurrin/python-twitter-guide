@@ -179,16 +179,30 @@ This is the equivalent of /timeline/home on the Web.
 
 ### Get a user's timeline
 
-Get the last 200 tweets of a user.
+Get the most recent by a user. You can specify `user_id` or `screen_name` to target a user.
+
+```python
+screen_name = "foo"
+tweets = api.user_timeline(screen_name=screen_name)
+```
+
+If you don't specify a user, the default behavior is for the authenticated user.
 
 ```python
 tweets = api.user_timeline()
 ```
 
-The default behavior is for the authenticated use. You can specify `user_id` or `screen_name` to target a user.
+The API doesn't say what the default is but the max without paging is  `200`.
 
+```python
+tweets = api.user_timeline(count=200)
+```
 
-Example:
+?> **Tweepy docs**: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline) <br>**Twitter API docs:** [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline) - note daily limit of 100k tweets and getting 3,200 most recent tweets, otherwise there is not really a date restriction on how many days or years you can go back to.
+
+#### Fuller examples
+
+Get `200` tweets.
 
 ```python
 screen_name = "foo"
@@ -202,12 +216,28 @@ for tweet in tweets:
     print(tweet.full_text)
 ```
 
-?> **Tweepy docs**: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline) <br>Twitter API docs: [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline) - note daily limit of 100k tweets and getting 3,200 most recent tweets, otherwise there is not really a date restriction on how many days or years you can go back to.
+Using paging to get `1000` tweets.
 
+```python
+screen_name = "foo"
+cursor = tweepy.Cursor(
+    api.user_timeline,
+    screen_name=screen_name,
+    count=200,
+    tweet_mode="extended"
+)
 
-Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a retweet will be truncated still. So you this approach to get the full message on the _original_ tweet. Example from [source](https://stackoverflow.com/questions/42705314/getting-full-tweet-text-from-user-timeline-with-tweepy).
-
+for tweet in cursor.items(1000):
+    print(tweet.full_text)
 ```
+
+#### Get expanded message on a user's retweets
+
+Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a *retweet* will still be truncated. So you can this approach to get the full message on the _original_ tweet.
+
+Example from [source](https://stackoverflow.com/questions/42705314/getting-full-tweet-text-from-user-timeline-with-tweepy).
+
+```python
 tweets = api.user_timeline(id=2271808427, tweet_mode="extended")
 
 # This is still truncated.
