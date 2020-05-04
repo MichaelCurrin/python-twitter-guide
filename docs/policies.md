@@ -62,6 +62,11 @@ When it comes to using the Twitter API and you are **not sure** if an action by 
 Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
 
 
+### How do I get out of Twitter jail?
+
+Follow this [Wikihow](https://www.wikihow.com/Get-Out-of-Twitter-Jail) on how avoid get restricted by Twitter and what to do when it happens. Note that these are not specific to the API, so apply both for API and standard use.
+
+
 ## Dev app notes
 > Recommendations and warnings around applying for and using a Twitter dev app
 
