@@ -4,7 +4,7 @@
 
 ## Quick links
 
-[Get users](#get-users) |  [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
+[Get users](#get-users) | [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
 
 
 ## About
@@ -19,9 +19,9 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
 ## Naming conventions
 
-- A tweet is called a status in the API and Tweepy.
-- A profile is called a user or author.
-- A username is called a screen name.
+- A _tweet_ is called a _status_ in the API and Tweepy.
+- A _profile_ is called a _user_ or _author_ in the API and Tweepy.
+- A _username_ is called a _screen name_ in the API and Tweepy.
 
 These terms will be used interchangeably in this guide.
 
