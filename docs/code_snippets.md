@@ -731,8 +731,7 @@ However, the volume is much lower than the search API.
 
 > Studies have estimated that using Twitter’s Streaming API users can expect to receive anywhere from 1% of the tweets to over 40% of tweets in near real-time.
 >
-> The reason that you do not receive all of the tweets from the Twitter Streaming API is simply because Twitter doesn’t have the current infrastructure to support it, nor do they don’t want to support it; hence, the Twitter Firehose.[source](https://brightplanet.com/2013/06/25/twitter-firehose-vs-twitter-api-whats-the-difference-and-why-should-you-care/)
-
+> The reason that you do not receive all of the tweets from the Twitter Streaming API is simply because Twitter doesn’t have the current infrastructure to support it, nor do they don’t want to support it; hence, the Twitter Firehose. [source](https://brightplanet.com/2013/06/25/twitter-firehose-vs-twitter-api-whats-the-difference-and-why-should-you-care/)
 
 
 ### Streaming resources
@@ -748,7 +747,7 @@ However, the volume is much lower than the search API.
 - [test_streaming.py](https://github.com/tweepy/tweepy/blob/master/tests/test_streaming.py) - Python tests for `streaming` module.
 
 
-### Twitter API docs
+#### Twitter API docs
 
 - [Filter realtime Tweets](https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter)
     - Make sure to use "POST statuses/filter" as the other endpoints are premium only.
