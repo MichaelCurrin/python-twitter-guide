@@ -91,6 +91,21 @@ You don't have to worry about waiting for most cases - Tweepy will tell you it i
 tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 ```
 
+### Add retries
+
+Configure your API connection to retry a few times at intervals. The default error coded are limited, so cover the possible 4XX and 5XX codes.
+
+```python
+tweepy.API(
+    retry_count=conf.getint('APIRequests', 'retryCount'),
+    retry_delay=conf.getint('APIRequests', 'retryDelay'),
+    retry_errors=[401, 404, 500, 503],
+)
+```
+
+Note that some codes like `429` is Too Many Requests and the rate limit waiting will handle that.
+
+
 ### Test it
 
 Confirm that it works:
