@@ -97,7 +97,9 @@ Configure your API connection to retry 3 times at 5-second intervals. The defaul
 
 ```python
 tweepy.API(
-    
+    retry_count=3,
+    retry_delay=5,
+    retry_errors=[401, 404, 500, 503],
 )
 ```
 
