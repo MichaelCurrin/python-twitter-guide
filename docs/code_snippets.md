@@ -2,9 +2,29 @@
 > Common use-cases for the Twitter API and how to solve them in Python 3 using Tweepy
 
 
+## TL;DR
+> A summary of this page.
+
+If you have authenticated with Twitter as per the [Authentication](auth.md) instructions, then you can interact with the Twitter API using the `api` object. 
+
+For example:
+
+```python
+api.me()
+
+api.search(q="#foo")
+
+api.update_status("Hello, world!")
+```
+
+Keep reading this page for more details.
+
+
 ## Quick links
+> Jump to some highlighted sections
 
 [Get users](#get-users) | [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
+
 
 
 ## About
