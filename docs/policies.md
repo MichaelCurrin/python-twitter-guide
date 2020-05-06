@@ -3,47 +3,75 @@
 
 Follow this guide to:
 
-- avoid abusing the API policy
-- avoid reaching API rate limits or doing actions which Twitter does not allow
-- avoid getting your account blocked for bad behavior
-- make a successful dev app application
+- Avoid abusing the API policy
+- Avoid reaching API rate limits or doing actions which Twitter does not allow
+- Avoid getting your account blocked for bad behavior
+- Make a successful dev app application
 
 This guide is especially useful if you plan to make a **bot** or want to perform bulk actions but also be aware of the many and complex restrictions, so you can stay within in.
 
 
-## Twitter developer docs
+## Links to policies
+
+### In Twitter developer docs
 > Docs targeted at developers and the API
 
 - [Developer agreement and policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy)
     - Reads as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
     - This reads more like an easy to follow blog post, with chapters.
-
-### Rate limits docs
-
-- [Rate limit basics](https://developer.twitter.com/en/docs/basics/rate-limits) in the docs
-- [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits) by endpoint
+    - Note "Chapter 3 - Platform usage guidelines". It covers topics such as _Spam, bots, and automation_, _Public display of Tweets_ _Content redistribution_ and _Replicating the Twitter experience_.
 
 
-## Twitter.com docs
+### On Twitter.com
 
 - [Terms of service](https://twitter.com/en/tos)
-- [Twitter help center](https://help.twitter.com)
-    - [Rules and policies](https://help.twitter.com/en/rules-and-policies) overview
-        - There are a lot of policies listed there. So some highlights are shown here.
-    - [About Twitter's APIs](https://help.twitter.com/en/rules-and-policies/twitter-api)
-        - How they work and what entities are available.
-    - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy
-        - This will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.
 
 
-## FAQs
+### In Twitter.com help docs
+> Policies which covered ordinary users as well as API use and automation.
+
+- [Twitter help center](https://help.twitter.com) homepage
+- [Managing your account](https://help.twitter.com/en/managing-your-account#login-and-password)
+    - If you need help managing your account's email and password or other login issues.
+- [The Twitter Rules](https://help.twitter.com/en/rules-and-policies/twitter-rules)
+    - Safety
+    - Privacy
+    - Authenticity
+- [Rules and policies](https://help.twitter.com/en/rules-and-policies) overview
+    - There are a lot of policies listed there. So some highlights are shown here.
+- [About Twitter's APIs](https://help.twitter.com/en/rules-and-policies/twitter-api)
+    - How they work and what entities are available.
+- [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy
+    - This will help ensure you use the API fairly for tweeting, retweeting, searching, making a bot, etc.
+- [Display requirements](https://developer.twitter.com/en/developer-terms/display-requirements)
+    - For showing Twitter content on your application, using the appropriate branding and styling.
+        > You should comply with the display requirements below when you display Tweets, timelines, and other Twitter content.
+
+
+## Updates to the Twitter Developer Policy
+
+See this [blog post](https://blog.twitter.com/developer/en_us/topics/community/2020/twitter_developer_policy_update.html) from March 2020.
+
+Some sections to note:
+
+- Developer Use Case Approval
+- Bot Accounts
+- Off-Twitter matching
+
+
+## Rate limits
+
 
 ### What are the rate limits?
 
 The Twitter API sets rate limiting on a per-token basis, to avoid applications from overloading the Twitter API servers, unintentionally or maliciously.
 
-See the links in the [Rate limits docs](#rate-limits-docs) section of this page.
+See these docs:
+
+- [Rate limit basics](https://developer.twitter.com/en/docs/basics/rate-limits) in the docs
+- [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits) by endpoint
+
 
 There is a limit per endpoint of how many requests can be done in a 15-minute window, or in a longer period such as an hour or 3 hours or 24 hours.
 
@@ -55,14 +83,62 @@ If you use the **wait** functionality built into Tweepy, you don't have to worry
 This works well for doing a search or getting a timeline using a cursor. I don't know if it works with actions such as liking a tweet.
 
 
-### Is a certain action allowed on the API?
+## Is a certain action allowed on the API?
 
 When it comes to using the Twitter API and you are **not sure** if an action by your code is allowed by Twitter API, it is safest to be conservative by **not** doing the action and staying well under any limits which might be considered abuse.
 
 Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
 
+### What automated tasks can I do on behalf of user?
+
+See the _Consent & permissions_ section in Chapter 2 of this [page](https://developer.twitter.com/en/developer-terms/policy).
+
+
+## Bots
+
+### Am I allowed to make a bot?
+
+Yes, you are allowed by Twitter to make a bot account, but one that follows Twitter's restrictions.
+
+Your bot can do things like tweet on a schedule, retweet other tweets (selectively but not in bulk) or repost external data or links such as blog posts. But, you cannot use your bot to create tweets to users or reply to users, unless the users have explicitly given permission (such as by messaging your account or opting in within a website/app).
+
+If you do want to message other users with tweets or direct messages when the policies would consider that unwanted spammy actions, you can of course use your Twitter bot account in the browser without using the API and write some hand-crafted messages.
+
+
+### What can I do as a Twitter bot?
+
+Follow the [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy.
+
+Follow these guidelines from [Platform usage guidelines](https://developer.twitter.com/en/developer-terms/policy).
+
+> - Always get explicit consent before sending people automated replies or Direct Messages
+> - Immediately respect requests to opt-out of being contacted by you
+> - Never perform bulk, aggressive, or spammy actions, including bulk following
+> - Never post identical or substantially similar content across multiple accounts
+
+### Do I need to say that it is a bot account?
+
+!> Yes, you are also required to **explicitly state in your profile** that your account is a bot. See recommendations below.
+
+?> If you are doing automation that just involves search or streaming and you are *not* actually tweeting or acting like a bot (and people mistaking automated actions for human ones), then it's probably okay to not do this.
+
+Info from Twitter's post in March 2020 on [blog.twitter.com](https://blog.twitter.com):
+
+- From [Updates to the Twitter Developer Policy](https://blog.twitter.com/developer/en_us/topics/community/2020/twitter_developer_policy_update.html)
+    - > ... Our new policy asks that developers clearly indicate (in their account bio or profile) if they are operating a bot account, what the account is, and who the person behind it is, so it’s easier for everyone on Twitter to know what’s a bot - and what’s not.
+- From [How to quickly update your bot profile bios](https://blog.twitter.com/developer/en_us/topics/tips/2020/how-to-quickly-update-your-bot-profile-bio.html)
+    - The post recommends saying the following to the end of a profile bio, where `@handle` is your personal account which is **not** a bot.
+        - `#TwitterBot created by @handle`.
+    - Example from the post:
+        > "Developer Advocate @Twitter. Python programmer. Noted thought leader on vegan snacks. Makes music as Messica Arson. #TwitterBot created by @JessicaGarson"`.
+    - The post provides an automation script for updating the bios of configured bios. Unless you have like 20 bots, I think it is less effort to just go into the profile settings and update the bio.
+
+?> You can do add line breaks in your bio, so you might want to do that and move the bot notice to a line on its own.
+
 
 ### How do I get out of Twitter jail?
+
+Your account can land in "Twitter jail" for breaking one of the Twitter or Twitter API policies or usage guidelines, including inappropriate or excessive use.
 
 Follow this [Wikihow](https://www.wikihow.com/Get-Out-of-Twitter-Jail) on how avoid get restricted by Twitter and what to do when it happens. Note that these are not specific to the API, so apply both for API and standard use.
 
