@@ -7,7 +7,7 @@
 - [Twitter Developer docs](https://developer.twitter.com/en/docs) home
 - [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
 - [Getting Started](https://developer.twitter.com/en/docs/basics/getting-started)
-- [Twitter apps (https://developer.twitter.com/en/apps)](https://developer.twitter.com/en/apps) page to manage your dev account's apps once you login
+- [Twitter apps](https://developer.twitter.com/en/apps) page to manage your dev account's apps once you login
 - [Twitter libraries](https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries) recommended by Twitter, across programming languages
 
 
