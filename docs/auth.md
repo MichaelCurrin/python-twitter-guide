@@ -4,6 +4,21 @@
 See also the [Authentication](http://docs.tweepy.org/en/latest/auth_tutorial.html) tutorial in the Tweepy docs.
 
 
+## TL;DR
+
+Here's a common usecase for getting an [App Access Token](#app-access-token).
+
+```python
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth)
+```
+
+The `api` object can be used for searches, streaming, posting a tweet, looking up tweets and so on - see the [Tweepy code samples](code_snippets.md) page for now info.
+
+Keep reading this doc for more info on how to handle different auth approaches and token types and how to add rate limit waiting.
+
+
 ## Token types
 
 The following types of authorization are available:
