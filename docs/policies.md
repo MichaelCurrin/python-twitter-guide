@@ -20,6 +20,7 @@ This guide is especially useful if you plan to make a **bot** or want to perform
     - Reads as a formal legal doc.
 - [Twitter developers policy](https://developer.twitter.com/en/developer-terms/policy)
     - This reads more like an easy to follow blog post, with chapters.
+    - Chapter 1 says you need to comply with _all_ policies and it lists them. [Chapter 1](https://developer.twitter.com/en/developer-terms/policy#2-a)
     - Note "Chapter 3 - Platform usage guidelines". It covers topics such as _Spam, bots, and automation_, _Public display of Tweets_ _Content redistribution_ and _Replicating the Twitter experience_.
 
 
@@ -146,11 +147,15 @@ Follow this [Wikihow](https://www.wikihow.com/Get-Out-of-Twitter-Jail) on how av
 ## Dev app notes
 > Recommendations and warnings around applying for and using a Twitter dev app
 
+Make sure you familiarize yourself with the policies cover on the rest of this page before you make an application. If your application fails, you might have to just reword and clarify your use-case / motivation, or you might have to reduce the scope to remove actions which are not allowed by the policies. Such as tweeting / replying to users directly without explicit permission.
+
 ### Application process
 
 When you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
 
-If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked. If you need to extend your app from say just searching to posting tweets or replying to users, you must request additional app permissions.
+If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked. 
+
+If you get yourapplication approved and later need to extend your app, from say just searching to posting tweets or replying to users, you must request additional app permissions. This will be similar to the initial application.
 
 
 ## App restrictions
