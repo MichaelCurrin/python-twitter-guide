@@ -93,12 +93,12 @@ tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 ### Add retries
 
-Configure your API connection to retry a few times at intervals. The default error coded are limited, so cover the possible 4XX and 5XX codes.
+Configure your API connection to retry 3 times at 5-second intervals. The default error coded are limited, so cover the possible 4XX and 5XX codes.
 
 ```python
 tweepy.API(
-    retry_count=conf.getint('APIRequests', 'retryCount'),
-    retry_delay=conf.getint('APIRequests', 'retryDelay'),
+    retry_count=3,
+    retry_delay=5,
     retry_errors=[401, 404, 500, 503],
 )
 ```
