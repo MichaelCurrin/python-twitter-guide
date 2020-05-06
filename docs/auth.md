@@ -75,7 +75,7 @@ A typical setup is to store your credentials in a config file ignored by `git`, 
 
 ### Basic usage
 
-Authorize with an _App Access Token_.
+Authorize with an _App Access Token_, the typical flow for authorizing so you can fetch data and do automated tasks like tweet as your authenticated user.
 
 ```python
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
@@ -83,12 +83,19 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 ```
 
+?> **Tweepy docs** See the parameters that `API` takes and what they mean at this [reference](http://docs.tweepy.org/en/latest/api.html#API).
+
+
 ### Add waiting
 
 You don't have to worry about waiting for most cases - Tweepy will tell you it is waiting and it will wait.
 
 ```python
-tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+tweepy.API(
+    auth, 
+    wait_on_rate_limit=True, 
+    wait_on_rate_limit_notify=True
+)
 ```
 
 ### Add retries
@@ -97,6 +104,7 @@ Configure your API connection to retry 3 times at 5-second intervals. The defaul
 
 ```python
 tweepy.API(
+    auth,
     retry_count=3,
     retry_delay=5,
     retry_errors=[401, 404, 500, 503],
