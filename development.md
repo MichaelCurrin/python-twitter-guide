@@ -95,3 +95,15 @@ Avoid using stronger CTA button:
 ### How to embed a gist
 
 See this [guide](https://gist.github.com/MichaelCurrin/c2bece08f27c4277001f123898d16a7c).
+
+
+e.g.
+
+```markdown
+<details>
+<summary><b>script_name.py</b></summary>
+
+[script_name.py](_scripts/script_name.py ':include :type=code')
+
+</details>
+```
