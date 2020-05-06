@@ -7,10 +7,15 @@
 - [Twitter Developer docs](https://developer.twitter.com/en/docs) home
 - [API Reference](https://developer.twitter.com/en/docs/api-reference-index)
 - [Getting Started](https://developer.twitter.com/en/docs/basics/getting-started)
-- [Twitter apps](https://developer.twitter.com/en/apps) page to manage your dev account's apps
+- [Twitter apps (https://developer.twitter.com/en/apps)](https://developer.twitter.com/en/apps) page to manage your dev account's apps once you login
+- [Twitter libraries](https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries) recommended by Twitter, across programming languages
 
 
-## Tweepy links
+## Twitter libraries
+
+See below for mostly Python libraries for interacting with the Twitter API. 
+
+### Tweepy links
 
 Tweepy is a Python library which is a wrapper on the Twitter API - you don't have to worry about writing URLs, handling auth, parsing data, paging and other complex tasks. The library can be used an abstract so you can fetch data and deal with it as Python objects and you can pass data to the API to perform actions like searches or post a status or retweet a status.
 
@@ -36,7 +41,7 @@ Tweepy is a Python library which is a wrapper on the Twitter API - you don't hav
 As an alternative to Tweepy, use one of these below. You'll have to install one and configure it with API credentials, then you can do API requests.
 
 
-## Twurl command-line tool
+### Twurl command-line tool
 
 - Repo: [twitter/twurl](https://github.com/twitter/twurl)
 - Command-line tool created by Twitter, like `curl` for request the Twitter API.
@@ -44,13 +49,13 @@ As an alternative to Tweepy, use one of these below. You'll have to install one 
 - Twitter docs includes a demo using `twurl` on their [homepage](https://developer.twitter.com/en).
 
 
-## Python Twitter API wrapper libraries
+### Python Twitter API wrapper libraries
 
 - [twython](https://twython.readthedocs.io/en/latest/)
 - [python-twitter](https://python-twitter.readthedocs.io/en/latest/)
+- [Twitter libraries](https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries) section of Twitter docs - see Python section under Community libraries.
 
-
-## Python utility scripts and repos
+### Python utility scripts and repos
 
 - [gmellini/twitter-scraper](https://github.com/gmellini/twitter-scraper)
     - Get replies using Twitter Search API.
