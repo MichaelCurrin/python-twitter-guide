@@ -152,7 +152,7 @@ Depending how you authenticate, you'll get an `api` object which has a different
 - [App Access Token](#app-access-token)
     - [x] Get data
         - [x] Lookup tweets and users
-        - [x] Stream or search Tweets
+        - [x] Stream tweets or search for tweets
         - [x] Get trends
     - [x] Act as your dev account
         - Do automated actions e.g. tweet daily or favorite searched tweets.
@@ -170,7 +170,7 @@ Depending how you authenticate, you'll get an `api` object which has a different
         - You can tweet and favorite on their behalf.
 
 
-!> Please see [Twitter Policies](policies.md) before doing actions like tweeting or favoriting or doing replies with any of the tokens. As these are strictly controlled and you may get your account blocked or your dev application refused.
+!> [Twitter Policies](policies.md)-  please see this guide before doing actions such as tweeting, favoriting or doing replies or direct messages. As these are strictly controlled and you may get your account blocked or your dev application refused.
 
 
 ### App Access Token
