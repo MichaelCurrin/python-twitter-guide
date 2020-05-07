@@ -150,13 +150,33 @@ print(api.me())
 Depending how you authenticate, you'll get an `api` object which has a different token on it and therefore has different scope and context.
 
 - [App Access Token](#app-access-token)
+    - [x] Get data
+        - [x] Lookup tweets and users
+        - [x] Stream or search Tweets
+        - [x] Get trends
+    - [x] Act as your dev account
+        - Do automated actions e.g. tweet daily or favorite searched tweets.
+        - Act as a bot that responds to people e.g. reply or direct message
+    - [ ] Act as the user who gave access to your app
 - [Application-Only Auth Token](#application-only-auth-token)
+    - [x] Get data (same as first token)
+    - [ ] Act as your dev account
+    - [ ] Act as the user who gave access to your app
 - [User Access Token](#user-access-token)
+    - [x] Get data  (same as first token)
+    - [ ] Act as your dev account 
+    - [ ] Act as the user who gave access to your app
+        - The current user's profile is now  "me", so getting "my" tweets or followers is relative to that account.
+        - You can tweet and favorite on their behalf.
+
+
+!> Please see [Twitter Policies](policies.md) before doing actions like tweeting or favoriting or doing replies with any of the tokens. As these are strictly controlled and you may get your account blocked or your dev application refused.
 
 
 ### App Access Token
 
-This is the most common case. It lets you searches and do actions as your own account, such as get your own timeline or bio or make a tweet.
+You probably want this as it is the most common case.
+
 
 #### How to get an App Access Token
 
