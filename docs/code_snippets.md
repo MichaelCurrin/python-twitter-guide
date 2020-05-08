@@ -196,14 +196,14 @@ user_id = user.id_str
 
 #### Lookup many profiles
 
-By screen name.
+Lookup one or more users by screen name.
 
 ```python
 screen_names = ["foo", "bar", "baz"]
 users = api.lookup_users(screen_names=screen_names)
 ```
 
-By ID.
+Lookup one or more users by ID.
 
 ```python
 user_ids = [123, 456, 789]
@@ -425,6 +425,98 @@ Get the user IDs of the users who retweeted the tweet. This has a max of 100 but
 retweeters = tweet.retweeters
 ```
 
+## Get followers of a user
+
+
+### Followers method
+
+Get the followers of a given user.
+
+- [api.followers](http://docs.tweepy.org/en/latest/api.html#API.followers)
+    > Returns a user’s followers ordered in which they were added. If no user is specified by id/screen name, it defaults to the authenticated user.
+- Specify user ID or screen name.
+- Supports paging.
+- Returns a list of `tweepy.User` objects.
+
+```python
+for user in api.followers(screen_name="foo"):
+    print(user.screen_name)
+```
+
+### Followers IDs method
+
+Similar to above, but only returns user IDs and not users.
+
+- [api.followers_ids](http://docs.tweepy.org/en/latest/api.html#API.followers_ids)
+    > Returns an array containing the IDs of users following the specified user.
+- Specify user ID or screen name.
+- Supports paging.
+- Return a list of `int` objects.
+
+ This can be useful if you want to map user IDs to user IDs in a graph of followers and maybe combined with tweet IDs, without actually using the profile data like screen name.
+
+```python
+for user_id in api.followers(screen_name="foo"):
+    print(user_id)
+```
+
+With paging:
+
+```python
+cursor = tweepy.Cursor(
+    api.followers,
+    screen_name="foo",
+    count=100
+)
+user_id_pages = [user_id for user_id in cursor.pages()]
+```
+
+You can combine this approach with [Lookup users](#lookup-many-profiles) method, to lookup a batch users with known IDs or screen names.
+
+```python
+cursor = tweepy.Cursor(
+    api.lookup_users,
+    user_ids=user_id_pages,
+    count=100
+)
+```
+
+?> You will have to split the user IDs into batches of at most 100 items so that the query will work. Here we use pages from above so it will already be batched.
+
+?> This uses to steps, so consider the rate limit impact for the first and second step.
+
+### Rate limits on follower approaches
+
+See [Rate Limits on Twitter Policies](policies.md#rate-limits) page details.
+
+If you want to see which approach works better for you at scale, see these references from people who have done research:
+
+[Tweepy issue 627](https://github.com/tweepy/tweepy/issues/627)
+
+
+| API            | Max Return/Call Size | Requests / 15-min window | Total Results Per Window |
+| -------------- | -------------------- | ------------------------ | ------------------------ |
+| followers/list | 200                  | 15                       | 3000                     |
+| followers/ids  | 5000                 | 15                       | 75000                    |
+| users/lookup   | 100                  | 180                      | 18000                    |
+
+
+[StackOverflow](https://stackoverflow.com/questions/31000178/how-to-get-large-list-of-followers-tweepy)
+
+<details>
+<summary><b>Twitter provides two ways to fetch the followers</b></summary>
+
+> Fetching full followers list (using followers/list in Twitter API or api.followers in tweepy) - Alec and mataxu have provided the approach to fetch using this way in their answers. The rate limit with this is you can get at most 200 * 15 = 3000 followers in every 15 minutes window.
+>
+> Second approach involves two stages:-
+>
+> a) Fetching only the followers ids first (using followers/ids in Twitter API or api.followers_ids in tweepy).you can get 5000 * 15 = 75K follower ids in each 15 minutes window.
+>
+> b) Looking up their usernames or other data (using users/lookup in twitter api or api.lookup_users in tweepy). This has rate limitation of about 100 * 180 = 18K lookups each 15 minute window.
+>
+> Considering the rate limits, Second approach gives followers data 6 times faster when compared to first approach.
+
+</details>
 
 ## Filter tweets by language
 
