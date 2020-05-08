@@ -283,7 +283,7 @@ cursor = tweepy.Cursor(
 
 ?> You will have to split the user IDs into batches of at most 100 items so that the query will work. Here we use pages from above so it will already be batched.
 
-?> This uses to steps, so consider the rate limit impact for the first and second step.
+?> This uses two steps to get IDs and the users, so consider the rate limit impact for the first and second step.
 
 ### Rate limits on follower approaches
 
