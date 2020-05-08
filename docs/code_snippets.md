@@ -5,7 +5,7 @@
 ## TL;DR
 > A summary of this page.
 
-If you have authenticated with Twitter as per the [Authentication](auth.md) instructions, then you can interact with the Twitter API using the `api` object. 
+If you have authenticated with Twitter as per the [Authentication](auth.md) instructions, then you can interact with the Twitter API using the `api` object.
 
 For example:
 
@@ -60,10 +60,62 @@ The methods on `tweepy.API`  also include some useful links in their docstrings,
 Follow the Tweepy tutorial to get familiar with how to use a Cursor to do paging - iterate over multiple pages of items of say 100 tweets each.
 
 
-?> **Tweepy docs**: [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html)
+?> **Tweepy docs**: [Cursor tutorial](http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html). The tutorial also explains truncated and full text.
 
 
-The tutorial also explains truncated and full text.
+### Setup the cursor
+
+An `api` method must be passed to the cursor, along with any parameters.
+
+```python
+cursor = tweepy.Cursor(
+    api.search,
+    query,
+    count=100
+)
+```
+
+?> **Tweepy repo:** [Cursor class](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/cursor.py#L9)
+
+
+### Pages and items
+
+When iterating over the cursor, you must specify if you want the response to be pages or items.
+
+Pages is how Twitter API works - you get multiple pages of say 100 tweets each, so you iterate over page which then have a list (or iterator) of tweets.
+
+
+```python
+for page in cursor.pages():
+    for tweet in page:
+        print(tweet.id)
+```
+
+Or you can use items approach, where Tweepy flattens multiple pages into what feels like one long list (or iterator).
+
+```python
+for tweet in cursor.items():
+    print(tweet.id)
+```
+
+### Limit
+
+The cursor will carry on it until it gets all available data. You can optionally limit this by omitting the limit.
+
+In both examples below, we process 5 pages of `100` tweets each and get a total of 500 tweets.
+
+
+```python
+for tweet in cursor.items(500):
+    print(tweet.id)
+```
+
+```python
+for page in cursor.pages(5):
+    for tweet in page:
+        print(tweet.id)
+```
+
 
 
 ## Get users
@@ -374,6 +426,80 @@ retweeters = tweet.retweeters
 ```
 
 
+## Filter tweets by language
+
+Twitter assigns a tweet a language e.g. `en` for English or `it` for Italian.
+
+?> **Twitter dev docs:** [Supported languages](https://developer.twitter.com/en/docs/twitter-for-websites/twitter-for-websites-supported-languages/overview)
+
+
+### Where does it come from?
+
+These are based on the **content** of the tweet and is inferred.
+
+Tweepy docs say "Language detection is best-effort.".
+
+!> **Warning:** In my experience is **not** reliable in my experience. Tweets appear as unknown language, or a user making several tweets which I can see are all in one language get labelled as different language. If you still want to use language, you can continue.
+
+
+### What about the settings of the user?
+
+There is **no** account setting to change what language you are posting in.
+
+There is a *Display Language* setting in Twitter account settings, but this how the interface appears to you. The help text for the item explain that is does not affect the content of Tweets.
+
+
+### Show the language
+
+```python
+tweets = api.search("python")
+
+for tweet in tweets:
+    print(tweet.lang, tweet.text)
+   if tweet.lang == "en":
+      print(tweet.text)
+```
+
+
+### Filter on the result
+
+```python
+tweets = api.search("python")
+
+for tweet in tweets:
+    if tweet.lang == 'en':
+      print(tweet.text)
+```
+
+
+### Filter query
+
+Some endpoints let you specify languages so that only matching tweets will be returned.
+
+
+#### Search filtered by language
+
+From the [api.search](http://docs.tweepy.org/en/latest/api.html#API.search) docs:
+
+> **lang** – Restricts tweets to the given language, given by an ISO 639-1 code. Language detection is best-effort.
+
+e.g.
+
+```python
+tweets = api.search("python", lang="en")
+```
+
+#### Streaming filtered by language
+
+Note use of `languages`, not `lang`.
+
+e.g.
+
+```python
+stream.filter(track=["python"], languages=["en"])
+```
+
+
 ## Engage with a tweet
 
 !> Note that you should only use these actions if you included them in your dev application otherwise you may get blocked. Also if you have a read-only app, you can upgrade to a read and write app.
@@ -621,10 +747,7 @@ Example of iterating over the results in `tweets` object:
 
 ```python
 def process_tweet(tweet):
-    print(tweet.id)
-    print(tweet.text)
-    print(tweet.author)
-    print()
+    print(tweet.id, tweet.author, tweet.text)
 
 
 for tweet in tweets:
@@ -658,22 +781,13 @@ cursor = tweepy.Cursor(
 )
 ```
 
-In both examples below, we process 500 tweets (assuming there are actually 500 tweets out there matching the search).
-
 ```python
-for tweet in cursor.items(500):
-    process_status(tweet)
+for tweet in cursor.items():
+    process_tweet(tweet)
 ```
 
-```python
-for page in cursor.pages(5):
-    for tweet in page:
-        process_status(tweet)
-```
+See [Paging](#paging) section for more info.
 
-Both approaches will get 5 pages from the API and so take the same number of API requests and will give the same tweet results. The difference is that the `.items` approach will add a logic layer so that you only care about tweets and not pages.
-
-?> See [Cursor tutorial](http://docs.tweepy.org/en/latest/cursor_tutorial.html) on Tweepy docs.
 
 
 #### Extended message
