@@ -180,14 +180,14 @@ user.followers_count
 user = api.get_user(screen_name='foo')
 ```
 
-Get ID as an `int`. You will probably be find with this in most cases.
+Get ID as an `int`. You will probably fine with this in most cases.
 
 ```python
 user_id = user.id
 # 1234567
 ```
 
-Get ID as a `str`. Useful for streaming
+Get ID as a `str`. You probably don't need this.
 
 ```python
 user_id = user.id_str
