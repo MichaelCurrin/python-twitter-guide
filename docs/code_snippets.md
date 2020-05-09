@@ -268,7 +268,7 @@ cursor = tweepy.Cursor(
     screen_name="foo",
     count=100
 )
-user_id_pages = [user_id for user_id in cursor.pages()]
+user_id_pages = list(cursor.pages())
 ```
 
 You can combine this approach with [Lookup users](#lookup-many-profiles) method, to lookup a batch users with known IDs or screen names.
@@ -524,6 +524,8 @@ retweeters = tweet.retweeters
 Twitter assigns a tweet a language e.g. `en` for English or `it` for Italian.
 
 ?> **Twitter dev docs:** [Supported languages](https://developer.twitter.com/en/docs/twitter-for-websites/twitter-for-websites-supported-languages/overview)
+
+?> **Twitter API docs:** [Get Supported Languages](https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages) endpoint. There is some sample output there. 
 
 
 ### Where does it come from?
