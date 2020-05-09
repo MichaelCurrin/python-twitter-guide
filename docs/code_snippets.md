@@ -918,6 +918,25 @@ tweets = api.search(
 )
 ```
 
+#### Limit date range
+
+You can specify that the tweets should be up to a date. If you don't care about tweets in the last few days or you already stored them, this can be useful to go back further.
+
+Add `until`.
+
+e.g. `until="2020-05-07"`
+
+?> You are still bound by the search API's limit of one week, so if you set until to be a week ago you'll get close to zero tweets.
+
+#### Filter by location 
+
+Set geo encode parameter with latitude, longitude and distance.
+
+This can be in miles or kilometers. See the Tweepy search reference linked further up
+
+e.g. `geoencode="52,100,1"`
+
+
 ## Get entities on tweets
 
 ### Get media
@@ -927,14 +946,16 @@ How to get images on tweets.
 ?> This example is for the [Search API](#search-api) but can work for other methods too such as [User timeline](#get-a-user39s-timeline).
 
 
-Add _entities_ to your request (this may not always be needed on some endpoints), then use the media value, if one exists on a tweet's entities.
+Add entities to your request - this may not always be needed on some endpoints such as `.search` where the default is `True`. Check the Tweepy docs.
+
+Then use the media value, if one exists on a tweet's entities.
 
 ```python
 cursor = tweepy.Cursor(
     api.search,
     query,
-    count=count
-    include_entities=True
+    count=count,
+    include_entities=True,
 )
 
 for tweet in cursor:
