@@ -922,9 +922,16 @@ tweets = api.search(
 
 You can specify that the tweets should be up to a date. If you don't care about tweets in the last few days or you already stored them, this can be useful to go back further.
 
-Add `until`.
+Add `until` as a parameter with year, month, date formatted date as a string.
 
-e.g. `until="2020-05-07"`
+e.g. 
+
+```python
+api.search(
+    q=query, 
+    until="2020-05-07"
+)
+```
 
 ?> You are still bound by the search API's limit of one week, so if you set until to be a week ago you'll get close to zero tweets.
 
@@ -934,7 +941,13 @@ Set geo encode parameter with latitude, longitude and distance.
 
 This can be in miles or kilometers. See the Tweepy search reference linked further up
 
-e.g. `geoencode="52,100,1"`
+e.g.
+
+```python
+api.search(geoencode="33.3,12.34,10km")
+```
+
+It looks like you can do this without specifying a search term.
 
 
 ## Get entities on tweets
