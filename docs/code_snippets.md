@@ -2,6 +2,12 @@
 > Common use-cases for the Twitter API and how to solve them in Python 3 using Tweepy
 
 
+## Quick links
+> Jump to some highlighted sections
+
+[Get users](#get-users) | [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
+
+
 ## TL;DR
 > A summary of this page.
 
@@ -18,13 +24,6 @@ api.update_status("Hello, world!")
 ```
 
 Keep reading this page for more details.
-
-
-## Quick links
-> Jump to some highlighted sections
-
-[Get users](#get-users) | [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
-
 
 
 ## About
@@ -53,6 +52,15 @@ The `api` object returned in the auth section above will cover most of your need
 The `api` object is an instance of `tweepy.API` class and is covered in the docs here and is useful to see the allowed parameters, how they are used and what is returned.
 
 The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
+
+
+
+
+## How do I get a high of volume of tweets?
+
+- Add a [waiting](auth.md#add-waiting) config option as per the auth guide so that Tweepy will automatically wait when it rates a rate limit exceeded point.
+- Use [Paging](#paging) here so that Tweepy will iterate over multiple pages for you.
+- Pick a token auth approach that gives the most tweets in a window. See the [Rate limits](policies#rate-limits) section on Twitter policies page. For example, App-only Token is more suitable for search than for App Access Token (with user context).
 
 
 ## Paging
@@ -117,8 +125,8 @@ for page in cursor.pages(5):
 ```
 
 
-
 ## Get users
+> Various approaches to get profiles of Twitter users
 
 ### Fetch the profile for the authenticated user
 
