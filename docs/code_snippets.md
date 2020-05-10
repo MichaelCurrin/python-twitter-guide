@@ -374,23 +374,29 @@ tweets = api.user_timeline(count=200)
 
 ?> **Tweepy docs**: [API.user_timeline](http://docs.tweepy.org/en/latest/api.html#API.user_timeline) <br>**Twitter API docs:** [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline) - note daily limit of 100k tweets and getting 3,200 most recent tweets, otherwise there is not really a date restriction on how many days or years you can go back to.
 
+
 #### Fuller examples
 
-Get `200` tweets.
+Get `200` tweets of user.
+
+?> See [Extended message](#extended-message) section regarding the Tweet mode parameter.
 
 ```python
 screen_name = "foo"
 tweets = api.user_timeline(
     screen_name=screen_name,
     count=200,
-    tweet_mode="extended"
+    tweet_mode="extended",
 )
 
 for tweet in tweets:
-    print(tweet.full_text)
+    try:
+        print(tweet.full_text)
+    except AttributeError:
+        print(tweet.text)
 ```
 
-Using paging to get `1000` tweets.
+Using paging to get `1000` tweets - `3200` is the max for a timeline.
 
 ```python
 screen_name = "foo"
@@ -398,16 +404,20 @@ cursor = tweepy.Cursor(
     api.user_timeline,
     screen_name=screen_name,
     count=200,
-    tweet_mode="extended"
+    tweet_mode="extended",
 )
 
 for tweet in cursor.items(1000):
-    print(tweet.full_text)
+    try:
+        print(tweet.full_text)
+    except AttributeError:
+        print(tweet.text)
 ```
+
 
 #### Get expanded message on a user's retweets
 
-Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a *retweet* will still be truncated. So you can this approach to get the full message on the _original_ tweet.
+Note that even though we use _extended_ mode to show expanded rather than truncated tweets, the message of a **retweet** will still be **truncated**. So you can this approach to get the full message on the _original_ tweet.
 
 Example from [source](https://stackoverflow.com/questions/42705314/getting-full-tweet-text-from-user-timeline-with-tweepy).
 
@@ -422,6 +432,9 @@ tweets[6].full_text
 tweets[6].retweeted_status.full_text
 # => 'So proud of these amazing @HSESchools students who presented their ideas on how to help their peers manage stress in meaningful ways! Thanks @HSEPrincipal for giving us your time!'
 ```
+
+?> **Tweepy docs:** [Handling Retweets](http://docs.tweepy.org/en/latest/extended_tweets.html#handling-retweets) in Extended Tweets guide.
+
 
 ### Fetch tweets by ID
 
@@ -894,18 +907,33 @@ See [Paging](#paging) section for more info.
 
 #### Extended message
 
-Set `tweet_mode` to `extended`.
+You can choose to set `tweet_mode` to `extended`.
 
 - This will give messages that are not truncated (with an ellipsis at the end).
-- Note that retweets messages might still be truncated even with this option.
-- When using this option, make sure to use the `tweet.full_text` attribute and not `tweet.text`, to avoid an error.
+- Note that retweets messages might _still_ be truncated even with this option.
+
+When using this option, make sure to use the `tweet.full_text` attribute and not `tweet.text`. But still allow fallback to plain `tweet.text`. Since the Tweepy docs say:
+
+> If status is a Retweet, it will not have an extended_tweet attribute, and status.text could be truncated.
+
 
 ```python
 tweets = api.search(
     query,
-    tweet_mode="extended"
+    tweet_mode="extended",
 )
 ```
+
+```python
+for tweet in tweets.items():
+    try:
+        print(tweet.full_text)
+    except AttributeError:
+        print(tweet.text)
+```
+
+?> **Tweepy docs:** [Extended mode](http://docs.tweepy.org/en/latest/extended_tweets.html)
+
 
 #### Result type
 
