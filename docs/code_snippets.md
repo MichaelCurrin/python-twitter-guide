@@ -911,9 +911,9 @@ tweets = api.search(
 
 Set `result_type` to one of the following, according to Twitter API:
 
-- `recent` - The tweets that are most recent.
-- `popular`- The tweets with the highest engagements. Note that this list might be very short - just a few tweets - compared with running the `recent` query query.
 - `mixed` - A balance of the other two. Default option.
+- `recent` - The tweets that are the most recent.
+- `popular`- The tweets with the highest engagements. Note that this list might be very short (just a few tweets) - compared with running the `recent` query.
 
 ```python
 result_type = "popular"
