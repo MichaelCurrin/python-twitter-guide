@@ -23,6 +23,8 @@ Example:
 tweet.created_at
 ```
 
+Available attributes:
+
 | Name                | Type                 | Description                                                                                                                                                                                                                   |
 | ------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `author`            | [tweepy.User](#user) | The Twitter profile that made the tweet.                                                                                                                                                                                      |
@@ -48,6 +50,8 @@ Example:
 ```python
 tweet.favorite()
 ```
+
+Available methods:
 
 | Name       | Description                            |
 | ---------- | -------------------------------------- |
