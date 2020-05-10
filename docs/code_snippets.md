@@ -973,15 +973,17 @@ api.search(
 
 #### Filter by location 
 
-Search for tweets at a point within a radius.
+Search for tweets at a point within a radius. 
 
-Value format:
+?> You can leave the search query parameter `q` unset and this will still work.
+
+Format of geocode value:
 
 ```
-LATITUDE,LONGITUDE,RADIUS)
+LATITUDE,LONGITUDE,RADIUS
 ```
 
-e.g.
+Example usage:
 
 ```python
 api.search(geocode="33.333,12.345,10km")
