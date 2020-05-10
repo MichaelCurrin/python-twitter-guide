@@ -15,6 +15,14 @@ The [tweepy.Status] class, which represents a tweet.
 ### Attributes
 > Read-only values on a tweet
 
+These do not require an API call as the data is on the object.
+
+Example:
+
+```python
+tweet.created_at
+```
+
 | Name                | Type                 | Description                                                                                                                                                                                                                   |
 | ------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `author`            | [tweepy.User](#user) | The Twitter profile that made the tweet.                                                                                                                                                                                      |
@@ -34,6 +42,12 @@ The [tweepy.Status] class, which represents a tweet.
 
 ### Methods
 > Actions you can perform on a tweet
+
+Example:
+
+```python
+tweet.favorite()
+```
 
 | Name       | Description                            |
 | ---------- | -------------------------------------- |
@@ -89,7 +103,7 @@ For tweets which go past this up to 280 characters, you need to pass in a flag. 
 tweets = api.search(q=query, tweet_mode='extended')
 ```
 
-Using the Cursor approach, based on the Tweepy [Cursor tutorial]
+Using the Cursor approach, based on the [Paging] guide.
 
 ```python
 tweets = tweepy.Cursor(api.search, q=query, tweet_mode='extended')
@@ -103,10 +117,32 @@ for tweet in tweets:
 The [tweepy.User] class, which represents a Twitter profile.
 
 
-[models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
-[tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
-[tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
-[Cursor tutorial]: http://docs.tweepy.org/en/v3.8.0/cursor_tutorial.html
+### Attributes
+
+These do not require an API call as the data is on the object.
+
+Example:
+
+```python
+user.id
+```
+
+
+### Methods
+
+#### Get data
+
+This requires one or more API calls.
+
+```python
+user.timeline()
+```
+
+#### Perform action
+
+```python
+user.follow()
+```
 
 
 ## Direct message
@@ -324,3 +360,12 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 ```
 
 </details>
+
+
+
+<!-- Centralized links -->
+
+[models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
+[tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
+[tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
+[Paging]: code_snippets.md#paging
