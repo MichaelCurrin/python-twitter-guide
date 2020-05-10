@@ -31,14 +31,14 @@ Tweepy is a Python library which is a wrapper on the Twitter API - you don't hav
 
 #### Tweepy docs
 
-- [Docs homepage](http://docs.tweepy.org/en/latest/)
+- [Docs homepage](https://docs.tweepy.org/en/latest/)
     - This page is especially useful as a high-level view of the API method groups under _API Reference_ bullet point.
     - Redirects from [Tweepy Read the Docs](http://tweepy.readthedocs.org/)
 - [API Reference](http://docs.tweepy.org/en/latest/api.html)
     - Shows you what methods are available on the `api` object and what parameters they take.
     - Sometimes the methods on `API` can be used more conveniently on an object e.g. `API.retweet(tweet.id)` can be replaced with `tweet.retweet()`.
 - Github repo
-- [tweepy/tweepy](https://github.com/tweepy/tweepy) repo on Github.
+    - [tweepy/tweepy](https://github.com/tweepy/tweepy) repo on Github.
 - Highlights
     - [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py)
     - [models.py](https://github.com/tweepy/tweepy/blob/master/tweepy/models.py)
