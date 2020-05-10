@@ -107,8 +107,9 @@ api.verify_credentials()
 Put the logic above in a function. This makes keeps the values out of the global scope and it means it is easy to import and use the function in multiple scripts.
 
 ```python
-def get_api_connection(consumer_key, consumer_secret, access_key=None,
-                       access_secret=None):
+def get_api_connection(
+    consumer_key, consumer_secret, access_key=None, access_secret=None
+):
     """
     Authorize with Twitter and return API connection object.
     """
@@ -120,7 +121,7 @@ def get_api_connection(consumer_key, consumer_secret, access_key=None,
     api = tweepy.API(
         auth,
         wait_on_rate_limit=True,
-        wait_on_rate_limit_notify=True
+        wait_on_rate_limit_notify=True,
         retry_count=3,
         retry_delay=5,
         retry_errors=[401, 404, 500, 503],
