@@ -66,7 +66,7 @@ You can continue with the steps here to make the `api` object more robust or add
 
 ### Add waiting
 
-You don't have to worry about waiting for most cases - Tweepy will tell you it is waiting and it will wait.
+You don't have to worry about waiting when rate limit is reached. Use `wait_on_rate_limit` to enable this and `wait_on_rate_limit_notify` to get notified on the console that the app is waiting.
 
 ```python
 tweepy.API(
