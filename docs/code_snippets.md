@@ -32,8 +32,7 @@ This section aims at making at easier by doing that work for you and suggesting 
 
 This based on Tweepy docs, Tweepy code and the Twitter API docs.
 
-?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. But, note that if you paste into the *interactive* Python terminal you may get a syntax error because of the empty lines in functions.
-
+?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. And pasting most code into the **interactive terminal* is fine, but you'll get a syntax error if you paste a function which has empty lines, so use a script instead for that.
 
 
 ## Naming conventions
@@ -52,7 +51,6 @@ The `api` object returned in the auth section above will cover most of your need
 The `api` object is an instance of `tweepy.API` class and is covered in the docs here and is useful to see the allowed parameters, how they are used and what is returned.
 
 The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
-
 
 
 
@@ -251,7 +249,7 @@ for user in api.followers(screen_name="foo"):
     print(user.screen_name)
 ```
 
-### Followers IDs method
+### Follower IDs method
 
 Similar to above, but only returns user IDs and not users.
 
@@ -480,7 +478,7 @@ retweets = tweet.retweets
 
 ### Get the target of a reply
 
-Get tweet.
+Get original tweet on the current tweet, if it has one.
 
 ```python
 original_tweet_id = tweet.in_reply_to_status_id
@@ -489,7 +487,7 @@ if original_tweet_id is not None:
     original_tweet = api.get_status(original_tweet_id)
 ```
 
-Get user.
+Get user who was the target of the reply.
 
 ```python
 original_user = tweet.in_reply_to_user_id
@@ -615,6 +613,33 @@ stream.filter(track=["python"], languages=["en"])
 ```
 
 
+## Get replies to a tweet
+
+The only way to get replies to a tweet is using the [Search API](#search-api), which means you can only get replies which happened in the past week.
+
+This approach gets all replies to a user with screen name `foo`. You can replace the handle with your own.
+
+```
+to:foo filter:replies
+```
+
+That can be tested into browser.
+
+Here is how to do it with Tweepy.
+
+```python
+screen_name
+query = "to:{} filter:replies".format(screen_name)
+tweets = api.search(query)
+```
+
+To get replies to a specify tweet, you'll have to check the `tweet.in_reply_to_status_id` attribute for a match on the current ID.
+
+This can be further optimized by specifying a condition in the search which only shows tweets _after_ the target tweet ID, but if you're iterating back from most recent tweets the way Twitter does then it only helps a bit.
+
+You'll also have to apply recursive logic to get replies to replies.
+
+
 ## Engage with a tweet
 
 !> Note that you should only use these actions if you included them in your dev application otherwise you may get blocked. Also if you have a read-only app, you can upgrade to a read and write app.
@@ -693,7 +718,9 @@ msg = 'Hello, world!'
 tweet = api.update_with_media(media_path, status=msg)
 ```
 
-- Tweepy docs link: [API.update_with_media](http://docs.tweepy.org/en/latest/api.html#API.update_with_media).
+?> **Tweepy docs:** [API.update_with_media](http://docs.tweepy.org/en/latest/api.html#API.update_with_media).
+
+!> Note that this method does work, but the docs says this is deprecated. The preferred approach is to use `api.upload_media` and then attach the return ID as part of the `media_ids` list parameter on the `api.update_status` method covered above.
 
 
 ## Handle time values
@@ -778,6 +805,9 @@ Twitter API docs on search.
 
 ### Search query examples
 
+
+#### Basic
+
 Some examples to demonstrate common use of the search syntax.
 
 - Single term
@@ -791,6 +821,8 @@ Some examples to demonstrate common use of the search syntax.
 - Require _at least one term_ - uses the `OR` keyword.
     - `foo OR bar`
     - `#foo OR bar`
+- Exact match on phrase. i.e. all words must be used and in order.
+    - `foo bar`
 - Exclusion - Using leading minus sign.
     - `foo -bar`
 - Groups
@@ -812,6 +844,20 @@ Some examples to demonstrate common use of the search syntax.
 ?> When combing `AND` and `OR` functionality in a single rule, the `AND` logic is evaluated first. Such that `foo OR bar fizz`  is equivalent to `foo OR (bar fizz)`. Though, braces are preferred for readability.
 
 ?> Note for the last example above that double-quoted phrases must be *before* ordinary terms, due to a known Twitter Search API bug.
+
+
+#### Advanced
+
+See the links in [Query syntax](#query-syntax) section for more details.
+
+Query | Description
+---   | ---
+`to:some_handle` | Mentions of user `@some_handle`.
+`filter:retweets #bar` | Retweets only about `#bar`.
+`-filter:retweets #bar` | Exclude retweets about `#bar`.
+`filter:replies #bar` | Replies only about `#bar`.
+`to:some_handle filter:replies` | Replies to `@some_handle`.
+
 
 
 ### Tweepy search method
@@ -837,7 +883,7 @@ Create a variable which contains your query. The query should be a single string
 
     query = "foo OR bar"
     ```
-- A quoted phrase - just change the outside to single quotes.
+- An exact match phrase in quotes - just change the outside to single quotes.
     ```python
     query = '"foo bar"'
     ```
@@ -851,7 +897,7 @@ Return tweets for a search query. Only gives 20 tweets by default, so read on to
 tweets = api.search(query)
 ```
 
-Or use `q` explicitly for the same result.
+Or use `q` explicitly, for the same result.
 
 ```python
 tweets = api.search(q=query)
