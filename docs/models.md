@@ -40,7 +40,6 @@ Available attributes:
 | `id`                | `int`                | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                                                                                 |
 | `id_str`            | `str`                | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language.                                                     |
 
-[entities-object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/entities-object
 
 ### Methods
 > Actions you can perform on a tweet
@@ -168,7 +167,7 @@ Example:
 tweet.entities
 ```
 
-```
+```json
 {
     "hashtags": [],
     "urls": [],
@@ -177,6 +176,7 @@ tweet.entities
 }
 ```
 
+If there are media present (images or GIFs), then you will also see a `"media"` field.
 
 ## Direct message
 
@@ -398,6 +398,7 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 
 <!-- Centralized links -->
 
+[Twitter Entities object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/entities-object
 [Twitter User object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object
 [Twitter Tweet object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
