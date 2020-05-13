@@ -178,7 +178,16 @@ tweet.entities
 
 If there are media present, then you will also see a `"media"` field.
 
-The API docs recommends using entender entities for that case.
+Use this to avoid a key error when the key is not there. This will return `None` if the key does not exist, or a `list` of values if it does exist.
+
+```python
+tweet.entities.get("media", None)
+```
+
+## Extended entities
+
+
+The API docs recommends using entended entities for that case.
 
 > if you are working with native media (photos, videos, or GIFs), the Extended Entities object is the way to go.
 
