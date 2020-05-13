@@ -2,7 +2,7 @@
 > The attributes and actions you can perform on Tweepy objects
 
 
-?> **Tweepy repo:** [models.py]
+?> **Tweepy repo:** [models.py] module - in case you want to see the Tweepy code. This is useful for methods but attributes come from the Twitter API so use the API references rather.
 
 
 ## Status
@@ -31,7 +31,7 @@ Available attributes:
 | `contributors`      |                      |                                                                                                                                                                                                                               |
 | `coordinates`       |                      |                                                                                                                                                                                                                               |
 | `created_at`        | `str`                | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value. |
-| `entities`          |                      | See [entities-object] in Twitter dev docs.                                                                                                                                                                                    |
+| `entities`          |                      | See [Entities](#entities).                                                                                                                                                                                   |
 | `extended_entities` |                      |                                                                                                                                                                                                                               |
 | `favorite_count`    | `int`                | Count of stars/favorites.                                                                                                                                                                                                     |
 | `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet. Twitter API has a bug around this field.                                                                                                                                                                   |
@@ -152,6 +152,29 @@ user.timeline()
 
 ```python
 user.follow()
+```
+
+
+## Entities
+> Metadata available about tweet contents
+
+Rather than parsing a tweet message yourself, Twitter makes a field available to easily give you hashtags, mentions and URLs, or empty arrays if they do not apply to the content tweet.
+
+Tweepy makes the data available as a dictionary on the object, based on the original JSON data.
+
+Example:
+
+```python
+tweet.entities
+```
+
+```
+{
+    "hashtags": [],
+    "urls": [],
+    "user_mentions": [],
+    "symbols": []
+}
 ```
 
 
