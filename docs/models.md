@@ -176,7 +176,18 @@ tweet.entities
 }
 ```
 
-If there are media present (images or GIFs), then you will also see a `"media"` field.
+If there are media present, then you will also see a `"media"` field.
+
+The API docs recommends using [Extended entity object] for that case. 
+
+> if you are working with native media (photos, videos, or GIFs), the Extended Entities object is the way to go.
+
+That is also available on the tweet as an attribute - you may need a flag on the request to include extended entities though.
+
+```python
+tweet.extended_entities
+```
+
 
 ## Direct message
 
