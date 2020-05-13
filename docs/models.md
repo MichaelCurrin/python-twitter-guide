@@ -14,8 +14,6 @@ The [tweepy.Status] class, which represents a tweet.
 
 These do not require an API call as the data is already on the object.
 
-?> **Twitter API reference:** [Tweet object in the data dictionary] - see this for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
-
 Example:
 
 ```python
@@ -24,9 +22,12 @@ tweet.created_at
 
 Available attributes:
 
+?> **Twitter API reference:** [Twitter Tweet object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
+
+
 | Name                | Type                 | Description                                                                                                                                                                                                                   |
 | ------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `author`            | [tweepy.User](#user) | The Twitter profile that made the tweet.                                                                                                                                                                                      |
+| `author`            | [tweepy.User](#user) | The Twitter profile that created the tweet.                                                                                                                                                                                      |
 | `contributors`      |                      |                                                                                                                                                                                                                               |
 | `coordinates`       |                      |                                                                                                                                                                                                                               |
 | `created_at`        | `str`                | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value. |
@@ -121,14 +122,20 @@ The [tweepy.User] class, which represents a Twitter profile.
 
 
 ### Attributes
+> Read-only fields on a user object
 
-These do not require an API call as the data is on the object.
+These do not require an API call as the data is already on the object.
 
 Example:
 
 ```python
 user.id
 ```
+
+Available attributes:
+
+?> **Twitter API reference:** [Twitter User object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
+
 
 
 ### Methods
@@ -368,7 +375,8 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 
 <!-- Centralized links -->
 
-[Tweet object in the data dictionary]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
+[Twitter User object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object
+[Twitter Tweet object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
