@@ -176,22 +176,27 @@ tweet.entities
 }
 ```
 
-If there are media present, then you will also see a `"media"` field.
+?> **Twitter API docs:** [Twitter Entities object]
 
-Use this to avoid a key error when the key is not there. This will return `None` if the key does not exist, or a `list` of values if it does exist.
+### Media
+
+Only if there are media present, then you will also see a `"media"` field above.
+
+Use this code to avoid `KeyError` when the key is not there - this will return `None` if the key does not exist, or a `list` of values if it does exist.
 
 ```python
 tweet.entities.get("media", None)
 ```
 
+
 ## Extended entities
 
 
-The API docs recommends using entended entities for that case.
+The API docs linked above recommend using entended entities for that case.
 
 > if you are working with native media (photos, videos, or GIFs), the Extended Entities object is the way to go.
 
-That is also available on the tweet as an attribute - you may need a flag on the request to include extended entities though.
+This is available on the tweet as an attribute - you may need a flag on the request to include extended entities though.
 
 ```python
 tweet.extended_entities
