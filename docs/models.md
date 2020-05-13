@@ -96,7 +96,7 @@ Available methods:
 - `user`
 
 
-### Expanded truncated messages
+### Expand truncated messages
 
 
 By default Tweepy will return tweets which have a message up to 140 characters on the `tweet.text` attribute.
@@ -181,13 +181,9 @@ tweet.entities
 
 ### Media
 
-Only if there are media present, then you will also see a `"media"` field above.
+If there are media, on the tweet, then the `"media"` key will be included above too.
 
-Use this code to avoid `KeyError` when the key is not there - this will return `None` if the key does not exist, or a `list` of values if it does exist.
-
-```python
-tweet.entities.get("media", None)
-```
+See the [Get media on a tweet](code_snippets.md#get-media-on-at-tweet) section on the Tweepy sample code page.
 
 
 ## Extended entities
