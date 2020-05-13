@@ -1174,21 +1174,54 @@ However, the volume is much lower than the search API.
 
 Create a class which inherits from [StreamListener](https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/streaming.py#L30).
 
-Most of the methods just return, so you will need to override methods to handle statuses and errors.
 
-?> There are a couple of errors which can happen so they are not handled here - see the original class linked above for what methods there are or see the examples at the end of this section.
+#### Base
+
+To get started, define is using the example from Tweepy docs Streaming tutorial. 
 
 
 ```python
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
+        """Called when a new status arrives"""
         print(status.text)
+
+
+    def on_error(self, status_code):
+        if status_code == 420:
+            return False
 ```
+
+That will:
+
+- Print a tweet immediately when it happens and then return `None`, which will keep the stream alive. 
+- It will **disconnect** when throttled by rate limiting by returning `False`. Rate limiting is not measure as requests in a window like the search API, which means you can get a high volume of tweets in realtime. Read the [Rate limits](policies.md#rate-limits) section on the Twitter Policies page for more info.
 
 ?> Some people name this class as `_StdOutListener`.
 
+#### Override more methods
 
+Most of the methods just return nothing quietly, so you will need to override methods you care about so you can print the output to the console or write to a CSV or database. Check the link above to available methods - the docstrings explain them well.
+
+For example, you could override `on_direct_message` to handle that event.
+
+You might want to handle some errors, or add least add printing to hep debugging.
+
+Here are some error methods:
+
+Method | Description
+---    | ---
+`on_exception` | Called when an unhandled exception occurs
+`on_limit` | Called when a limitation notice arrives
+`on_error` | Called when a non-200 status code is returned
+`on_timeout` | Called when stream connection times out
+`on_disconnect` | Called when twitter sends a disconnect notice.
+
+?> **Twitter API docs:** [Streaming message types] - includes error codes.
+
+[Streaming message types]: https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types
+        
 ### Setup stream instance
 
 ```python
@@ -1290,7 +1323,7 @@ If you want to update a stream, you must **stop** it and then **start** a new st
 
 One way is to stop your application, reconfigure it and then start it again.
 
-If you want to keep the script running, you can restart like this:
+If you want to keep the script running when switching streams, you can restart like this:
 
 
 ```python
