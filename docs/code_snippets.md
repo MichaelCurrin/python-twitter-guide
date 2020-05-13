@@ -493,6 +493,18 @@ Get user who was the target of the reply.
 original_user = tweet.in_reply_to_user_id
 ```
 
+### Get the target of a retweet
+
+If the current tweet is a retweet (i.e. starts with `"RT @"`) then it will have the original tweet as an attribute. Use this code to get the original tweet and default to `None` if it does not exist.
+
+```python
+original_tweet = getattr(tweet, "retweeted_status", None)
+```
+You can get the ID or author on that tweet.
+
+Or you can just check if the tweet is a retweet by checking if the value is `None`.
+
+
 
 ## Get tweet engagements
 
