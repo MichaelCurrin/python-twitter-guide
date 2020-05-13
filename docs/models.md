@@ -178,7 +178,7 @@ tweet.entities
 
 If there are media present, then you will also see a `"media"` field.
 
-The API docs recommends using [Extended entity object] for that case. 
+The API docs recommends using entender entities for that case.
 
 > if you are working with native media (photos, videos, or GIFs), the Extended Entities object is the way to go.
 
@@ -187,6 +187,8 @@ That is also available on the tweet as an attribute - you may need a flag on the
 ```python
 tweet.extended_entities
 ```
+
+?> **Twitter API docs:** [Twitter Extended Entities object]
 
 
 ## Direct message
@@ -410,6 +412,7 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 <!-- Centralized links -->
 
 [Twitter Entities object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/entities-object
+[Twitter Extended Entities object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/extended-entities-object
 [Twitter User object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object
 [Twitter Tweet object]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
