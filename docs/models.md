@@ -196,7 +196,7 @@ The API docs linked above recommend using entended entities for that case.
 
 > if you are working with native media (photos, videos, or GIFs), the Extended Entities object is the way to go.
 
-This is available on the tweet as an attribute - you may need a flag on the request to include extended entities though.
+This is available on the tweet as an attribute.
 
 ```python
 tweet.extended_entities
