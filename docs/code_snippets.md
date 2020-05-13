@@ -1164,9 +1164,17 @@ Follow the sections below to start streaming with the `stream` object.
 ?> Only the `.filter` method is covered here as that is accessible without a premium account.
 
 
-#### Follow tweets by users
+#### Follow tweets from or to users
 
-Stream public tweets by one or more users. This includes tweets and retweets created and replies to the user, but not mentions of the user.
+Stream public tweets relating one or more users. 
+
+According to docs this includes:
+
+- Tweets and retweets _from_ the user.
+- Replies and retweets _to_ the user's tweets.
+- Original messages _to_ user. i.e. Message _starts_ with "@handle", but _not_ mentions with the handle later in the message.
+
+?> **Twitter API docs**: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow** section).
 
 First get the user IDs of one or more Twitter users to follow.
 
@@ -1181,8 +1189,6 @@ user_ids = ["1234567", "456789", "9876543"]
 
 stream.filter(follow=user_ids)
 ```
-
-?> **Twitter API docs**: [Basic stream parameters](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters) (see **follow** section).
 
 
 #### Follow tweets matching keywords
