@@ -2,10 +2,7 @@
 > The attributes and actions you can perform on Tweepy objects
 
 
-**Links:**
-
-- See [models.py] in the Tweepy source code.
-
+?> **Tweepy repo:** [models.py]
 
 
 ## Status
@@ -13,9 +10,11 @@
 The [tweepy.Status] class, which represents a tweet.
 
 ### Attributes
-> Read-only values on a tweet
+> Read-only values on a tweet object
 
-These do not require an API call as the data is on the object.
+These do not require an API call as the data is already on the object.
+
+?> **Twitter API reference:** [Tweet object in the data dictionary] - see this for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
 
 Example:
 
@@ -369,6 +368,7 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 
 <!-- Centralized links -->
 
+[Tweet object in the data dictionary]: https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
