@@ -505,6 +505,39 @@ You can get the ID or author on that tweet.
 Or you can just check if the tweet is a retweet by checking if the value is `None`.
 
 
+### Get media on a tweet
+
+A tweet can have up to 4 item items on it and these can be photos, videos or GIFs.
+
+Get the media by reading the entities attribute and getting the `media` field, which only exists if there actually media items.
+
+!> You must used **extended** mode otherwise you will not see media.
+
+Get a tweet - the example below uses `apu.get_status`, but this can be applied to other cases.
+
+```python
+tweet_id = 1256704946717822977
+tweet = api.get_status(tweet_id, tweet_mode="extended")
+```
+
+Get the media `list` on the tweet.
+
+```python
+media = tweet.entities.get("media", [])
+```
+
+?> Here we default to an empty list in case the key is not set.
+
+Then you you can get the HTTPS media URL on the items media `list`.
+
+Example:
+
+```python
+for item in media:
+    url = item["media_url_https"]
+    # => "https://pbs.twimg.com/media/EXC2A8vXgAEM7Nm.jpg"
+```
+
 
 ## Get tweet engagements
 
