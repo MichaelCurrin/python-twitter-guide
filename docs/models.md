@@ -88,6 +88,7 @@ Available methods:
 - `source`
 - `source_url`
 - `truncated`
+- `retweeted_status` - the original tweet, if the current tweet is a retweet.
 
 ### Deprecated
 > Do not use these on the tweet object - they are marked as deprecated.
