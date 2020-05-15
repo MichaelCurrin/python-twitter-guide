@@ -856,7 +856,7 @@ Twitter API docs on search.
 Some examples to demonstrate common use of the search syntax.
 
 - Single term
-    - `'foo`
+    - `foo`
     - `#foo`
     - `@some_handle`
 - Require _all terms_. Note that `AND` logic is implied. The order does not matter.
