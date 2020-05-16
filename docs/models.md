@@ -61,7 +61,7 @@ Available methods:
 
 - `_json`
     - `dict`
-    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the tweet object. However, this is JSON attribute is useful if you want to convert to tweet to a string then write it out to a text file such as CSV or JSON.
+    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the Python tweet object. However, this is JSON attribute is useful if you want to convert an entire tweet to a string then write it out to a text file, CSV or JSON file. Then you can parse the data later when you read it again. 
 - `display_text_range`
 - `geo`
 - `in_reply_to_screen_name`
@@ -224,7 +224,7 @@ Here is a full breakdown the values, copied from the [Message Create Object] ref
 
 
 <details>
-<summary><b>Example JSON output</b></summary>
+<summary><button>Click to see Example JSON output</button></summary>
 
 ```json
 {
@@ -279,7 +279,7 @@ Then each time has the follow attributes:
 
 
 <details>
-<summary><b>Example JSON output</b></summary>
+<summary><b>Click to see example JSON output</b></summary>
 
 Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status).
 
