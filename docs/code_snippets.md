@@ -35,7 +35,7 @@ This based on Tweepy docs, Tweepy code and the Twitter API docs.
 ?> **Snippet use:**<br>You may copy and paste the code here into your own project and modify it as you need.<br><br>Pasting into a *script* and running is straightforward. And pasting most code into the **interactive terminal* is fine, but you'll get a syntax error if you paste a function which has empty lines, so use a script instead for that.
 
 
-## Naming conventions
+### Naming conventions
 
 - A _tweet_ is called a _status_ in the API and Tweepy.
 - A _profile_ is called a _user_ or _author_ in the API and Tweepy.
@@ -52,6 +52,8 @@ The `api` object is an instance of `tweepy.API` class and is covered in the docs
 
 The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
 
+
+?> **Twitter dev docs:** [API reference index](https://developer.twitter.com/en/docs/api-reference-index) - a list of all available endpoints. Tweepy implements most of these I think. For more info on the API, see [Resources](resources.md) page.
 
 
 ## How do I get a high of volume of tweets?
