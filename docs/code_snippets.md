@@ -153,7 +153,7 @@ screen_name = "foo"
 user = api.get_user(screen_name=screen_name)
 ```
 
-By ID.
+Or by user ID.
 
 ```python
 user_id = "foo"
@@ -179,21 +179,22 @@ user.followers_count
 ```
 
 
-### Lookup user ID for a screen name
+#### Lookup user ID for a screen name
 
+How to get the profile and user ID for a known user screen name
 
 ```python
 user = api.get_user(screen_name='foo')
 ```
 
-Get ID as an `int`. You will probably fine with this in most cases.
+Get ID as an `int`.
 
 ```python
 user_id = user.id
 # 1234567
 ```
 
-Get ID as a `str`. You probably don't need this.
+Get ID as a `str`. You probably don't need this. Use the `.id` one rather.
 
 ```python
 user_id = user.id_str
@@ -202,14 +203,14 @@ user_id = user.id_str
 
 #### Lookup many profiles
 
-Lookup one or more users by screen name.
+Lookup one or more users at once using their screen names.
 
 ```python
 screen_names = ["foo", "bar", "baz"]
 users = api.lookup_users(screen_names=screen_names)
 ```
 
-Lookup one or more users by ID.
+Or lookup one or more users by their IDs.
 
 ```python
 user_ids = [123, 456, 789]
