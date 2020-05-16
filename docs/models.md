@@ -224,7 +224,7 @@ Here is a full breakdown the values, copied from the [Message Create Object] ref
 
 
 <details>
-<summary><button>Click to see Example JSON output</button></summary>
+<summary><b>Click to see Example JSON output</b></summary>
 
 ```json
 {
