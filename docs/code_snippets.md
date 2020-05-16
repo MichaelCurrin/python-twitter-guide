@@ -721,7 +721,7 @@ A novel way to make replies without hitting policy restrictions is to make a twe
 
 ### FAQs
 
-#### Can I reply to a tweet or @mention someone?
+#### Can I reply to a tweet or `@mention` someone?
 
 Yes, but only if they have first messaged you. The Twitter automation [policy](policies.md is **strict** on this. Please make sure you understand it before replying to tweets.
 
@@ -752,6 +752,7 @@ msgs = ["Foo", "Bar baz")
 msg = randon.choice(msgs)
 ```
 
+
 ### Tweet a message with media
 
 Upload an image or animated GIF.
@@ -766,6 +767,30 @@ tweet = api.update_with_media(media_path, status=msg)
 ?> **Tweepy docs:** [API.update_with_media](http://docs.tweepy.org/en/latest/api.html#API.update_with_media).
 
 !> Note that this method does work, but the docs says this is deprecated. The preferred approach is to use `api.upload_media` and then attach the return ID as part of the `media_ids` list parameter on the `api.update_status` method covered above.
+
+### Create a reply
+
+!> Read the [Twitter policies](policies.md) page automation rules carefully before automating replies to users. Any message directed at a user without them requesting it from your bot can be considered spam by Twitter. Twitter docs are very specific on when you may reply.
+
+?> A safe way to make replies is to reply to your own tweets only. This can be used to create a tweet chain such as a 10-part tutorial with text or images.
+
+?> According to the Tweepy docs for this endpoint, you **must** do a mention of the screen name somewhere in your message along with using the reply parameter in order for your tweet to count as a reply.
+
+Bearing the notices above in mind, here is how to create a reply.
+
+```python
+target_id = tweet.id
+screen_name = tweet.author.screen_name
+
+msg = f"@{screen_name} thank you!"
+
+api.update_status(
+    msg,
+    in_reply_to_status_id=target_id,
+)
+```
+
+If you were doing a reply chain to yourself, you could put that in a for loop and change the message up each time. I don't know whether you need to reply to the first tweet in the chain or the one directly above for this to work as a chain.
 
 
 ## Handle time values
