@@ -2,6 +2,12 @@
 > The attributes and actions you can perform on Tweepy objects
 
 
+## Quick links
+> Jump to some highlighted sections
+
+[Status](#status) | [User](#user) | [Entities](#entities) | [Direct Message](#direct-message)
+
+
 ?> **Tweepy repo:** [models.py] module - in case you want to see the Tweepy code. This is useful for methods but attributes come from the Twitter API so use the API references rather.
 
 
