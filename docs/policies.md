@@ -141,7 +141,7 @@ Info from Twitter's post in March 2020 on [blog.twitter.com](https://blog.twitte
 
 Your account can land in "Twitter jail" for breaking one of the Twitter or Twitter API policies or usage guidelines, including inappropriate or excessive use.
 
-Follow this [Wikihow](https://www.wikihow.com/Get-Out-of-Twitter-Jail) on how avoid get restricted by Twitter and what to do when it happens. Note that these are not specific to the API, so apply both for API and standard use.
+Follow this [WikiHow](https://www.wikihow.com/Get-Out-of-Twitter-Jail) on how avoid get restricted by Twitter and what to do when it happens. Note that these are not specific to the API, so apply both for API and standard use.
 
 
 ## Dev app notes
@@ -153,9 +153,9 @@ Make sure you familiarize yourself with the policies cover on the rest of this p
 
 When you apply for a developer account, your motivation needs to cover a use-case which is compliant with the policies, otherwise you will not get your application approved.
 
-If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked. 
+If you use your app for something not allowed by the Twitter policies or beyond what you applied for, your app can get blocked.
 
-If you get yourapplication approved and later need to extend your app, from say just searching to posting tweets or replying to users, you must request additional app permissions. This will be similar to the initial application.
+If you get your application approved and later need to extend your app, from say just searching to posting tweets or replying to users, you must request additional app permissions. This will be similar to the initial application.
 
 
 ## App restrictions

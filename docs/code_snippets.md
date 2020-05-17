@@ -592,7 +592,7 @@ Twitter assigns a tweet a language e.g. `en` for English or `it` for Italian.
 
 ?> **Twitter dev docs:** [Supported languages](https://developer.twitter.com/en/docs/twitter-for-websites/twitter-for-websites-supported-languages/overview)
 
-?> **Twitter API docs:** [Get Supported Languages](https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages) endpoint. There is some sample output there. 
+?> **Twitter API docs:** [Get Supported Languages](https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages) endpoint. There is some sample output there.
 
 
 ### Where does it come from?
@@ -923,13 +923,13 @@ Some examples to demonstrate common use of the search syntax.
 
 See the links in [Query syntax](#query-syntax) section for more details.
 
-Query | Description
----   | ---
-`to:some_handle` | Mentions of user `@some_handle`.
-`filter:retweets #bar` | Retweets only about `#bar`.
-`-filter:retweets #bar` | Exclude retweets about `#bar`.
-`filter:replies #bar` | Replies only about `#bar`.
-`to:some_handle filter:replies` | Replies to `@some_handle`.
+| Query                           | Description                      |
+| ------------------------------- | -------------------------------- |
+| `to:some_handle`                | Mentions of user `@some_handle`. |
+| `filter:retweets #bar`          | Retweets only about `#bar`.      |
+| `-filter:retweets #bar`         | Exclude retweets about `#bar`.   |
+| `filter:replies #bar`           | Replies only about `#bar`.       |
+| `to:some_handle filter:replies` | Replies to `@some_handle`.       |
 
 
 
@@ -1079,20 +1079,20 @@ You can specify that the tweets should be up to a date. If you don't care about 
 
 Add `until` as a parameter with year, month, date formatted date as a string.
 
-e.g. 
+e.g.
 
 ```python
 api.search(
-    q=query, 
+    q=query,
     until="2020-05-07"
 )
 ```
 
 ?> You are still bound by the search API's limit of one week, so if you set until to be a week ago you'll get close to zero tweets.
 
-#### Filter by location 
+#### Filter by location
 
-Search for tweets at a point within a radius. 
+Search for tweets at a point within a radius.
 
 ?> You can leave the search query parameter `q` unset and this will still work.
 
@@ -1107,10 +1107,10 @@ Example usage:
 ```python
 api.search(geocode="33.333,12.345,10km")
 
-api.search(geocode="37.781157,-122.398720 ,mi") 	
+api.search(geocode="37.781157,-122.398720 ,mi")
 ```
 
-?> **Twitter API reference:** [Standard Search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) - see `geocode` unde _Parameters_.
+?> **Twitter API reference:** [Standard Search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) - see `geocode` under _Parameters_.
 
 > Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile.
 >
@@ -1205,7 +1205,7 @@ Create a class which inherits from [StreamListener](https://github.com/tweepy/tw
 
 #### Base
 
-To get started, define is using the example from Tweepy docs Streaming tutorial. 
+To get started, define is using the example from Tweepy docs Streaming tutorial.
 
 
 ```python
@@ -1223,7 +1223,7 @@ class MyStreamListener(tweepy.StreamListener):
 
 That will:
 
-- Print a tweet immediately when it happens and then return `None`, which will keep the stream alive. 
+- Print a tweet immediately when it happens and then return `None`, which will keep the stream alive.
 - It will **disconnect** when throttled by rate limiting by returning `False`. Rate limiting is not measure as requests in a window like the search API, which means you can get a high volume of tweets in realtime. Read the [Rate limits](policies.md#rate-limits) section on the Twitter Policies page for more info.
 
 ?> Some people name this class as `_StdOutListener`.
@@ -1238,18 +1238,18 @@ You might want to handle some errors, or add least add printing to hep debugging
 
 Here are some error methods:
 
-Method | Description
----    | ---
-`on_exception` | Called when an unhandled exception occurs
-`on_limit` | Called when a limitation notice arrives
-`on_error` | Called when a non-200 status code is returned
-`on_timeout` | Called when stream connection times out
-`on_disconnect` | Called when twitter sends a disconnect notice.
+| Method          | Description                                    |
+| --------------- | ---------------------------------------------- |
+| `on_exception`  | Called when an unhandled exception occurs      |
+| `on_limit`      | Called when a limitation notice arrives        |
+| `on_error`      | Called when a non-200 status code is returned  |
+| `on_timeout`    | Called when stream connection times out        |
+| `on_disconnect` | Called when twitter sends a disconnect notice. |
 
 ?> **Twitter API docs:** [Streaming message types] - includes error codes.
 
 [Streaming message types]: https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types
-        
+
 ### Setup stream instance
 
 ```python
@@ -1272,7 +1272,7 @@ Follow the sections below to start streaming with the `stream` object.
 
 #### Follow tweets from or to users
 
-Stream public tweets relating one or more users. 
+Stream public tweets relating one or more users.
 
 According to docs this includes:
 

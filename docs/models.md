@@ -27,16 +27,16 @@ Available attributes:
 
 | Name                | Type                 | Description                                                                                                                                                                                                                   |
 | ------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `author`            | [tweepy.User](#user) | The Twitter profile that created the tweet.                                                                                                                                                                                      |
+| `author`            | [tweepy.User](#user) | The Twitter profile that created the tweet.                                                                                                                                                                                   |
 | `contributors`      |                      |                                                                                                                                                                                                                               |
 | `coordinates`       |                      |                                                                                                                                                                                                                               |
 | `created_at`        | `str`                | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value. |
-| `entities`          |                      | See [Entities](#entities).                                                                                                                                                                                   |
+| `entities`          |                      | See [Entities](#entities).                                                                                                                                                                                                    |
 | `extended_entities` |                      |                                                                                                                                                                                                                               |
 | `favorite_count`    | `int`                | Count of stars/favorites.                                                                                                                                                                                                     |
-| `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet. Twitter API has a bug around this field.                                                                                                                                                                   |
-| `full_text`         | `str`                | The tweet message, expanded to allow up to 280 characters. Only available if using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                                                                    |
-| `text`              | `str`                | The tweet message, which may be truncated and end with ellipsis if it is more than 140 characters. The default. Not available if if using *extended mode*.                                                                                                                             |
+| `favorited`         | `bool`               | Whether the *authenticated* user has favorited this tweet. Twitter API has a bug around this field.                                                                                                                           |
+| `full_text`         | `str`                | The tweet message, expanded to allow up to 280 characters. Only available if using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                                      |
+| `text`              | `str`                | The tweet message, which may be truncated and end with ellipsis if it is more than 140 characters. The default. Not available if if using *extended mode*.                                                                    |
 | `id`                | `int`                | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                                                                                 |
 | `id_str`            | `str`                | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language.                                                     |
 
@@ -61,7 +61,7 @@ Available methods:
 
 - `_json`
     - `dict`
-    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the Python tweet object. However, this is JSON attribute is useful if you want to convert an entire tweet to a string then write it out to a text file, CSV or JSON file. Then you can parse the data later when you read it again. 
+    - Return the object as a dictionary. Note this is very long and has nested values which could be looked up easier using one of the attributes on the Python tweet object. However, this is JSON attribute is useful if you want to convert an entire tweet to a string then write it out to a text file, CSV or JSON file. Then you can parse the data later when you read it again.
 - `display_text_range`
 - `geo`
 - `in_reply_to_screen_name`
@@ -189,7 +189,7 @@ See the [Get media on a tweet](code_snippets.md#get-media-on-at-tweet) section o
 ## Extended entities
 
 
-The API docs linked above recommend using entended entities for that case.
+The API docs linked above recommend using extended entities for that case.
 
 > if you are working with native media (photos, videos, or GIFs), the Extended Entities object is the way to go.
 
@@ -275,7 +275,7 @@ Then each time has the follow attributes:
 
 - `limit` - The maximum number of requests available for any window period.
 - `remaining` - How many requests are left in the current rate limit window.
-- `rest` - Time that the window rests. This is a unixtimestamp.
+- `rest` - Time that the window rests. This is a unix timestamp - see [Handle time values](code_snippets.md#handle-time-values) to convert.
 
 
 <details>

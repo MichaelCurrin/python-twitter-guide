@@ -81,7 +81,7 @@ These are projects I created using Tweepy. They have different purposes and leve
     - [MichaelCurrin/twitterverse](https://github.com/MichaelCurrin/twitterverse) on Github
     - [docs site](https://michaelcurrin.github.io/twitterverse/)
     - One of my oldest Python projects. It covers fetching of tweets, users, trends, country data and storing them in a SQLite database. Plus there is some dabbling in user auth flow and streaming.
-    - However, the repo has become large and unwieldly. So I am limiting new development on it.
+    - However, the repo has become large and unwieldily. So I am limiting new development on it.
 - Trends dashboard
     - [michaelcurrin.pythonanywhere.com/](https://michaelcurrin.pythonanywhere.com/)
     - Built on my Twitterverse repo, I run a nightly cron job to get trending data by town or country and store that in a database.
