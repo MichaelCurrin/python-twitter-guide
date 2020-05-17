@@ -28,7 +28,7 @@ tweet.created_at
 
 Available attributes:
 
-?> **Twitter API reference:** [Twitter Tweet object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
+?> **Twitter API docs:** [Twitter Tweet object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
 
 
 | Name                | Type                 | Description                                                                                                                                                                                                                   |
@@ -140,7 +140,7 @@ user.id
 
 Available attributes:
 
-?> **Twitter API reference:** [Twitter User object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
+?> **Twitter API docs:** [Twitter User object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
 
 
 

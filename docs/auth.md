@@ -23,7 +23,7 @@ Keep reading this doc for more info on how to handle different auth approaches a
 
 ## Resources
 
-?> **Twitter dev docs:** [Authentication](https://developer.twitter.com/en/docs/basics/authentication/guides/authentication-best-practices) guide.
+?> **Twitter API docs:** [Authentication](https://developer.twitter.com/en/docs/basics/authentication/guides/authentication-best-practices) guide.
 
 
 ## How to do auth in Tweepy
@@ -165,7 +165,7 @@ Depending how you authenticate, you'll get an `api` object which has a different
     - [ ] Act as the user who gave access to your app
 - [User Access Token](#user-access-token)
     - [x] Get data  (same as first token)
-    - [ ] Act as your dev account 
+    - [ ] Act as your dev account
     - [ ] Act as the user who gave access to your app
         - The current user's profile is now  "me", so getting "my" tweets or followers is relative to that account.
         - You can tweet and favorite on their behalf.

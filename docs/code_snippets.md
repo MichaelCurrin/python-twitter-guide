@@ -53,7 +53,7 @@ The `api` object is an instance of `tweepy.API` class and is covered in the docs
 The methods on `tweepy.API`  also include some useful links in their docstrings, pointing to the Twitter API endpoints docs. These do not appear in the Tweepy docs. Therefore you might want to look at the [api.py](https://github.com/tweepy/tweepy/blob/master/tweepy/api.py) script in the Tweepy repo to see these links.
 
 
-?> **Twitter dev docs:** [API reference index](https://developer.twitter.com/en/docs/api-reference-index) - a list of all available endpoints. Tweepy implements most of these I think. For more info on the API, see [Resources](resources.md) page.
+?> **Twitter API docs:** [API reference index](https://developer.twitter.com/en/docs/api-reference-index) - a list of all available endpoints. Tweepy implements most of these I think. For more info on the API, see [Resources](resources.md) page.
 
 
 ## How do I get a high of volume of tweets?
@@ -713,9 +713,9 @@ tweet.retweet()
 
 A reply is a tweet directed at another tweet ID or user. When you reply to a tweet, it becomes a "thread" or "threaded conversation".
 
->! The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
+!> The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
 
-?> [Twitter policies](policies) page.
+?> Read more on the [Twitter policies](policies) page of this guide.
 
 A novel way to make replies without hitting policy restrictions is to make a tweet and then reply to yourself. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
 
@@ -1110,7 +1110,7 @@ api.search(geocode="33.333,12.345,10km")
 api.search(geocode="37.781157,-122.398720 ,mi")
 ```
 
-?> **Twitter API reference:** [Standard Search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) - see `geocode` under _Parameters_.
+?> **Twitter API docs:** [Standard Search API](https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets) - see `geocode` under _Parameters_.
 
 > Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile.
 >
@@ -1404,7 +1404,7 @@ Here are some ideas to improve performance when streaming:
 Enterprise stream to get 10% of tweets.
 
 
-?> **Twitter docs:** [Decahose API reference](https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/decahose)
+?> **Twitter API docs:** [Decahose API reference](https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/decahose)
 
 
 #### Powertrack
@@ -1413,7 +1413,7 @@ Enterprise stream to get 100% of tweets.
 
 > The PowerTrack API provides customers with the ability to filter the full Twitter firehose, and only receive the data that they or their customers are interested in.
 
-?> **Twitter docs:** [Powertrack API reference](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview/powertrack-api)
+?> **Twitter API docs:** [Powertrack API reference](https://developer.twitter.com/en/docs/tweets/filter-realtime/overview/powertrack-api)
 
 
 #### Lab streams
@@ -1457,7 +1457,7 @@ Methods relating to Twitter account direct messages.
 
 !> Please ensure you comply with the Twitter API policies and do not spam users. See [Twitter policies](policies.md) page to find links to appropriate docs.
 
-?> **Tweepy docs:** [Direct message methods](http://docs.tweepy.org/en/latest/api.html#direct-message-methods)
+?> **Tweepy API docs:** [Direct message methods](http://docs.tweepy.org/en/latest/api.html#direct-message-methods)
 
 
 Twitter API docs:
@@ -1562,7 +1562,7 @@ api.send_direct_message(user_id, msg)
 
 ?> If don't have a user ID, then [Lookup user ID for a screen name](#lookup-user-id-for-a-screen-name).
 
-?> **Twitter API doc:** [Create message endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event) - see optional parameters like `quick_reply` and `attachment`.
+?> **Twitter API docs:** [Create message endpoint](https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-event) - see optional parameters like `quick_reply` and `attachment`.
 
 
 ## Get rate limit status
