@@ -588,20 +588,20 @@ retweeters = tweet.retweeters
 
 ## Filter tweets by language
 
-Twitter assigns a tweet a language e.g. `en` for English or `it` for Italian.
+Twitter assigns a tweet a language e.g. `en` for English or `it` for Italian. These languages are available to filter by when doing a search or stream and you can also read the attribute on a fetched tweet.
 
 ?> **Twitter dev docs:** [Supported languages](https://developer.twitter.com/en/docs/twitter-for-websites/twitter-for-websites-supported-languages/overview)
 
 ?> **Twitter API docs:** [Get Supported Languages](https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages) endpoint. There is some sample output there.
 
 
-### Where does it come from?
+### Where the value come from?
 
-These are based on the **content** of the tweet and is inferred.
+These language labels are based on the **content** of the tweet and is inferred.
 
 Tweepy docs say "Language detection is best-effort.".
 
-!> **Warning:** In my experience is **not** reliable in my experience. Tweets appear as unknown language, or a user making several tweets which I can see are all in one language get labelled as different language. If you still want to use language, you can continue.
+!> **Warning:** In my experience is **not** reliable. Tweets appear as unknown language, or a user making several tweets which I can see are all in one language get labelled as different language. If you still want to use language, you can continue.
 
 
 ### What about the settings of the user?
