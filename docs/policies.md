@@ -11,6 +11,11 @@ Follow this guide to:
 This guide is especially useful if you plan to make a **bot** or want to perform bulk actions but also be aware of the many and complex restrictions, so you can stay within in.
 
 
+## Quick links
+
+[Links to policies](#links-to-policies) &mdash; [Automation](#automation) &mdash; [Bots](#bots) &mdash; [Rate limits](#rate-limits)
+
+
 ## Links to policies
 
 ### In Twitter developer docs
@@ -30,7 +35,9 @@ This guide is especially useful if you plan to make a **bot** or want to perform
 
 
 ### In Twitter.com help docs
-> Policies which covered ordinary users as well as API use and automation.
+
+#### General use policies
+> These apply to ordinary uses, automated tasks and bots.
 
 - [Twitter help center](https://help.twitter.com) homepage
 - [Managing your account](https://help.twitter.com/en/managing-your-account#login-and-password)
@@ -40,7 +47,10 @@ This guide is especially useful if you plan to make a **bot** or want to perform
     - Privacy
     - Authenticity
 - [Rules and policies](https://help.twitter.com/en/rules-and-policies) overview
-    - There are a lot of policies listed there. So some highlights are shown here.
+    - There are a lot of policies listed there. So some highlights are shown below.
+
+#### Automation and bot policies
+
 - [About Twitter's APIs](https://help.twitter.com/en/rules-and-policies/twitter-api)
     - How they work and what entities are available.
 - [Twitter automation](https://help.twitter.com/en/rules-and-policies/twitter-automation) policy
@@ -49,8 +59,7 @@ This guide is especially useful if you plan to make a **bot** or want to perform
     - For showing Twitter content on your application, using the appropriate branding and styling.
         > You should comply with the display requirements below when you display Tweets, timelines, and other Twitter content.
 
-
-## Updates to the Twitter Developer Policy
+### Updates to the Twitter Developer Policy
 
 See this [blog post](https://blog.twitter.com/developer/en_us/topics/community/2020/twitter_developer_policy_update.html) from March 2020.
 
@@ -62,7 +71,6 @@ Some sections to note:
 
 
 ## Rate limits
-
 
 ### What are the rate limits?
 
@@ -76,7 +84,6 @@ See these docs:
 
 There is a limit per endpoint of how many requests can be done in a 15-minute window, or in a longer period such as an hour or 3 hours or 24 hours.
 
-
 ### How do I avoid being rate limited?
 
 If you use the **wait** functionality built into Tweepy, you don't have to worry about waiting for most cases - Tweepy will tell you it is waiting and it will wait. This is covered in the [Auth](auth.md) page.
@@ -84,13 +91,17 @@ If you use the **wait** functionality built into Tweepy, you don't have to worry
 This works well for doing a search or getting a timeline using a cursor. I don't know if it works with actions such as liking a tweet.
 
 
-## Is a certain action allowed on the API?
+## Automation
 
-When it comes to using the Twitter API and you are **not sure** if an action by your code is allowed by Twitter API, it is safest to be conservative by **not** doing the action and staying well under any limits which might be considered abuse.
+### Is a certain action allowed on the API?
 
-Or, check with the Twitter developers or tweepy support group to see if the action is allowed.
+Make sure you read the policies linked in the [Automation and bot policies](#automation-and-bot-policies) section on this page to understand what you can and can't do with a Twitter dev account for accessing the Twitter API.
 
-### What automated tasks can I do on behalf of user?
+When it comes to using the Twitter API and you are **not sure** if an action by your code is allowed by Twitter API, it is safest to be conservative by **not** doing the action. Also, say under any limits which might be considered abuse.
+
+You can also check with the Twitter developers or tweepy support group to see if the action is allowed.
+
+### What automated tasks can I do on behalf of a user?
 
 See the _Consent & permissions_ section in Chapter 2 of this [page](https://developer.twitter.com/en/developer-terms/policy).
 
@@ -104,7 +115,6 @@ Yes, you are allowed by Twitter to make a bot account, but one that follows Twit
 Your bot can do things like tweet on a schedule, retweet other tweets (selectively but not in bulk) or repost external data or links such as blog posts. But, you cannot use your bot to create tweets to users or reply to users, unless the users have explicitly given permission (such as by messaging your account or opting in within a website/app).
 
 If you do want to message other users with tweets or direct messages when the policies would consider that unwanted spammy actions, you can of course use your Twitter bot account in the browser without using the API and write some hand-crafted messages.
-
 
 ### What can I do as a Twitter bot?
 
@@ -136,7 +146,6 @@ Info from Twitter's post in March 2020 on [blog.twitter.com](https://blog.twitte
 
 ?> You can do add line breaks in your bio, so you might want to do that and move the bot notice to a line on its own.
 
-
 ### How do I get out of Twitter jail?
 
 Your account can land in "Twitter jail" for breaking one of the Twitter or Twitter API policies or usage guidelines, including inappropriate or excessive use.
@@ -157,8 +166,7 @@ If you use your app for something not allowed by the Twitter policies or beyond 
 
 If you get your application approved and later need to extend your app, from say just searching to posting tweets or replying to users, you must request additional app permissions. This will be similar to the initial application.
 
-
-## App restrictions
+### App restrictions
 
 Your dev app may get restricted or deactivated if you regularly exceed API limits or do actions not allowed by Twitter policies or do an action which is not covered by your dev application Twitter. Generally you won't have to worry if you are just consuming info. When you start posting or engaging with others using scheduled script or realtime bot, then you need to be careful that you follow the automation rules.
 

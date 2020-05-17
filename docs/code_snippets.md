@@ -5,7 +5,7 @@
 ## Quick links
 > Jump to some highlighted sections
 
-[Get users](#get-users) | [Get tweets](#get-tweets) | [Post tweet](#post-tweet) | [Search API](#search-api) | [Streaming](#streaming)
+[Get users](#get-users) &mdash; [Get tweets](#get-tweets) &mdash; [Post tweet](#post-tweet) &mdash; [Search API](#search-api) &mdash; [Streaming](#streaming)
 
 
 ## TL;DR

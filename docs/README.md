@@ -15,9 +15,7 @@
 
 ## Quicklinks
 
-[How to install Tweepy](installation.md) | [How to handle auth](auth.md) | [Code for common use-cases](code_snippets.md)
-
-[Tweepy and Twitter API docs](resources.md) | [Read about Twitter policies](policies.md)
+[Install Tweepy](installation.md) &mdash; [Handle auth](auth.md) &mdash; [Code for common use-cases](code_snippets.md) &mdash; [Tweepy and Twitter API docs](resources.md) &mdash; [Read about Twitter policies](policies.md)
 
 
 ## Features of this guide
