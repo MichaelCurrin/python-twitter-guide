@@ -1023,18 +1023,20 @@ for tweet in cursor.items():
 See [Paging](#paging) section for more info.
 
 
-
 #### Extended message
 
-You can choose to set `tweet_mode` to `extended`.
+It is useful to use extended mode when doing a search.
 
-- This will give messages that are not truncated (with an ellipsis at the end).
-- Note that retweets messages might _still_ be truncated even with this option.
+- Do this with `tweet_mode='extended'.
+- Twitter by defaults returns messages truncated to 140 characters (with an ellipsis), even though users may enter tweets up to 280 characters. So use this option to the full message.
+- Note that retweets messages might _still_ be truncated even with this option but there is a workaround.
 
 When using this option, make sure to use the `tweet.full_text` attribute and not `tweet.text`. But still allow fallback to plain `tweet.text`. Since the Tweepy docs say:
 
 > If status is a Retweet, it will not have an extended_tweet attribute, and status.text could be truncated.
 
+
+Example:
 
 ```python
 tweets = api.search(
@@ -1044,7 +1046,7 @@ tweets = api.search(
 ```
 
 ```python
-for tweet in tweets.items():
+for tweet in tweets:
     try:
         print(tweet.full_text)
     except AttributeError:
@@ -1052,6 +1054,26 @@ for tweet in tweets.items():
 ```
 
 ?> **Tweepy docs:** [Extended mode](http://docs.tweepy.org/en/latest/extended_tweets.html)
+
+As a function:
+
+```python
+def get_message(tweet):
+    """
+    Robustly get a message on a tweet.
+       
+    This ideal for extended mode, but also works on standard mode when tweets
+    are truncated. And it handles retweets, which ALWAYS use the `.text`
+    attribute even in extended mode according to the API docs.
+    """
+    try:
+        return tweet.full_text
+    except AttributeError:
+        return tweet.text
+        
+ 
+print(get_message(tweet))
+```
 
 
 #### Result type
@@ -1069,7 +1091,7 @@ count = 100
 tweets = api.search(
     query,
     count=count,
-    result_type=result_type
+    result_type=result_type,
 )
 ```
 
@@ -1084,7 +1106,7 @@ e.g.
 ```python
 api.search(
     q=query,
-    until="2020-05-07"
+    until="2020-05-07",
 )
 ```
 
@@ -1119,6 +1141,26 @@ api.search(geocode="37.781157,-122.398720 ,mi")
 > Note that you cannot use the near operator via the API to geocode arbitrary locations; however you can use this geocode parameter to search near geocodes directly.
 >
 > A maximum of 1,000 distinct "sub-regions" will be considered when using the radius modifier.
+
+
+### Search examples
+
+- Get tweets for a keyword search ([Basic](#basic))
+- Excluding replies and retweets based on the query ([Advanced](#advanced))
+- Getting as many tweets as possible by setting max count using paging ([Get many tweets using paging](get-many-tweets-using-paging))
+- Using full message text ([Extended message](#extended-message))
+- For a given language - this is not reliable but it is an option ([Filter tweets by language](#filter-tweets-by-language))
+
+?> See [Authentication](auth.md) page of this guide for setting up the `api` object.
+
+```markdown
+<details>
+<summary><b>search.py</b></summary>
+
+[script_name.py](_scripts/search.py ':include :type=code')
+
+</details>
+```
 
 
 ## Get entities on tweets
