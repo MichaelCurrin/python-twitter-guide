@@ -1157,7 +1157,7 @@ api.search(geocode="37.781157,-122.398720 ,mi")
 <details>
 <summary><b>search.py</b></summary>
 
-[script_name.py](_scripts/search.py ':include :type=code')
+[search.py](_scripts/search.py ':include :type=code')
 
 </details>
 ```
