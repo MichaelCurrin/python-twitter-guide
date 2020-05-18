@@ -12,7 +12,7 @@ query = "-filter:retweets -filter:replies python"
 lang = "en"
 
 cursor = tweepy.Cursor(
-    api,
+    api.search,
     q=query,
     count=100,
     tweet_mode="extended",
