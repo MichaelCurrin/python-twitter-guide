@@ -1143,7 +1143,7 @@ api.search(geocode="37.781157,-122.398720 ,mi")
 > A maximum of 1,000 distinct "sub-regions" will be considered when using the radius modifier.
 
 
-### Search examples
+### Full search example
 
 - Get tweets for a keyword search ([Basic](#basic))
 - Excluding replies and retweets based on the query ([Advanced](#advanced))
@@ -1153,14 +1153,12 @@ api.search(geocode="37.781157,-122.398720 ,mi")
 
 ?> See [Authentication](auth.md) page of this guide for setting up the `api` object.
 
-```markdown
 <details>
 <summary><b>search.py</b></summary>
 
 [search.py](_scripts/search.py ':include :type=code')
 
 </details>
-```
 
 
 ## Get entities on tweets
