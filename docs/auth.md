@@ -40,16 +40,71 @@ ACCESS_KEY = 'foo'
 ACCESS_SECRET = 'bar'
 ```
 
+
 !> Make sure to **never** includes these in version control (repo commits). They can be stored in an unversioned config file ignored by `.gitignore`, as covered in this [tutorial](https://help.github.com/en/github/using-git/ignoring-files). Using environment variables.
 
-A typical setup is to store your credentials in a config file ignored by `git`, rather than in a Python script. Here are some options for config files.
+These can also be read from the environment variables.
 
-- `.env` - Shell script of properties. Readable from the shell or a Python package (e.g. `dotenv`).
-- `config_local.ini` - A config file readable using the builtin ConfigParser in Python.
-- `config_local.yaml` - A YAML config file. Readable using the PyYAML library once that is installed.
+```python
+CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
+CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
+ACCESS_KEY = os.environ.get('ACCESS_KEY')
+ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
+
+assert CONSUMER_KEY and CONSUMER_SECRET, "Consumer values must be set"
+assert ACCESS_KEY and ACCESS_SECRET, "Access values must be set"
+```
+
+!> macOS and Linux users: Avoid storing your credentials in a global config file such as `.bashrc` and setting them with `export`, as then those are available to every application that runs on your machine which is not secure.
+
+#### Config file options
+
+A typical setup is to store your credentials in a config file ignored by `git`, rather than in a Python script. 
+
+Here are some options for config files.
+
+- `.env` - Shell script of properties. Readable from the shell or a Python package (e.g. [dotenv](https://pypi.org/project/python-dotenv/)).
+- `config_local.ini` - A config file readable using the builtin [ConfigParser](https://docs.python.org/3/library/configparser.html) in Python.
+- `config_local.yaml` - A YAML config file. Readable using the [PyYAML](https://pypi.org/project/PyYAML/) library once that is installed.
+
+#### Read from environment variables
+
+Solution for macOS and Linux:
+
+
+1. Create a dotenv `.env` file.
+    ```sh
+    touch .env
+    ```
+2. Add values. This is a shell script, so note absence of spaces. e.g.
+    ```sh
+    CONSUMER_KEY='abc'
+    CONSUMER_SECRET='def'
+    ACCESS_KEY='foo'
+    ACCESS_SECRET='bar'
+    ```
+3. Set the values as value for subshells.
+    - This command reads from the file, turns it into one line and then evaluates for `export` use.
+        ```sh
+        export $(< .env | xargs)
+        ```
+4. Read this in your Python script using [os.environ](https://docs.python.org/3/library/os.html#os.environ) builtin.
+    ```python
+    import os
+    
+    
+    CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
+    CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
+    ACCESS_KEY = os.environ.get('ACCESS_KEY')
+    ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
+    
+    assert CONSUMER_KEY and CONSUMER_SECRET, "Consumer values must be set"
+    assert ACCESS_KEY and ACCESS_SECRET, "Access values must be set"
+    ```
 
 
 ### Basic usage
+> Authenticate with Twitter API as your own account but with user context
 
 Here we authorize with an [App Access Token](#app-access-token) approach, the typical flow for authorizing so you can fetch data and do automated tasks like tweet as the account which you authenticated with.
 
