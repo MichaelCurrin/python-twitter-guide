@@ -1153,6 +1153,8 @@ api.search(geocode="37.781157,-122.398720 ,mi")
 
 ?> See [Authentication](auth.md) page of this guide for setting up the `api` object.
 
+Click to expand:
+
 <details>
 <summary><b>search.py</b></summary>
 
@@ -1365,6 +1367,8 @@ stream.filter(track=track)
 
 
 #### Full stream examples
+
+Click to expand:
 
 <details>
 <summary><b>tweepy_docs_example.py</b></summary>
