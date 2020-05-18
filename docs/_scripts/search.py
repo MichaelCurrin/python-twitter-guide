@@ -1,6 +1,8 @@
 def get_message(tweet):
     """
-    Robustly get a message on a tweet, even if truncated or a retweet (always truncated).
+    Robustly get a message on a tweet.
+    
+    Even if not extended mode or is a retweet (always truncated).
     """
     try:
         return tweet.full_text
