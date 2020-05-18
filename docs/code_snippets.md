@@ -367,7 +367,7 @@ If you don't specify a user, the default behavior is for the authenticated user.
 tweets = api.user_timeline()
 ```
 
-The API doesn't say what the default is but the max without paging is  `200`.
+The API doesn't say what the default is but the max without paging is  `200`, so you can request `1` to `200` without paging.
 
 ```python
 tweets = api.user_timeline(count=200)
@@ -378,7 +378,7 @@ tweets = api.user_timeline(count=200)
 
 #### Fuller examples
 
-Get `200` tweets of user.
+Get the latest `200` tweets of a user.
 
 ?> See [Extended message](#extended-message) section regarding the Tweet mode parameter.
 
@@ -436,6 +436,26 @@ tweets[6].retweeted_status.full_text
 
 ?> **Tweepy docs:** [Handling Retweets](http://docs.tweepy.org/en/latest/extended_tweets.html#handling-retweets) in Extended Tweets guide.
 
+
+### Get the latest tweet from users
+
+You can use this approach, which is fine to do for one user.
+
+```python
+tweets = api.user_timeline(count=1)
+```
+
+If you need to go through 100 users and get their latest tweet, this would take 100 separate requests.
+
+A more efficent way would be to lookup the 100 profiles at once and then get the latest tweet on each user object.
+
+```python
+screen_names = ["foo", "bar", "baz"]
+
+users = api.lookup_users(screen_names=screen_names)
+```
+
+?> Getting the latest tweet on each user is not covered here.
 
 ### Fetch tweets by ID
 
