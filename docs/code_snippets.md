@@ -1147,7 +1147,7 @@ api.search(geocode="37.781157,-122.398720 ,mi")
 
 - Get tweets for a keyword search ([Basic](#basic))
 - Excluding replies and retweets based on the query ([Advanced](#advanced))
-- Getting as many tweets as possible by setting max count using paging ([Get many tweets using paging](get-many-tweets-using-paging))
+- Getting as many tweets as possible by setting max count using paging ([Get many tweets using paging](#get-many-tweets-using-paging))
 - Using full message text ([Extended message](#extended-message))
 - For a given language - this is not reliable but it is an option ([Filter tweets by language](#filter-tweets-by-language))
 
