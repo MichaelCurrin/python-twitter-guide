@@ -97,6 +97,8 @@ Avoid using stronger CTA button:
 See this [guide](https://gist.github.com/MichaelCurrin/c2bece08f27c4277001f123898d16a7c).
 
 
+### How to embed a script
+
 e.g.
 
 ```markdown
