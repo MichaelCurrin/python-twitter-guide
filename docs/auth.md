@@ -46,14 +46,18 @@ ACCESS_SECRET = 'bar'
 
 Then you can import the values and use them in other scripts.
 
+`app.py`
 ```python
 import config_local
 
-assert CONSUMER_KEY and CONSUMER_SECRET, "Consumer values must be set"
-assert ACCESS_KEY and ACCESS_SECRET, "Access values must be set"
+assert config_local.CONSUMER_KEY and config_local.CONSUMER_SECRET, "Consumer credentials must be set"
+assert config_local.ACCESS_KEY and config_local.ACCESS_SECRET, "Access credentials must be set"
+```
 
-# Use the values
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+Then use the values.
+
+```python
+auth = tweepy.OAuthHandler(config_local.CONSUMER_KEY, config_local.CONSUMER_SECRET)
 # ...
 ```
 
@@ -86,8 +90,15 @@ CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
 ACCESS_KEY = os.environ.get('ACCESS_KEY')
 ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
 
-assert CONSUMER_KEY and CONSUMER_SECRET, "Consumer values must be set"
-assert ACCESS_KEY and ACCESS_SECRET, "Access values must be set"
+assert CONSUMER_KEY and CONSUMER_SECRET, "Consumer credentials must be set"
+assert ACCESS_KEY and ACCESS_SECRET, "Access credentials must be set"
+```
+
+Then use the values.
+
+```python
+auth = tweepy.OAuthHandler(config_local.CONSUMER_KEY, config_local.CONSUMER_SECRET)
+# ...
 ```
 
 ##### Store from environment variables
