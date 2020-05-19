@@ -128,6 +128,9 @@ for page in cursor.pages(5):
 ## Get users
 > Various approaches to get profiles of Twitter users
 
+?> Use `api.get_user` to get one user by ID or screen name, or use `api.look_users` to get many users. Read on for more details.
+
+
 ### Fetch the profile for the authenticated user
 
 ```python
@@ -183,20 +186,20 @@ user.followers_count
 
 #### Lookup user ID for a screen name
 
-How to get the profile and user ID for a known user screen name
+How to get the profile and user ID for a given screen name.
 
 ```python
 user = api.get_user(screen_name='foo')
 ```
 
-Get ID as an `int`.
+Get the user ID as an `int`.
 
 ```python
 user_id = user.id
 # 1234567
 ```
 
-Get ID as a `str`. You probably don't need this. Use the `.id` one rather.
+Get the user ID as a `str`. You probably don't need this. Use the `.id` one rather.
 
 ```python
 user_id = user.id_str
@@ -235,7 +238,6 @@ The count argument may not be greater than 20 according to Tweepy docs, but you 
 
 
 ## Get followers of a user
-
 
 ### Followers method
 
@@ -336,6 +338,28 @@ If you want to see which approach works better for you at scale, see these refer
 
 - Twitter API: [Timelines overview](https://developer.twitter.com/en/docs/tweets/timelines/overview)
 - Twitter API: [Post, retrieve, and engage with Tweets](https://developer.twitter.com/en/docs/tweets/post-and-engage/overview)
+
+
+### Get a user's most recent status
+
+?> This may be truncated since you can't specify tweet mode as extended.
+
+?> Note Twitter API says this is supplied if available - but this is not guaranteed especially during high activity, so make you application robust enough to handle this.
+
+Get the most recent status on a user object.
+
+```python
+user.status
+```
+
+?> See the [Get user](#get-user) section for getting a user.
+
+Get exactly one status for a given user.
+
+```python
+api.user_timeline(screen_name, count=1)
+```
+
 
 
 ### Get my timeline
