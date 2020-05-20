@@ -812,7 +812,9 @@ tweet = api.update_with_media(media_path, status=msg)
 
 ### Create a reply
 
-<!-- TODO use this content if not sufficient below
+A reply is a tweet directed at another tweet ID or user. When you reply to a tweet, it becomes a "thread" or "threaded conversation".
+
+
 !> Read the [Twitter policies](policies.md) page automation rules carefully before automating replies to users. Any message directed at a user without them requesting it from your bot can be considered spam by Twitter. Twitter docs are very specific on when you may reply.
 
 ?> A safe way to make replies is to reply to your own tweets only. This can be used to create a tweet chain such as a 10-part tutorial with text or images.
@@ -820,12 +822,7 @@ tweet = api.update_with_media(media_path, status=msg)
 ?> According to the Tweepy docs for this endpoint, you **must** do a mention of the screen name somewhere in your message along with using the reply parameter in order for your tweet to count as a reply.
 
 Bearing the notices above in mind, here is how to create a reply.
--->
 
-A reply is a tweet directed at another tweet ID or user. When you reply to a tweet, it becomes a "thread" or "threaded conversation".
-
-
-!> The Twitter automation policy is strict on this. Please make sure you understand it before replying to tweets. Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will get shutdown.
 
 ?> Read more on the [Twitter policies](policies) page of this guide.
 
@@ -862,6 +859,8 @@ Below is a reply chain - this will make an initial tweet and then a series of re
 
 
 ```python
+screen_name = api.me().screen_name
+
 messages = [
     "foo bar",
     "fizz buzz",
@@ -874,7 +873,7 @@ for message in messages:
         print("Initital tweet!")
     else:
         print(f"Replying to tweet ID: {target_id}")
-
+        message = f"@{screen_name} {message}"
     tweet = api.update_status(
         message,
         in_reply_to_status_id=target_id,
