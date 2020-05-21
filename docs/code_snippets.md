@@ -16,11 +16,12 @@ If you have authenticated with Twitter as per the [Authentication](auth.md) inst
 For example:
 
 ```python
-api.me()
+my_profile = api.me()
 
-api.search(q="#foo")
+tweets = api.search(q="#foo")
+print(tweets[0])
 
-api.update_status("Hello, world!")
+new_tweet = api.update_status("Hello, world!")
 ```
 
 Keep reading this page for more details.
