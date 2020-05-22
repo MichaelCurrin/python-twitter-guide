@@ -2,9 +2,15 @@
 > Guide for running the docs site
 
 
+If you're just working on content, then you'll probably like the [Remote setup](#remote-setup) instructions so you can setup your own Github Page site which builds on commits to master on Github. No local setup needed.
+
+If you're working more on styling, menus or moving content, then the [Run locally](#run-locally) section will be great for you to run a local web server. Then you can make changes in the IDE and see the browser live reload to see your changes instantly.
+
+
+
 ## Working with the docs site
 
-The Github Pages site is served from the `docs` directory and uses DocsifyJS a single-page JS application which builds an elegant site focused on documentation.
+The Github Pages site is served from the `docs` directory and uses Docsify.JS - a single-page JS application which builds an elegant site focused on documentation.
 
 Mostly you'll just have to write markdown and not have to learn any templating syntax or config values.
 
@@ -21,7 +27,7 @@ If your changes are simple enough you can even make them all on Github without s
 <!-- TODO use gist instead -->
 
 1. Add a fork this repo to your Github repos.
-2. Go to Settings.
+2. Go to _Settings_.
 3. Enable Github Pages for the **/docs** directory.
 4. Check the _environment_ tab to check on the deploy.
 

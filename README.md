@@ -22,9 +22,15 @@
 </div>
 
 
+
 ## Contributing
 
-Please see [Contributing](CONTRIBUTING.md) guide.
+Please see [Contributing](/CONTRIBUTING.md) guide.
+
+
+## Development
+
+See the [Development](/development.md) guide for how to setup and run the project.
 
 
 ## License

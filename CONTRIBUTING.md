@@ -32,7 +32,7 @@ Note: If you are unsure if a change is needed or how to do it, create an issue f
 
 1. Create a fork in your own Github account.
     - [![Repo forks](https://img.shields.io/github/forks/MichaelCurrin/python-twitter-guide?style=social)](https://github.com/MichaelCurrin/python-twitter-guide)
-2. Set the project up locally or on Github Pages as per the [Development](/development.md) doc.
+2. Set the project up locally or on Github Pages - see the [Development](/development.md) doc instructions.
 3. Switch to a feature branch on your fork.
 4. Test your changes.
 5. Create a Pull Request on your repo which points to the original repo's `master` branch.
