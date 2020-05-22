@@ -763,15 +763,17 @@ See [Create a reply](#create-a-reply) section.
 
 ### FAQs
 
+!> **Important:** understand what you are allowed to tweet before doing it.
+
 #### Can I reply to a tweet or `@mention` someone?
 
-Yes, but only if they have first messaged you. The Twitter automation [policy](policies.md is **strict** on this. Please make sure you understand it before replying to tweets.
+Yes, but only if they have first messaged you. The Twitter [automation policy](policies.md) is **strict** on this. Please make sure you understand it before replying to tweets.
 
 Doing a search for tweets and replying to them without the user opting in (such as by tweeting to you) is considered **spammy** behavior and will likely get your account shutdown.
 
 #### Can I make a plain tweet?
 
-If you just want to make a tweet message without replying or mentioning, you are allowed to do this using the API. For example a bot which posts content daily from reddit or a weather or finance service.
+If you just want to make a tweet message without replying or mentioning, yes you are allowed to do this using the API. For example a bot which posts content daily from Reddit or a weather or finance service. Or posts a random message from a list or posts a message from a schedule.
 
 
 ### Tweet a text message
@@ -782,8 +784,8 @@ msg = 'Hello, world!'
 tweet = api.update_status(msg)
 ```
 
-- Tweepy docs link: [API.update_status](http://docs.tweepy.org/en/latest/api.html#API.update_status).
-- Twitter API endpoint: [POST statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update)
+?> **Tweepy docs:** [API.update_status](http://docs.tweepy.org/en/latest/api.html#API.update_status).
+?> **Twitter API docs:** [POST statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update)
 
 
 To choose a random text message:
@@ -825,7 +827,7 @@ A reply is a tweet directed at another tweet ID or user. When you reply to a twe
 Bearing the notices above in mind, here is how to create a reply.
 
 
-?> Read more on the [Twitter policies](policies) page of this guide.
+?> Read more on the [Twitter policies](policies.md) page of this guide.
 
 Here is the general form:
 
@@ -856,7 +858,7 @@ Below is a reply chain - this will make an initial tweet and then a series of re
 
 ?> This is a a novel way to make replies without hitting policy restrictions is to make a tweet and then reply to yourself. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
 
-!> **Untested code** - it might better to reply to the initial ID only.
+!> **Untested code** - it might be better to reply to the initial ID only.
 
 
 ```python
@@ -915,7 +917,7 @@ def parse_datetime(value):
     return datetime.datetime.strptime(clean_value, TIME_FORMAT_IN)
 ```
 
-?> When splitting, we don't need seconds and any decimals (plus these have changed style before between API versions so are unreliable). So we just ignore after the 2nd colon (minutes) and pick up the timezone from the last 6 characters.
+?> When splitting, we don't need seconds and any decimals values. Plus, these have changed style before between API versions so are unreliable. So we just ignore after the 2nd colon (minutes) and pick up the timezone from the last 6 characters.
 
 ?> The datetime value from Twitter will be always be UTC zone (GMT+00:00), regardless of your location or profile settings. Lookup the datetime docs for more info.
 
@@ -953,7 +955,7 @@ The Twitter Search API lets you get tweets made in the past 7 to 10 days. The ap
 
 Twitter has a flexible search syntax for using "and" / "or" logic and quoting phrases.
 
-Twitter API docs on search.
+**Twitter API docs** on search:
 
 - [Overview of standard operators](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators).
 - [Guide to build standard queries](https://developer.twitter.com/en/docs/tweets/rules-and-filtering/guides/build-standard-queries).
@@ -1092,7 +1094,7 @@ If you want to get the _next_ 100 tweets after that, you could get the ID of the
 
 This approach using the [Paging](#paging) approach to do multiple requests for pages of up to 100 tweets each, allowing you get thousands of tweets.
 
-!> Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as a config option on setting up the `auth` object, as covered in [Installation](installation.md) section.
+!> The Twitter API imposes **rate limiting** against a token, to prevent abuse. So, after you've met your quota of searches in a 15-minute window (whether new searches or paging on one search), you will have have to **wait** until it resets and then do more queries. Any requests before then will fail (though other will have their own limit). This **waiting** can be turned on as a config option on setting up the `auth` object, as covered in [Installation](installation.md) section.
 
 ```python
 cursor = tweepy.Cursor(
@@ -1205,7 +1207,7 @@ Search for tweets at a point within a radius.
 
 ?> You can leave the search query parameter `q` unset and this will still work.
 
-Format of geocode value:
+Format of a geocode value:
 
 ```
 LATITUDE,LONGITUDE,RADIUS
@@ -1325,6 +1327,7 @@ However, the volume is much lower than the search API.
     - `language`
         - You can this to a standard code like `en`. However, when using the Search API I found the labels were inconsistent even on several tweets from the same person. Twitter guesses the language, it doesn't use your settings.
 - [Premium stream operators](https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/premium-operators)
+    - Additonal parameters only available on the paid tier.
 
 
 ### Setup stream listener class
@@ -1334,7 +1337,7 @@ Create a class which inherits from [StreamListener](https://github.com/tweepy/tw
 
 #### Base
 
-To get started, define is using the example from Tweepy docs Streaming tutorial.
+To get started, define a listener class using the example from the Tweepy docs Streaming tutorial.
 
 
 ```python
@@ -1353,7 +1356,7 @@ class MyStreamListener(tweepy.StreamListener):
 That will:
 
 - Print a tweet immediately when it happens and then return `None`, which will keep the stream alive.
-- It will **disconnect** when throttled by rate limiting by returning `False`. Rate limiting is not measure as requests in a window like the search API, which means you can get a high volume of tweets in realtime. Read the [Rate limits](policies.md#rate-limits) section on the Twitter Policies page for more info.
+- **Disconnect** when throttled by rate limiting by returning `False`. Rate limiting is not measure as requests in a window like the search API, which means you can get a high volume of tweets in realtime. Read the [Rate limits](policies.md#rate-limits) section on the Twitter Policies page for more info.
 
 ?> Some people name this class as `_StdOutListener`.
 
