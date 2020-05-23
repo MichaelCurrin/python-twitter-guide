@@ -13,7 +13,10 @@
 
 ## Status
 
-The [tweepy.Status] class, which represents a tweet.
+This models a tweet on Twitter.
+
+?> **Tweepy docs:** See [tweepy.Status] class in `models.py` for available methods.
+
 
 ### Attributes
 > Read-only values on a tweet object
@@ -31,20 +34,20 @@ Available attributes:
 ?> **Twitter API docs:** [Twitter Tweet object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
 
 
-| Name                                             | Type                                        | Description                                                                                                                                                                                                                   |
-| ------------------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `author`            &mdash; [tweepy.User](#user) | The Twitter profile that created the tweet. |
-| `contributors`                                   |                                             |                                                                                                                                                                                                                               |
-| `coordinates`                                    |                                             |                                                                                                                                                                                                                               |
-| `created_at`                                     | `str`                                       | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value. |
-| `entities`                                       |                                             | See [Entities](#entities).                                                                                                                                                                                                    |
-| `extended_entities`                              |                                             |                                                                                                                                                                                                                               |
-| `favorite_count`                                 | `int`                                       | Count of stars/favorites.                                                                                                                                                                                                     |
-| `favorited`                                      | `bool`                                      | Whether the *authenticated* user has favorited this tweet. Twitter API has a bug around this field so don't use it. [link](https://twittercommunity.com/t/favorited-reports-as-false-even-if-status-is-already-favorited-by-the-user/11145)                                                                                                                          |
-| `full_text`                                      | `str`                                       | The tweet message, expanded to allow up to 280 characters. Only available if using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                                      |
-| `text`                                           | `str`                                       | The tweet message, which may be truncated and end with ellipsis if it is more than 140 characters. The default. Not available if if using *extended mode*.                                                                    |
-| `id`                                             | `int`                                       | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                                                                                 |
-| `id_str`                                         | `str`                                       | Tweet ID - This version is not really needed for Python. But it necessary for JavaScript, where the numeric `.id` value is unreliable due to limitations of the language.                                                     |
+| Name                | Type          | Description                                                                                                                                                                                                                                 |
+| ------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `author`            | [User](#user) | The Twitter profile that created the tweet.                                                                                                                                                                                                 |
+| `contributors`      |               |                                                                                                                                                                                                                                             |
+| `coordinates`       |               |                                                                                                                                                                                                                                             |
+| `created_at`        | `str`         | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value.               |
+| `entities`          |               | See [Entities](#entities).                                                                                                                                                                                                                  |
+| `extended_entities` |               |                                                                                                                                                                                                                                             |
+| `favorite_count`    | `int`         | Count of stars/favorites.                                                                                                                                                                                                                   |
+| `favorited`         | `bool`        | Whether the *authenticated* user has favorited this tweet. Twitter API has a bug around this field so don't use it. [link](https://twittercommunity.com/t/favorited-reports-as-false-even-if-status-is-already-favorited-by-the-user/11145) |
+| `full_text`         | `str`         | The tweet message, expanded to allow up to 280 characters. Only available if using *extended mode*. See [Expand truncated messages](#expand-truncated-messages) section.                                                                    |
+| `text`              | `str`         | The tweet message, which may be truncated and end with ellipsis if it is more than 140 characters. The default. Not available if if using *extended mode*.                                                                                  |
+| `id`                | `int`         | Tweet ID - this can be used to lookup a tweet in the browser.                                                                                                                                                                               |
+| `id_str`            | `str`         | Tweet ID - This version is not really needed for Python. But it necessary for languages JavaScript, where the numeric `.id` value is unreliable due to limitations how values are store.                                                    |
 
 
 ### Methods
@@ -124,7 +127,9 @@ for tweet in tweets:
 
 ## User
 
-The [tweepy.User] class, which represents a Twitter profile.
+A user object holds data around a Twitter user profile.
+
+?> **Tweepy docs:** See [tweepy.User] class in `models.py` for available methods.
 
 
 ### Attributes
@@ -141,7 +146,6 @@ user.id
 Available attributes:
 
 ?> **Twitter API docs:** [Twitter User object] - see the data dictionary section for field name, language-agnostic data types and meanings. This is the original source so a better and more up to date reference than Tweepy.
-
 
 
 ### Methods
