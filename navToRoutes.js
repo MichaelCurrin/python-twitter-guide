@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const inPath = path.join(__dirname, '/docs/_navbar.md');
-const outPath = path.join(__dirname, 'var/routes.json');
+const outPath = path.join(__dirname, '/var/routes.json');
 
 fs.readFile(inPath, 'utf-8', (_, data) => {
     var matches = data.match(/\w+.md/gi);
