@@ -15,5 +15,5 @@ if [[ $OSTYPE == "darwin"* ]]; then
   sed -i '' "$PATTERN" $(find build -type f)
 else
   echo 'Not a Mac'
-  sed "$PATTERN" $(find build -type f)
+  sed -i "$PATTERN" $(find build -type f)
 fi
