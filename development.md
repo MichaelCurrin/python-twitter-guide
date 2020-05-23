@@ -7,7 +7,6 @@ If you're just working on content, then you'll probably like the [Remote setup](
 If you're working more on styling, menus or moving content, then the [Run locally](#run-locally) section will be great for you to run a local web server. Then you can make changes in the IDE and see the browser live reload to see your changes instantly.
 
 
-
 ## Working with the docs site
 
 The Github Pages site is served from the `docs` directory and uses Docsify.JS - a single-page JS application which builds an elegant site focused on documentation.
@@ -57,6 +56,10 @@ If your changes are simple enough you can even make them all on Github without s
     - http://localhost:3000
 
 The browser will auto reload when you save changes.
+
+### Deploy
+
+See [Deploy](/deploy.md) guide.
 
 
 ## Notes
