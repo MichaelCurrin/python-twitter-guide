@@ -17,7 +17,17 @@
   "dependencies": {
     "docsify-cli": "^4.4.0"
   },
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "markdown-json": "^1.4.1",
+    "presite": "^1.0.0",
+    "simple-markdown": "^0.7.2"
+  },
   "scripts": {
-    "start": "docsify serve docs"
+    "start": "docsify serve docs",
+    "cpDir": "rm -rf build && cp -r .presite/\\#/ build",
+    "replace": "BEFORE='#\\/' && AFTER='\\/' && sed -i '' \"s/${BEFORE}/${AFTER}/g; s/?id=/#/g\" $(find build -type f)",
+    "build": "node navToRoutes && presite docs && npm run cpDir && npm run replace",
+    "serve-static": "cd build && http-server -a localhost"
   }
 }
