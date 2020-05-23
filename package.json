@@ -26,7 +26,7 @@
   "scripts": {
     "start": "docsify serve docs",
     "cp-build": "rm -rf build && cp -r .presite/\\#/ build",
-    "fix-paths": "BEFORE='#\\/' && AFTER='\\/' && sed -i '' \"s/${BEFORE}/${AFTER}/g; s/?id=/#/g\" $(find build -type f)",
+    "fix-paths": "BEFORE='#\\/' && AFTER='\\/' && sed \"s/${BEFORE}/${AFTER}/g; s/?id=/#/g\" $(find build -type f)",
     "build": "node navToRoutes && presite docs && npm run cp-build && npm run fix-paths",
     "serve-static": "cd build && http-server -a localhost"
   }
