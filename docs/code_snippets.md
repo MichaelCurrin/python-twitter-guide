@@ -568,7 +568,7 @@ tweet_id = 1256704946717822977
 tweet = api.get_status(tweet_id, tweet_mode="extended")
 ```
 
-Get the media `list` on the tweet.
+Get the media list on the tweet.
 
 ```python
 media = tweet.entities.get("media", [])
@@ -646,7 +646,7 @@ These language labels are based on the **content** of the tweet and is inferred.
 
 Tweepy docs say "Language detection is best-effort.".
 
-!> **Warning:** In my experience is **not** reliable. Tweets appear as unknown language, or a user making several tweets which I can see are all in one language get labelled as different language. If you still want to use language, you can continue.
+!> **Warning:** In my experience this is **not** reliable. Tweets appear as unknown language, or a user making several tweets which I can see are all in one language get labelled as different language. If you still want to use language, you can continue.
 
 
 ### What about the settings of the user?
@@ -763,7 +763,7 @@ See [Create a reply](#create-a-reply) section.
 
 ### FAQs
 
-!> **Important:** understand what you are allowed to tweet before doing it.
+!> **Important:** Please understand what you are allowed to tweet before doing it.
 
 #### Can I reply to a tweet or `@mention` someone?
 
@@ -799,7 +799,7 @@ msg = randon.choice(msgs)
 
 ### Tweet a message with media
 
-Upload an image or animated GIF.
+Upload an image or animated GIF. Video upload is not supported by Tweepy yet.
 
 ```python
 media_path = 'foo.gif'
@@ -810,7 +810,7 @@ tweet = api.update_with_media(media_path, status=msg)
 
 ?> **Tweepy docs:** [API.update_with_media](http://docs.tweepy.org/en/latest/api.html#API.update_with_media).
 
-!> Note that this method does work, but the docs says this is deprecated. The preferred approach is to use `api.upload_media` and then attach the return ID as part of the `media_ids` list parameter on the `api.update_status` method covered above.
+!> Note that this method does still work, but the Tweepy docs says this is deprecated. The preferred approach is to use `api.upload_media` and then attach the returned ID as part of the `media_ids` list parameter on the `api.update_status` method covered above.
 
 
 ### Create a reply
@@ -838,6 +838,8 @@ tweet = api.update_status(
 )
 ```
 
+#### Reply example
+
 If you were replying to a tweet directed at your user:
 
 ```python
@@ -852,8 +854,9 @@ api.update_status(
 )
 ```
 
+#### Reply
 
-Below is a reply chain - this will make an initial tweet and then a series of replies to each additional tweet
+Below how to a reply chain aka threaded tweets. This will make an initial tweet and then a series of replies to each additional tweet
 
 
 ?> This is a a novel way to make replies without hitting policy restrictions is to make a tweet and then reply to yourself. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
@@ -867,7 +870,7 @@ screen_name = api.me().screen_name
 messages = [
     "foo bar",
     "fizz buzz",
-    "#tweepy #twitterapi"
+    "#tweepy #twitterapi",
 ]
 target_id = None
 
@@ -877,6 +880,7 @@ for message in messages:
     else:
         print(f"Replying to tweet ID: {target_id}")
         message = f"@{screen_name} {message}"
+
     tweet = api.update_status(
         message,
         in_reply_to_status_id=target_id,
@@ -886,7 +890,7 @@ for message in messages:
 
 
 ## Handle time values
-
+> Tips on dealing with time values from the Twitter API
 
 ### Date and time
 
@@ -945,11 +949,11 @@ datetime.datetime.fromtimestamp(float(timestamp))
 
 ## Search API
 
-The Twitter Search API lets you get tweets made in the past 7 to 10 days. The approaches below take you from getting 20 tweets to thousands of tweets.
+The Twitter Search API lets you get tweets made in the past 6 to 9 days. The approaches below take you from getting 20 tweets to thousands of tweets but always bound by the time restriction.
 
 ?> If you want a live stream of tweets, see the [Streaming](#streaming) section.
 
-?> If you want to go back more than a week and are willing to pay, see the [Batch historical tweets](https://developer.twitter.com/en/docs/tweets/batch-historical/overview) API docs.
+?> If you want to go back _more_ than a week and are willing to pay, see the [Batch historical tweets](https://developer.twitter.com/en/docs/tweets/batch-historical/overview) API docs.
 
 ### Query syntax
 
