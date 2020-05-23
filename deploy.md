@@ -32,10 +32,14 @@ $ npm run build
 
 The output will go to a directory called `build`.
 
-See the `replace` command used in the `build` command. Here we URLs in the HTML pages so that they follow conventional paths and IDs. Since Docsify normally handle this.
+#### Notes on converting to a static site
 
-- Replace `#/` with `/`.
-- Replace `?id=` with `#`.
+See the make paths static script used in build step. There we URLs in the HTML pages so that they follow conventional paths and IDs. Since Docsify normally handle this but now we are running without it.
+
+Scripts to remove at build time:
+
+- Note that as part of the build process, Docsify must be removed otherwise it causes unnecessary redirects on the page. The site renders file.
+- Also the search plugin is no longer valid as it points to markdown files which are not there or it would take too much effort to make it work.
 
 
 ### Test build
