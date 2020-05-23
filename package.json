@@ -25,9 +25,9 @@
   },
   "scripts": {
     "start": "docsify serve docs",
-    "cpDir": "rm -rf build && cp -r .presite/\\#/ build",
-    "replace": "BEFORE='#\\/' && AFTER='\\/' && sed -i '' \"s/${BEFORE}/${AFTER}/g; s/?id=/#/g\" $(find build -type f)",
-    "build": "node navToRoutes && presite docs && npm run cpDir && npm run replace",
+    "cp-build": "rm -rf build && cp -r .presite/\\#/ build",
+    "fix-paths": "BEFORE='#\\/' && AFTER='\\/' && sed -i '' \"s/${BEFORE}/${AFTER}/g; s/?id=/#/g\" $(find build -type f)",
+    "build": "node navToRoutes && presite docs && npm run cp-build && npm run fix-paths",
     "serve-static": "cd build && http-server -a localhost"
   }
 }

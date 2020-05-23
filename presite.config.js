@@ -1,4 +1,4 @@
-var routes = require('./var/routes');
+var routes = require('./routes');
 
 module.exports = {
     wait: 5000,
