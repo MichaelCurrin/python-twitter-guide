@@ -21,20 +21,29 @@ If your changes are simple enough you can even make them all on Github without s
 
 
 ## Remote setup
-> How to run the docs site on GitHub pages
+> How to run the docs site on a remote server.
 
-<!-- TODO use gist instead -->
+
+### SPA on Github Pages
 
 1. Add a fork this repo to your Github repos.
 2. Go to _Settings_.
-3. Enable Github Pages for the **/docs** directory.
+3. Enable _Github Pages_ for the **/docs** directory.
 4. Check the _environment_ tab to check on the deploy.
+
+
+### Prerendered site
+
+The standard docs site will display fine on Github Pages. But it runs requiring JavaScript which is not friendly for SEO.
+
+Here is a solution to deploy as prerendered static site - see [Deploy](/deploy.md) guide.
 
 
 ## Run locally
 > How to run the docs site in a local dev environment
 
-<!-- TODO use gist instead -->
+_Note for VS Code: You can also use command bar to access NPM commands configured in `tasks.json` or you can use the NPM SCRIPTS pane._
+
 
 ### Installation
 
@@ -56,10 +65,6 @@ If your changes are simple enough you can even make them all on Github without s
     - http://localhost:3000
 
 The browser will auto reload when you save changes.
-
-### Deploy
-
-See [Deploy](/deploy.md) guide.
 
 
 ## Notes

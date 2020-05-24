@@ -1,6 +1,17 @@
-## Deploy
+# Deploy
 
-_Note: You probably don't need to run this if you're not the maintainer of the project, but this can help for your own docs site projects._
+## Notes
+
+### Do I need this?
+
+You probably don't need to run this if you're not the maintainer of the project, but this can help for your own docs site projects._
+
+## Warnings
+
+- The Docsify SSR tutorial is difficult to follow and has issues - you need an old version of Docsify, you need a site already running it seems and it must be on the root path to avoid errors and you have to setup the app to run on Vercel.
+- An alternative followed here is using _presite_, but to get it do work for Docsify involves hacky solutions to make it work and those are not simple to maintain or add to other projects. Also it does not come with a sitemap or robots which I added myself.
+- Waiting for Docsify 5 with prerendered solution will be nice.
+- Also consider moving to a static mark-down based site like MkDocs.
 
 
 ## What Docsify does
@@ -30,7 +41,9 @@ Run this command to do a production build.
 $ npm run build
 ```
 
-The output will go to a directory called `build`.
+This can be done locally or on Netlify - see [netlify.toml](/netlify.toml).
+
+The output will go to an unversioned directory named `build`.
 
 #### Notes on converting to a static site
 
@@ -39,10 +52,11 @@ See the make paths static script used in build step. There we URLs in the HTML p
 Scripts to remove at build time:
 
 - Note that as part of the build process, Docsify must be removed otherwise it causes unnecessary redirects on the page. The site renders file.
-- Also the search plugin is no longer valid as it points to markdown files which are not there or it would take too much effort to make it work.
+- Also the search plugin is no longer valid as it points to markdown files which are not there or it would take too much effort to make it work. The search bar has to be hidden using CSS changes.
 
 
 ### Test build
+> Preview prerendered site locally before deploying
 
 Start a dev server in the `build` directory, without using the Docsify CLI.
 
