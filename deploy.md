@@ -43,6 +43,8 @@ $ npm run build
 
 This can be done locally or on Netlify - see [netlify.toml](/netlify.toml).
 
+The hostname is defined in [processNav.js](/processNav.js) - this is used for the sitemap and should be updated if the Netlify app URL changes.
+
 The output will go to an unversioned directory named `build`.
 
 #### Notes on converting to a static site
