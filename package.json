@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "docsify serve docs",
-    "cp-to-build": "rm -rf build && cp -r .presite/\\#/ build && cp var/{sitemap.xml,robots.txt} build",
+    "cp-to-build": "rm -rf build && cp -r .presite/\\#/ build && cp var/sitemap.xml var/robots.txt build",
     "build": "node processNav.js && presite docs --quiet && npm run cp-to-build && ./make_paths_static.sh",
     "serve-static": "cd build && http-server -a localhost"
   }
