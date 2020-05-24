@@ -588,6 +588,7 @@ for item in media:
 
 
 ## Get tweet engagements
+> Favorites, retweets, replies
 
 See more on the [models](models.md) page of this guide.
 
@@ -773,7 +774,7 @@ Doing a search for tweets and replying to them without the user opting in (such 
 
 #### Can I make a plain tweet?
 
-If you just want to make a tweet message without replying or mentioning, yes you are allowed to do this using the API. For example a bot which posts content daily from Reddit or a weather or finance service. Or posts a random message from a list or posts a message from a schedule.
+If you just want to make a tweet message without replying to or mentioning a user, yes you _are_ allowed to do this using the API. For example a bot which posts content daily from Reddit or a weather or finance service. Or posts a random message from a list or posts a message from a schedule.
 
 
 ### Tweet a text message
@@ -822,7 +823,7 @@ A reply is a tweet directed at another tweet ID or user. When you reply to a twe
 
 ?> A safe way to make replies is to reply to your own tweets only. This can be used to create a tweet chain such as a 10-part tutorial with text or images.
 
-?> According to the Tweepy docs for this endpoint, you **must** do a mention of the screen name somewhere in your message along with using the reply parameter in order for your tweet to count as a reply.
+?> According to the Tweepy docs for this endpoint, you must do two things to count as a reply. Mention the screen name somewhere in your message and use the reply to status parameter. [docs](http://docs.tweepy.org/en/latest/api.html#API.update_status)
 
 Bearing the notices above in mind, here is how to create a reply.
 
@@ -854,12 +855,12 @@ api.update_status(
 )
 ```
 
-#### Reply
+#### Reply chain
 
-Below how to a reply chain aka threaded tweets. This will make an initial tweet and then a series of replies to each additional tweet
+Below is how to a reply chain aka threaded tweets. This will make an initial tweet and then a series of replies to each additional tweet
 
 
-?> This is a a novel way to make replies without hitting policy restrictions is to make a tweet and then reply to yourself. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
+?> This is a novel way to make replies without hitting policy restrictions - make a tweet and then reply to yourself multiple times. This means you could chain together a list of say 10 items perhaps with pictures and group them together. I've seen this before and is a great way to overcome the character limit for writing a blog post.
 
 !> **Untested code** - it might be better to reply to the initial ID only.
 
