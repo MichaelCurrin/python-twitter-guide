@@ -43,8 +43,8 @@ function writeSitemap(names) {
     const writeStream = createWriteStream(SITEMAP_PATH);
     sitemap.pipe(writeStream);
 
-    // e.g. '/page-2'
-    let paths = names.map(n => `/${n}`);
+    // Example says '/page-2' but this app works better as '/page-2/'.
+    let paths = names.map(n => (n ? `/${n}/` : '/'));
     for (let path of paths) {
         sitemap.write(path);
     }
