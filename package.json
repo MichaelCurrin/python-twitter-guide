@@ -21,7 +21,8 @@
     "http-server": "^0.12.3",
     "markdown-json": "^1.4.1",
     "presite": "^1.0.0",
-    "simple-markdown": "^0.7.2"
+    "simple-markdown": "^0.7.2",
+    "sitemap": "^6.1.4"
   },
   "scripts": {
     "start": "docsify serve docs",
