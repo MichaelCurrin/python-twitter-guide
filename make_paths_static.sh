@@ -4,14 +4,20 @@
 # See notes in deploy.md doc.
 set -e
 
+# Add
+SEARCH_CONSOLE_VERIFICATION_TAG='<meta name="google-site-verification" content="9s-_R9brAtc1L8SUnsVIxgCB5WQQLGTMYciVr5zh8TA" />'
+
+# Remove
+DOCSIFY_TAG='<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>'
+SEARCH_TAG='<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>'
+
+# Replace
+
 OLD_PATH='#/'
 NEW_PATH='/'
 
 OLD_ID='?id='
 NEW_ID='#'
-
-DOCSIFY_TAG='<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>'
-SEARCH_TAG='<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>'
 
 # Hide the search bar it's inactive for non-JS prerendered solution.
 # Warning: This only works because there is only ONE occurrence of flex.
@@ -24,10 +30,11 @@ IMPROVE='Improve this page'
 
 REPLACE="s|${OLD_PATH}|${NEW_PATH}|g
 s|${OLD_ID}|${NEW_ID}|g
+s|${OLD_SEARCH_CSS}|${NEW_SEARCH_CSS}|g
 s|${DOCSIFY_TAG}|<!-- ${DOCSIFY_TAG} -->|g
 s|${SEARCH_TAG}|<!-- ${SEARCH_TAG} -->|g
-s|${OLD_SEARCH_CSS}|${NEW_SEARCH_CSS}|g
 s|${IMPROVE}||g
+s|</head>|${SEARCH_CONSOLE_VERIFICATION_TAG}</head>|g
 "
 
 # Add blank value as backup parameter if macOS otherwise leave out string completely.
