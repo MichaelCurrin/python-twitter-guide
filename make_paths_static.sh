@@ -19,11 +19,16 @@ SEARCH_TAG='<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.j
 OLD_SEARCH_CSS='display: flex;'
 NEW_SEARCH_CSS='display: none;'
 
+# This no longer works with JS disabled.
+IMPROVE='Improve this page'
+
 REPLACE="s|${OLD_PATH}|${NEW_PATH}|g
 s|${OLD_ID}|${NEW_ID}|g
 s|${DOCSIFY_TAG}|<!-- ${DOCSIFY_TAG} -->|g
 s|${SEARCH_TAG}|<!-- ${SEARCH_TAG} -->|g
-s|${OLD_SEARCH_CSS}|${NEW_SEARCH_CSS}|"
+s|${OLD_SEARCH_CSS}|${NEW_SEARCH_CSS}|g
+s|${IMPROVE}||g
+"
 
 # Add blank value as backup parameter if macOS otherwise leave out string completely.
 # This assumes the gnu sed is not installed on macOS. Substituting didn't work so just to it
