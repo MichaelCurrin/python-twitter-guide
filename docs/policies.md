@@ -80,6 +80,7 @@ See these docs:
 
 - [Rate limit basics](https://developer.twitter.com/en/docs/basics/rate-limits) in the docs
 - [Rate limits](https://developer.twitter.com/en/docs/basics/rate-limits) by endpoint
+    - e.g. search API gives 180 or 450 tweets per 15 minute window depending how you so auth.
 
 
 There is a limit per endpoint of how many requests can be done in a 15-minute window, or in a longer period such as an hour or 3 hours or 24 hours.
