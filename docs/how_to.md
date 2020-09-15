@@ -10,21 +10,21 @@ Go to [Installation](installation.md).
 How to install Tweepy.
 
 
-## Auth
+## Authentication
 
 Go to [Authentication](auth.md).
 
 How to setup your credentials to connect to the Twitter API.
 
 
-## Samples
+## Tweepy code samples
 
 Go to [Tweepy code samples](code_snippets.md).
 
 Some Python code snippets are provided for some common use-cases, to avoid having to look at Tweepy docs or Twitter API docs directly. Links to the original docs are provided in some cases.
 
 
-## Scraping
+## Browser scraping
 
 Go to [Browser scraping](browser_scraping.md).
 
