@@ -17,7 +17,7 @@
 
 <div align="center">
 
-[![GitHub Pages site](https://img.shields.io/badge/Site-Python_Twitter_Guide-blue?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
+[![GitHub Pages site](https://img.shields.io/badge/Site-Python_Twitter_Guide-green?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
 
 </div>
 
