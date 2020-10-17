@@ -1789,6 +1789,8 @@ You see has "WOEID" value of 2972. This is a "Where On Earth ID" as created by Y
 
 You could turn the `list` into a `dict`. Be careful a few towns share the same name, so you should use a pair of country name and town name. Or you should make the key the WOEID.
 
+The locations are very stable - from 2017 to 2020, the number of the locations and the metadata for each appears unchanged.
+
 ### Trends place
 
 Function to get trends at a given location.
@@ -1808,4 +1810,4 @@ trends = api.trends_place(2972)[0]['trends']
 To get trends for multiple locations, use a `for` loop and query each one at a time.
 
 
-The locations are relatively stable, so once you have the ID you can lookup data for a given place daily.
+Once you have the ID you can lookup data for a given place daily.
