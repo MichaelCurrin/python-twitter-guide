@@ -3,7 +3,7 @@
 
 
 ## Quick links
-> Jump to some highlighted sections
+> Recommended highlights
 
 [Get users](#get-users) &mdash; [Get tweets](#get-tweets) &mdash; [Post tweet](#post-tweet) &mdash; [Search API](#search-api) &mdash; [Streaming](#streaming)
 
