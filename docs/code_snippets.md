@@ -5,7 +5,7 @@
 ## Quick links
 > Recommended highlights
 
-[Get users](#get-users) &mdash; [Get tweets](#get-tweets) &mdash; [Post tweet](#post-tweet) &mdash; [Search API](#search-api) &mdash; [Streaming](#streaming)
+[Get users](#get-users) &mdash; [Get tweets](#get-tweets) &mdash; [Post tweet](#post-tweet) &mdash; [Search API](#search-api) &mdash; [Streaming](#streaming) &mdash; [Trends](#trends)
 
 
 ## TL;DR
@@ -1706,7 +1706,6 @@ api.send_direct_message(user_id, msg)
 
 ## Get rate limit status
 
-
 Twitter provides an endpoint to get the rate limit status for your token across all endpoints at once.
 
 ```python
@@ -1725,3 +1724,88 @@ See more on the [Rate limit status](models#rate-limit-status) section of the mod
 ?> **Twitter API docs:** [Get app rate limit status](https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status)
 
 ?> There is also a way to get the rate limit stats on the response object on a successful call, though this is not covered here.
+
+
+## Trends
+> How to find trending topics
+
+### About
+
+Twitter provides up to **50** trending topics a day for locations, along with a volume for the past 24 hours from the current time.
+
+Only a limited number of locations are made available by Twitter. These are roughly:
+
+- 1 worldwide summary
+- 62 countries
+- 400 towns or cities
+
+This topics and volume changes throughout the day, but getting it daily is useful for reporting.
+
+First you need to get all locations, filter to particular locations of interest, find the WOEID of the location and use it to get trend data.
+
+### How to get locations
+
+First you have to find a location that Twitter provides trend data for find its identifier.
+
+Use this function to get all locations that Twitter provides trend data for. This will not get trends, just the locations themselves.
+
+```python
+api.trends_available()
+```
+
+?> Tweepy docs - [link](http://docs.tweepy.org/en/latest/api.html?highlight=woeid#API.trends_available)
+
+Example usage:
+
+```python
+locations = api.trends_available()
+print(locations[0])
+```
+```python
+{'name': 'Worldwide', 'placeType': {'code': 19, 'name': 'Supername'}, 
+ 'url': 'http://where.yahooapis.com/v1/place/1', 'parentid': 0, 
+  'country': '', 'woeid': 1, 'countryCode': None}
+```
+
+The Yahoo API link for a page that is no longer supported.
+
+From all the countries, you find "Canada".
+
+```json
+ {
+    "country": "Canada", 
+    "countryCode": "CA", 
+    "name": "Winnipeg", 
+    "parentid": 23424775, 
+    "placeType": {
+        "code": 7, 
+        "name": "Town"
+    }, 
+    "woeid": 2972
+}
+```
+
+You see has "WOEID" value of 2972. This is a "Where On Earth ID" as created by Yahoo for identifying places - see [WOEID on Wikipedia](https://en.wikipedia.org/wiki/WOEID). You then you the WOEID value you found to get trends at the location.
+
+You could turn the `list` into a `dict`. Be careful a few towns share the same name, so you should use a pair of country name and town name. Or you should make the key the WOEID.
+
+### Trends place
+
+Function to get trends at a given location.
+
+```python
+api.trends_place(place_woeid)
+```
+
+?> Tweepy docs - [link](http://docs.tweepy.org/en/latest/api.html?highlight=woeid#API.trends_place)
+
+e.g. Get trends for Canada:
+
+```python
+trends = api.trends_place(2972)[0]['trends']
+```
+
+To get trends for multiple locations, use a `for` loop and query each one at a time.
+
+
+The locations are relatively stable, so once you have the ID you can lookup data for a given place daily.
