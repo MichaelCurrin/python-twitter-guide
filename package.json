@@ -1,6 +1,7 @@
 {
   "name": "python-twitter-guide",
   "version": "1.2.0",
+  "displayName": "Python Twitter Guide",
   "description": "Code snippets and links to docs around using Twitter API and Tweepy",
   "author": "MichaelCurrin",
   "license": "MIT",
