@@ -2,7 +2,7 @@
 - [How to](how_to.md)
     - [Installation](installation.md)
     - [Authentication](auth.md)
-    - [Tweepy code samples](code_snippets.md)
+    - [Tweepy code samples](code-snippets.md)
     - [Browser scraping](browser-scraping.md)
 - [Models](models.md)
 - [Resources](resources.md)

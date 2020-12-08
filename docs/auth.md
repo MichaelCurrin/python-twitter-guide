@@ -16,7 +16,7 @@ auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 ```
 
-The `api` object can be used for searches, streaming, posting a tweet, looking up tweets and so on - see the [Tweepy code samples](code_snippets.md) page for now info.
+The `api` object can be used for searches, streaming, posting a tweet, looking up tweets and so on - see the [Tweepy code samples](code-snippets.md) page for now info.
 
 Keep reading this doc for more info on how to handle different auth approaches and token types and how to add rate limit waiting to the auth flow.
 
@@ -68,7 +68,7 @@ auth = tweepy.OAuthHandler(config_local.CONSUMER_KEY, config_local.CONSUMER_SECR
 
 #### Config file options
 
-A typical setup is to store your credentials in a config file ignored by `git`, rather than in a Python script. 
+A typical setup is to store your credentials in a config file ignored by `git`, rather than in a Python script.
 
 Here are some options for config files.
 
@@ -80,7 +80,7 @@ Here are some options for config files.
 
 ##### Read from environment variables
 
-These can also be read from the environment variables. 
+These can also be read from the environment variables.
 
 ?> On Windows you may need [os.getenv](https://docs.python.org/3/library/os.html#os.getenv) rather than [os.environ](https://docs.python.org/3/library/os.html#os.environ)
 
@@ -141,7 +141,7 @@ api = tweepy.API(auth)
 
 ?> **Tweepy docs** See the parameters that `API` takes and what they mean at this [reference](http://docs.tweepy.org/en/latest/api.html#API).
 
-You can continue with the steps here to make the `api` object more robust or add go to the [Token types](#token-types) section to explore other options. Or stick with your current `api` object setup and jump to [Tweepy code samples](code_snippets.md) section and start requesting the API.
+You can continue with the steps here to make the `api` object more robust or add go to the [Token types](#token-types) section to explore other options. Or stick with your current `api` object setup and jump to [Tweepy code samples](code-snippets.md) section and start requesting the API.
 
 
 ### Add waiting
@@ -330,4 +330,4 @@ Note you'll also have to setup the auth URL on your Twitter dev account.
 
 ## Next steps
 
-Once you've got some `api` object setup, continue to [Tweepy code samples](code_snippets.md) section.
+Once you've got some `api` object setup, continue to [Tweepy code samples](code-snippets.md) section.

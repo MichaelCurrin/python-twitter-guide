@@ -39,7 +39,7 @@ Available attributes:
 | `author`            | [User](#user) | The Twitter profile that created the tweet.                                                                                                                                                                                                 |
 | `contributors`      |               |                                                                                                                                                                                                                                             |
 | `coordinates`       |               |                                                                                                                                                                                                                                             |
-| `created_at`        | `str`         | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code_snippets.md) page for parsing this value.               |
+| `created_at`        | `str`         | Date and time that the tweet was posted, always with UTC time zone regardless of settings of you or the other account. e.g. `'2020-01-24T08:37:37+00:00'`. See [Code snippets](code-snippets.md) page for parsing this value.               |
 | `entities`          |               | See [Entities](#entities).                                                                                                                                                                                                                  |
 | `extended_entities` |               |                                                                                                                                                                                                                                             |
 | `favorite_count`    | `int`         | Count of stars/favorites.                                                                                                                                                                                                                   |
@@ -193,7 +193,7 @@ tweet.entities
 
 If there are media, on the tweet, then the `"media"` key will be included above too.
 
-See the [Get media on a tweet](code_snippets.md#get-media-on-at-tweet) section on the Tweepy sample code page.
+See the [Get media on a tweet](code-snippets.md#get-media-on-at-tweet) section on the Tweepy sample code page.
 
 
 ## Extended entities
@@ -223,7 +223,7 @@ dm.message_create
 
 That is a `dict` object.
 
-To see how to lookup values, see [Get attributes on a message object](code_snippets.md#get-attributes-on-a-message-object).
+To see how to lookup values, see [Get attributes on a message object](code-snippets.md#get-attributes-on-a-message-object).
 
 
 ### JSON data structure
@@ -270,7 +270,7 @@ Here is a full breakdown the values, copied from the [Message Create Object] ref
 
 ## Rate limit status
 
-See the [Get rate limit status](code_snippets.md#get-rate-limit-status) section on the code snippets page.
+See the [Get rate limit status](code-snippets.md#get-rate-limit-status) section on the code snippets page.
 
 The resources are split into:
 
@@ -285,7 +285,7 @@ Then each time has the follow attributes:
 
 - `limit` - The maximum number of requests available for any window period.
 - `remaining` - How many requests are left in the current rate limit window.
-- `rest` - Time that the window rests. This is a unix timestamp - see [Handle time values](code_snippets.md#handle-time-values) to convert.
+- `rest` - Time that the window rests. This is a unix timestamp - see [Handle time values](code-snippets.md#handle-time-values) to convert.
 
 
 <details>
@@ -439,4 +439,4 @@ Copied from [Rate Limit Status API reference](https://developer.twitter.com/en/d
 [models.py]: https://github.com/tweepy/tweepy/blob/master/tweepy/models.py
 [tweepy.Status]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L83
 [tweepy.User]: https://github.com/tweepy/tweepy/blob/v3.8.0/tweepy/models.py#L144
-[Paging]: code_snippets.md#paging
+[Paging]: code-snippets.md#paging
