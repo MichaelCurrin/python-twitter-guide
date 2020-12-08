@@ -3,7 +3,7 @@
     - [Installation](installation.md)
     - [Authentication](auth.md)
     - [Tweepy code samples](code_snippets.md)
-    - [Browser scraping](browser_scraping.md)
+    - [Browser scraping](browser-scraping.md)
 - [Models](models.md)
 - [Resources](resources.md)
 - [Twitter Policies](policies.md)

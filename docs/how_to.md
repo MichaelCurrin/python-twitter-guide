@@ -26,6 +26,6 @@ Some Python code snippets are provided for some common use-cases, to avoid havin
 
 ## Browser scraping
 
-Go to [Browser scraping](browser_scraping.md).
+Go to [Browser scraping](browser-scraping.md).
 
 An extra section, in case Twitter API does not meet your needs.
