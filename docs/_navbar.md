@@ -1,5 +1,5 @@
 - [Home](/)
-- [How to](how_to.md)
+- [How to](how-to.md)
     - [Installation](installation.md)
     - [Authentication](auth.md)
     - [Tweepy code samples](code-snippets.md)
