@@ -8,7 +8,7 @@ See also the [Authentication](http://docs.tweepy.org/en/latest/auth_tutorial.htm
 
 There are three token types, covered under [Token types](#token-types) section.
 
-Here's a common usecase for getting `api` object which authenticates through [App Access Token](#app-access-token) approach.
+Here's a common use-case for getting `api` object which authenticates through [App Access Token](#app-access-token) approach.
 
 ```python
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
