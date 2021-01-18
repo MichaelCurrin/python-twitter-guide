@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F)](https://twitter.com/intent/tweet?url=https%3A%2F%2FMichaelCurrin.github.io%2Fpython-twitter-guide&hashtags=twitter-api,tweepy,python,guide,tutorial)
 
-**Supports**
+**Supports applications that use:**
 
 [![Made for Python](https://img.shields.io/badge/python->=3.6-blue?logo=python&logoColor=white)](http://python.org/)
 [![Made for Tweepy](https://img.shields.io/badge/tweepy->=3.8-blue)](http://docs.tweepy.org/)
@@ -17,10 +17,9 @@
 
 <div align="center">
 
-[![GitHub Pages site](https://img.shields.io/badge/Site-Python_Twitter_Guide-green?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
+[![GitHub Pages site](https://img.shields.io/badge/View_site-Python_Twitter_Guide-238636?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
 
 </div>
-
 
 
 ## Contributing
