@@ -77,6 +77,7 @@ As an alternative to Tweepy, use one of these below. You'll have to install one 
 
 These are projects I created using Tweepy. They have different purposes and levels of complexity. Perhaps they can be of use as inspiration or implementation examples.
 
+### Searching for tweets and trends
 
 - Twitterverse
     - [MichaelCurrin/twitterverse](https://github.com/MichaelCurrin/twitterverse) on Github
@@ -88,6 +89,12 @@ These are projects I created using Tweepy. They have different purposes and leve
     - Built on my Twitterverse repo, I run a nightly cron job to get trending data by town or country and store that in a database.
     - The content is shown on a web app, based on filters I chose.
     - Hosted for free, thanks the amazing [pythonanywhere.com](https://pythonanywhere.com/) service.
+- Scroll and Scrape
+    - [scroll-and-scrape](https://github.com/MichaelCurrin/scroll-and-scrape)
+        > Store tweets from a Twitter search results, using browser scraping
+
+### Bots that tweet
+
 - Boris the Baby Bot
     - [MichaelCurrin/boris-the-babybot](https://github.com/MichaelCurrin/boris-the-babybot) on Github
     - [@boristhebabybot](https://twitter.com/boristhebabybot)
@@ -97,3 +104,4 @@ These are projects I created using Tweepy. They have different purposes and leve
     - [@WhoopiGoldbot](https://twitter.com/WhoopiGoldbot)
     - A parody bot account I made for my friends' entertainment.
     - Whoopi tweets the gold price daily, with some Whoopi Goldberg quote and sometimes a photo or GIF.
+
