@@ -83,7 +83,22 @@ These are projects I created using Tweepy. They have different purposes and leve
     - [MichaelCurrin/twitterverse](https://github.com/MichaelCurrin/twitterverse) on Github
     - [docs site](https://michaelcurrin.github.io/twitterverse/)
     - One of my oldest Python projects. It covers fetching of tweets, users, trends, country data and storing them in a SQLite database. Plus there is some dabbling in user auth flow and streaming.
-    - However, the repo has become large and unwieldily. So I am limiting new development on it.
+- Trends dashboard
+    - [michaelcurrin.pythonanywhere.com/](https://michaelcurrin.pythonanywhere.com/)
+    - Built on my Twitterverse repo, I run a nightly cron job to get trending data by town or country and store that in a database.
+    - The content is shown on a web app, based on filters I chose.
+    - Hosted for free, thanks the amazing [pythonanywhere.com](https://pythonanywhere.com/) service.
+- Scroll and Scrape
+    - [scroll-and-scrape](https://github.com/MichaelCurrin/scroll-and-scrape)
+        > Store tweets from a Twitter search results, using browser scraping
+
+
+### Searching for tweets and trends
+
+- Twitterverse
+    - [MichaelCurrin/twitterverse](https://github.com/MichaelCurrin/twitterverse) on GiHhub
+    - [docs site](https://michaelcurrin.github.io/twitterverse/)
+    - One of my oldest Python projects. It covers fetching of tweets, users, trends, country data and storing them in a SQLite database. Plus there is some dabbling in user auth flow and streaming.
 - Trends dashboard
     - [michaelcurrin.pythonanywhere.com/](https://michaelcurrin.pythonanywhere.com/)
     - Built on my Twitterverse repo, I run a nightly cron job to get trending data by town or country and store that in a database.
@@ -96,12 +111,11 @@ These are projects I created using Tweepy. They have different purposes and leve
 ### Bots that tweet
 
 - Boris the Baby Bot
-    - [MichaelCurrin/boris-the-babybot](https://github.com/MichaelCurrin/boris-the-babybot) on Github
+    - [MichaelCurrin/boris-the-babybot](https://github.com/MichaelCurrin/boris-the-babybot) on GitHub
     - [@boristhebabybot](https://twitter.com/boristhebabybot)
     - A bot account I made for a friend's book.
     - Boris tweets a message daily using a random combination of some messages, hashtags and emojis.
 - Whoopi Goldbot
-    - [@WhoopiGoldbot](https://twitter.com/WhoopiGoldbot)
+    - [@WhoopiGoldbot](https://twitter.com/WhoopiGoldbot) on GitHub
     - A parody bot account I made for my friends' entertainment.
     - Whoopi tweets the gold price daily, with some Whoopi Goldberg quote and sometimes a photo or GIF.
-
