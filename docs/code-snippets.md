@@ -787,6 +787,7 @@ tweet = api.update_status(msg)
 ```
 
 ?> **Tweepy docs:** [API.update_status](http://docs.tweepy.org/en/latest/api.html#API.update_status).
+
 ?> **Twitter API docs:** [POST statuses/update](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update)
 
 
