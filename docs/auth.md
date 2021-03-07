@@ -26,8 +26,17 @@ Keep reading this doc for more info on how to handle different auth approaches a
 ?> **Twitter API docs:** [Authentication](https://developer.twitter.com/en/docs/basics/authentication/guides/authentication-best-practices) guide.
 
 
-## How to do auth in Tweepy
+## How to create Twitter API tokens
 
+1. Register a Twitter account.
+2. Register a Twitter dev account.
+3. Register a Twitter app.
+4. Create Twitter API tokens.
+
+See details in this [gist](https://gist.github.com/MichaelCurrin/da559dcda9f1a0a202b74f2127be5bf9).
+
+
+## How to do auth in Tweepy
 
 ### Setup credentials
 
