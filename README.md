@@ -1,7 +1,7 @@
 # Python Twitter Guide
 > Code snippets and links to docs around using the Twitter API and Tweepy 🐍 🐦
 
-[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/python-twitter-guide.svg)](https://GitHub.com/MichaelCurrin/python-twitter-guide/tags/)
+[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/python-twitter-guide?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/python-twitter-guide/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F)][tweet-intent]
 
