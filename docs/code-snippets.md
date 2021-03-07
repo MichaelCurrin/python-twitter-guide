@@ -761,10 +761,11 @@ See [Create a reply](#create-a-reply) section.
 
 
 ## Post tweet
+> How to create a tweet on your account using Tweepy
 
 ### FAQs
 
-!> **Important:** Please understand what you are allowed to tweet before doing it.
+!> **Important:** Please understand what you are **allowed** to tweet by Twitter, before doing this.
 
 #### Can I reply to a tweet or `@mention` someone?
 
