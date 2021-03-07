@@ -1,12 +1,16 @@
 # Python Twitter Guide
 > Code snippets and links to docs around using the Twitter API and Tweepy 🐍 🐦
 
-[![Made with latest Docsify](https://img.shields.io/npm/v/docsify?label=docsify)](https://docsify.js.org/)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/python-twitter-guide.svg)](https://GitHub.com/MichaelCurrin/python-twitter-guide/tags/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F)][tweet-intent]
 
 [tweet-intent]: https://twitter.com/intent/tweet?url=https%3A%2F%2Fmichaelcurrin.github.io%2Fpython-twitter-guide%2F%23%2F&via=MichaelCurrin&text=Check%20out%20this%20Python%20Twitter%20Guide&hashtags=tweepy%2Ctwitterapi%2Cpython%2Cguide%2Ctutorial
+
+**Made with**
+
+[![Made with latest Docsify](https://img.shields.io/npm/v/docsify?label=docsify)](https://docsify.js.org/)
+[![Hosted with GH Pages](https://img.shields.io/badge/Hosted_with-GitHub_Pages-blue?logo=github&logoColor=white)](https://pages.github.com/)
 
 **Supports applications that use:**
 
