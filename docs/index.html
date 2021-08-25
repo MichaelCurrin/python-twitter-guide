@@ -52,30 +52,31 @@
 
 <body>
     <div id="app"></div>
+    
     <script>
         var repoUrl = "https://github.com/MichaelCurrin/python-twitter-guide";
         var editPath = repoUrl + "/blob/master/docs/";
         var editMsg = "📝 Edit on GitHub";
         
         window.$docsify = {
-            name: 'Python Twitter Guide',
+            name: "Python Twitter Guide",
             repo: repoUrl,
             
             auto2top: true,
             loadNavbar: true,
             mergeNavbar: true,
-            themeColor: '#2af',
+            themeColor: "#2af",
 
             // Plugins
-            ga: 'UA-87705880-8',
+            ga: "UA-87705880-8",
             plugins: [
                 EditOnGithubPlugin.create(editPath, null, editMsg)
             ],
             search: [
-                '/',
-                '/code_snippets',
-                '/models',
-                '/policies',
+                "/",
+                "/code_snippets",
+                "/models",
+                "/policies",
             ]
         };
 
