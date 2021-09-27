@@ -16,6 +16,15 @@ This guide is especially useful if you plan to make a **bot** or want to perform
 [Links to policies](#links-to-policies) &mdash; [Automation](#automation) &mdash; [Bots](#bots) &mdash; [Rate limits](#rate-limits)
 
 
+## Why do I need to be familar with Twitter policies?
+
+Tweeting using API requests and some code actually requires _registering_ a dev account and dev app on Twitter. This means filling in an application form with your motivation and getting approval from Twitter's team.
+
+The process can take a few days for approval and some back and forth emails if Twitter asks for more details. 
+
+If you don't do your homework on API best practice, or you don't have a valid use-case that complies with Twitter guidelines, or you don't explain how you'll use the API... you could get your application rejected. Then you'll have to respond with more info if they give you the chance to.
+
+
 ## Links to policies
 
 ### In Twitter developer docs
