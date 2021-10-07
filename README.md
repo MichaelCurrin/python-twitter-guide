@@ -19,11 +19,20 @@
 [![Made for Twitter API](https://img.shields.io/badge/Twitter_API-1.1-blue?logo=twitter)](https://developer.twitter.com/en/docs)
 
 
+## Preview
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/python-twitter-guide/">
+        <img src="/sample.png" alt="Sample screenshot" width="400" title="Go to website">
+    </a>
+</div>
+
+
 ## Online guide
 
 <div align="center">
 
-[![GitHub Pages site](https://img.shields.io/badge/View_site-Python_Twitter_Guide-238636?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/)
+[![GitHub Pages site](https://img.shields.io/badge/View_site-Python_Twitter_Guide-238636?style=for-the-badge)](https://michaelcurrin.github.io/python-twitter-guide/ "Go to website")
 
 </div>
 
