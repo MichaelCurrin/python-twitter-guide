@@ -23,7 +23,7 @@
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/python-twitter-guide/">
-        <img src="/sample.png" alt="Sample screenshot" width="400" title="Go to website">
+        <img src="/sample.png" alt="Sample screenshot" width="600" title="Go to website">
     </a>
 </div>
 
