@@ -22,6 +22,8 @@
 
 See below for mostly Python libraries for interacting with the Twitter API.
 
+If you want to use a JavaScript package rather, see my [JavaScript Twitter](https://michaelcurrin.github.io/code-cookbook/recipes/javascript/twitter/) recipes.
+
 ### Tweepy links
 
 Tweepy is a Python library which is a wrapper on the Twitter API - you don't have to worry about writing URLs, handling auth, parsing data, paging and other complex tasks. The library can be used an abstract so you can fetch data and deal with it as Python objects and you can pass data to the API to perform actions like searches or post a status or retweet a status.
