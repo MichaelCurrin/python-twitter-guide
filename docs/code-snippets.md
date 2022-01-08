@@ -866,7 +866,6 @@ Below is how to a reply chain aka threaded tweets. This will make an initial twe
 
 !> **Untested code** - it might be better to reply to the initial ID only.
 
-
 ```python
 screen_name = api.me().screen_name
 
@@ -879,7 +878,7 @@ target_id = None
 
 for message in messages:
     if target_id is None:
-        print("Initital tweet!")
+        print("Initial tweet!")
     else:
         print(f"Replying to tweet ID: {target_id}")
         message = f"@{screen_name} {message}"
@@ -895,50 +894,29 @@ for message in messages:
 ## Handle time values
 > Tips on dealing with time values from the Twitter API
 
+See also my [Time handling](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/python/time-handling.html) Python cheatsheet.
+
 ### Date and time
 
-The Twitter API often provides a datetime value in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format and Tweepy returns this to you as a string still.
+The Twitter API often provides a datetime value in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format and Tweepy returns this to you as a string.
 
-e.g. `"2020-05-03T18:01:41+00:00"`.
-
-This section covers how to parse a datetime string to a timezone-aware datetime object, to make it more useful for calculations and representations.
-
-```python
-import datetime
-
-
-TIME_FORMAT_IN = r"%Y-%m-%dT%H:%M%z"
-
-
-def parse_datetime(value):
-    """
-    Convert from Twitter datetime string to a datetime object.
-
-    >>> parse_datetime("2020-01-24T08:37:37+00:00")
-    datetime.datetime(2020, 1, 24, 8, 37, tzinfo=datetime.timezone.utc)
-    """
-    dt = ":".join(value.split(":", 2)[:2])
-    tz = value[-6:]
-    clean_value = f"{dt}{tz}"
-
-    return datetime.datetime.strptime(clean_value, TIME_FORMAT_IN)
-```
-
-?> When splitting, we don't need seconds and any decimals values. Plus, these have changed style before between API versions so are unreliable. So we just ignore after the 2nd colon (minutes) and pick up the timezone from the last 6 characters.
+e.g. `"2020-01-24T12:34:56+00:00"`.
 
 ?> The datetime value from Twitter will be always be UTC zone (GMT+00:00), regardless of your location or profile settings. Lookup the datetime docs for more info.
 
-Example usage:
+Convert to a timezone-aware datetime object, to make it more useful for calculations and representations:
 
 ```python
->>> dt = parse_datetime(tweet.created_at)
->>> print(dt.year)
-2020
+dt = datetime.datetime.fromisoformat(tweet.created_at)
+# datetime.datetime(2020, 1, 24, 12, 34, 56, tzinfo=datetime.timezone.utc)
+
+dt.year
+# 2020
 ```
 
 ### Timestamp
 
-If you get any numbers which are timestamps such as from the Rate Limit endpoint, you can convert them to datetime objects.
+If you get any numbers which are numeric timestamp, such as from the _Rate Limit_ endpoint, you can convert them to datetime objects.
 
 ```python
 import datetime
